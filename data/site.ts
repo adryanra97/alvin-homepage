@@ -64,7 +64,7 @@ export const pageIntros = {
     note: "more on the way!",
     photos: [
       { name: "about/casual", caption: "Always tinkering", alt: "Adryan taking a casual selfie" },
-      { name: "about/batik", caption: "Batik, always", alt: "Adryan in a batik shirt" },
+      { name: "about/wall", caption: "Easygoing", alt: "Adryan smiling in a grey jacket against a stone wall" },
     ],
   },
   skills: {
@@ -72,7 +72,7 @@ export const pageIntros = {
     note: "always learning",
     photos: [
       { name: "about/road", caption: "Learning on the go", alt: "Adryan in a helmet with a headset" },
-      { name: "about/trail", caption: "Taking a breather", alt: "Adryan at a scenic viewpoint" },
+      { name: "about/cafe", caption: "Coffee break", alt: "Adryan giving a thumbs up at a garden cafe" },
     ],
   },
 };
@@ -91,10 +91,9 @@ export const aboutPersonal = {
     { name: "about/dressup", caption: "Dressed up", alt: "Adryan in a batik shirt" },
     { name: "about/sport", caption: "Staying active", alt: "Adryan in sportswear outdoors" },
     { name: "about/friends", caption: "Good times with friends", alt: "Adryan and two friends joking around", wide: true },
+    { name: "about/makkah", caption: "Makkah", alt: "Adryan in white with the Makkah clock tower behind him" },
     { name: "about/office2", caption: "Daily workspace", alt: "Adryan at the office" },
-    { name: "about/road", caption: "Out and about", alt: "Adryan in a helmet with a headset" },
-    { name: "about/trail", caption: "Taking a breather", alt: "Adryan at a scenic viewpoint" },
-    { name: "about/batik", caption: "Batik, always", alt: "Adryan in a colorful batik shirt" },
+    { name: "about/makkah-view", caption: "A view I won't forget", alt: "Adryan seated at a window overlooking the Grand Mosque in Makkah", wide: true },
   ] as { name: string; caption: string; alt: string; wide?: boolean }[],
 };
 
