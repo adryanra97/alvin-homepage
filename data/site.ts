@@ -286,6 +286,19 @@ export const skillGroups: SkillGroup[] = [
     ],
   },
   {
+    id: "itm",
+    label: "IT Management",
+    items: [
+      { name: "Enterprise Architecture (TOGAF)", icon: "layers", badge: "TOGAF" },
+      { name: "Business Process Reengineering (BPR)", icon: "workflow", badge: "BPR" },
+      { name: "Business Process Improvement (BPI)", icon: "trend", badge: "BPI" },
+      { name: "Enterprise Information Systems (ERP)", icon: "briefcase", badge: "ERP" },
+      { name: "Blockchain Technology", icon: "network" },
+      { name: "IT Lifecycle Management", icon: "workflow" },
+      { name: "Information Systems Design", icon: "compass" },
+    ],
+  },
+  {
     id: "governance",
     label: "Data Governance",
     items: [

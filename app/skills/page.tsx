@@ -6,7 +6,7 @@ import Skills from "@/components/Skills";
 export const metadata: Metadata = {
   title: "Skills",
   description:
-    "Skills of Adryan Rizky Alviano: Python, SQL, machine learning, Generative & Agentic AI, prompt engineering, data governance (DAMA-DMBOK), UU PDP.",
+    "Skills of Adryan Rizky Alviano: Python, SQL, machine learning, Generative & Agentic AI, prompt engineering, data governance (DAMA-DMBOK), IT management (TOGAF, BPR, BPI, ERP, blockchain), UU PDP.",
   alternates: { canonical: "/skills" },
 };
 
