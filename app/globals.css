@@ -374,8 +374,21 @@ h2 { font-size: clamp(1.8rem, 3.4vw, 2.5rem); line-height: 1.12; font-weight: 80
   .copy { text-align: left; }
   .contact-art { height: 200px; }
 }
+/* ---------- motion (subtle, opacity/transform only) ---------- */
+.rv { opacity: 0; transform: translateY(18px); }
+.rv.in { opacity: 1; transform: none; transition: opacity .45s ease-out var(--rd, 0ms), transform .45s ease-out var(--rd, 0ms); }
+.pcard, .cert-card, .btn { transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease; }
+.pcard:hover, .cert-card:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(9, 36, 71, .12); }
+.rv.in.pcard:hover, .rv.in.cert-card:hover { transform: translateY(-3px); }
+/* Home only, desktop with a mouse: gentle "proximity" snap to the next section.
+   Proximity never forces a jump, so reading and free scrolling stay in the user's control. */
+@media (min-width: 900px) and (hover: hover) {
+  html:has(.hero) { scroll-snap-type: y proximity; }
+  html:has(.hero) main > section { scroll-snap-align: start; }
+}
 @media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
+  html { scroll-behavior: auto; scroll-snap-type: none !important; }
+  .rv { opacity: 1 !important; transform: none !important; }
   * { transition: none !important; animation: none !important; }
 }
 
