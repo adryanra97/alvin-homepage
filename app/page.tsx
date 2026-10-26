@@ -8,6 +8,7 @@ import { Skyline } from "@/components/Art";
 import { Icon, LinkedInIcon } from "@/components/icons";
 import { hero, profile, projects, skillGroups } from "@/data/site";
 import { publicImage } from "@/lib/images";
+import HeroCollage from "@/components/HeroCollage";
 
 export default function Home() {
   const heroImg = publicImage("hero");
@@ -40,25 +41,21 @@ export default function Home() {
             <h1>
               {hero.titleLead} <span className="accent">{hero.titleAccent}</span>
             </h1>
+            <p className="hero-sub">{hero.subline}</p>
             <p className="lead">{hero.intro}</p>
             <div className="cta-row">
               <Link href="/projects" className={`btn ${heroImg ? "btn-light" : "btn-primary"}`}>
-                View My Work <ArrowRight size={16} />
+                See what I&apos;ve built <ArrowRight size={16} />
               </Link>
-              {profile.cvUrl ? (
-                <a href={profile.cvUrl} className="btn btn-outline" download>
-                  Download CV <Download size={15} />
-                </a>
-              ) : (
-                <a href={profile.links.linkedin} className="btn btn-outline" target="_blank" rel="noopener noreferrer">
-                  LinkedIn <LinkedInIcon size={15} />
-                </a>
-              )}
+              <a href="#contact" className="btn btn-outline">
+                Say hi
+              </a>
             </div>
             {heroImg ? <p className="hero-quote">“{profile.tagline}”</p> : null}
           </div>
 
           <div className="hero-art">
+            {heroImg ? <HeroCollage /> : null}
             {heroImg ? null : <p className="hand-quote">“{profile.tagline}”</p>}
             {heroImg ? null : (
               <>

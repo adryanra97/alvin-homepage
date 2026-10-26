@@ -8,6 +8,7 @@
 
 export const profile = {
   name: "Adryan Rizky Alviano",
+  nickname: "Alvin",
   initials: "AR",
   role: "Data Scientist",
   company: "Telkom Indonesia",
@@ -34,10 +35,11 @@ export const profile = {
 
 export const hero = {
   eyebrow: ["Data", "AI", "People"],
-  titleLead: "Transforming complex data into",
-  titleAccent: "actionable business solutions.",
+  titleLead: "Hi, I'm",
+  titleAccent: "Alvin.",
+  subline: "Adryan Rizky Alviano · Data Scientist at Telkom Indonesia",
   intro:
-    "I'm Adryan Rizky Alviano, an AI & Big Data professional and Data Scientist at Telkom Indonesia. I use Generative AI, LLMs, and Agentic AI to streamline enterprise automation and accelerate digital transformation.",
+    "I turn complex data into practical solutions with Generative AI, LLMs and agentic workflows. I'm also a Master of IT student at Universitas Indonesia, and I like learning out loud.",
   infoCards: [
     { icon: "graduation", title: "Master of Information Technology", sub: "Universitas Indonesia · Ongoing" },
     { icon: "graduation", title: "Mechanical Engineering", sub: "Universitas Indonesia · Cum Laude" },
