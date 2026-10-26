@@ -19,18 +19,18 @@ export default function FeaturedProject() {
             {p.title} <ArrowUpRight size={18} />
           </Link>
         </h3>
-        <p className="proj-desc">{p.description}</p>
+        <p className="proj-desc">{p.tagline}</p>
         <ul className="tags">
-          {p.tags.map((t) => (
+          {p.tags.slice(0, 5).map((t) => (
             <li key={t}>{t}</li>
           ))}
         </ul>
         <div className="proj-links">
           <Link href={`/projects/${p.slug}`} className="link-arrow">
-            View Project <ArrowRight size={16} />
+            Read the case study <ArrowRight size={16} />
           </Link>
           <a href={p.url} target="_blank" rel="noopener noreferrer" className="link-ghost">
-            Live site <ArrowUpRight size={14} />
+            Live demo <ArrowUpRight size={14} />
           </a>
         </div>
       </div>

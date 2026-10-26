@@ -193,38 +193,206 @@ export const experiences: Experience[] = [
   },
 ];
 
+export type ProjectShot = { src: string; title: string; caption: string };
+
 export type Project = {
   slug: string; // dipakai untuk URL halaman detail: /projects/<slug>
   title: string;
   featured?: boolean;
-  description: string;
-  highlights?: string[]; // poin-poin di halaman detail
+  category: string; // label kecil di atas judul
+  tagline: string; // satu kalimat pembuka
+  description: string; // ringkasan untuk kartu & SEO
+  status: string;
+  year: string;
+  role: string;
   tags: string[];
   url: string; // link ke site Vercel proyek (boleh Vercel lain)
   repo?: string;
-  // Opsional: taruh screenshot di /public/projects/nama.png lalu isi "/projects/nama.png"
-  image?: string;
+  cover: string; // screenshot utama (/public/projects/<slug>/...)
+  cover2?: string; // screenshot kedua yang menumpuk di kartu
+  stats: { value: string; label: string }[]; // 3-4 angka kunci (pakai fakta yang bisa diverifikasi)
+  problem: string;
+  approach: string;
+  principle: { title: string; text: string };
+  steps: { title: string; text: string }[];
+  shots: ProjectShot[]; // galeri screenshot (isi caption yang menjelaskan)
+  methods?: { title: string; points: string[]; note?: string }[];
+  agents?: { name: string; kind: string; text: string }[];
+  stack?: { label: string; value: string }[];
+  quality?: string[];
+  privacy?: string[];
+  docsNote?: string;
 };
 
-// >>> TAMBAH PROYEK BARU DI SINI <<<
+const TEA = "/projects/talent-estimation-agent";
+
+// >>> TAMBAH PROYEK BARU DI SINI (salin satu blok, ganti isinya). Halaman detailnya otomatis dibuat. <<<
 export const projects: Project[] = [
   {
     slug: "talent-estimation-agent",
     title: "Talent Estimation Agent",
     featured: true,
+    category: "Agentic AI · Workforce planning",
+    tagline: "Validate talent requests from a WBS, with numbers you can trace.",
     description:
-      "An AI-powered application that validates talent requests from a WBS. It scores each item, estimates FTE per role with Use Case Points and bottom-up methods, and prepares a traceable Excel ready for review.",
-    tags: ["Next.js", "AI / LLM", "Agentic AI", "Data Analysis", "Vercel"],
+      "A multi-agent system that reads a work breakdown structure, decides which roles each work package needs, and estimates FTE per role with two independent methods. It reviews its own output and exports an Excel workbook with live formulas.",
+    status: "Live · open source (MIT)",
+    year: "2026",
+    role: "Author & developer",
+    tags: ["Agentic AI", "LangGraph", "Python", "FastAPI", "Next.js", "Vercel"],
     url: "https://talent-estimation-agent-ten.vercel.app/",
     repo: "https://github.com/adryanra97/talent-estimation-agent",
-    highlights: [
-      "Upload a WBS in Excel plus request documents and meeting notes.",
-      "Agents score every item per role, then compute FTE with two methods: Use Case Points and bottom-up.",
-      "Results come with a traceable breakdown: item, role, class, allocation, and the reasoning behind each number.",
-      "Highlights where AI can speed up the work, per capability.",
-      "Exports an Excel with live formulas, so changing one input updates every total.",
-      "No server-side storage: files and API keys are not saved. The model assesses, the code calculates.",
+    cover: `${TEA}/summary.webp`,
+    cover2: `${TEA}/monthly.webp`,
+    stats: [
+      { value: "6", label: "specialised agents" },
+      { value: "2", label: "independent estimation methods" },
+      { value: "94%", label: "test coverage" },
+      { value: "0", label: "files or keys stored on the server" },
     ],
+    problem:
+      "Validating a talent request means reading a WBS, deciding which roles every work package needs, and estimating FTE per role. Done by hand it is slow, and the numbers are hard to trace back to a reason.",
+    approach:
+      "An agentic system reads the WBS and the request document, decides the roles per work package with a written reason, estimates FTE with two independent methods, and reviews its own output before handing a workbook to a person.",
+    principle: {
+      title: "Language models judge and explain. Deterministic code calculates.",
+      text: "Every number comes from a tested calculation engine, never from the model. That keeps the results repeatable and lets a reviewer trace each figure back to an input and a reason.",
+    },
+    steps: [
+      { title: "Upload", text: "A WBS in Excel, plus optional request documents (PDF, Word, text) and meeting notes." },
+      {
+        title: "Agents assess and calculate",
+        text: "Each item is judged per role, then calculated with Use Case Points and bottom-up estimation. Disagreements are re-checked.",
+      },
+      {
+        title: "Review and export",
+        text: "Correct any flagged rows, then download the Excel workbook and a draft reply to the requester.",
+      },
+    ],
+    shots: [
+      {
+        src: `${TEA}/process.webp`,
+        title: "Agents at work",
+        caption: "Six agents run in sequence with a live activity log, so you can see what each step is doing and why.",
+      },
+      {
+        src: `${TEA}/summary.webp`,
+        title: "FTE summary",
+        caption:
+          "Required FTE per role from both methods, compared with the original request. Rows that need a human look are flagged.",
+      },
+      {
+        src: `${TEA}/breakdown.webp`,
+        title: "WBS breakdown",
+        caption:
+          "One row per work item and role. Change the role, class or allocation and every total recalculates without calling the model.",
+      },
+      {
+        src: `${TEA}/monthly.webp`,
+        title: "Per month",
+        caption: "Effort spread across months by working days, shown as a stacked chart plus a table with peak FTE.",
+      },
+      {
+        src: `${TEA}/ai-assist.webp`,
+        title: "AI assistance",
+        caption:
+          "A scenario showing how much effort AI could save per role and which capabilities help most. The baseline numbers never change.",
+      },
+      {
+        src: `${TEA}/findings.webp`,
+        title: "Findings and assumptions",
+        caption:
+          "Gaps, overlaps and method disagreements found by the Reviewer Agent, the calculation assumptions, and a decision trace for every agent step.",
+      },
+      {
+        src: `${TEA}/message.webp`,
+        title: "Draft message",
+        caption: "A ready-to-edit reply to the requester, built from the calculated numbers. Attach the Excel so every figure is traceable.",
+      },
+      {
+        src: `${TEA}/method.webp`,
+        title: "Methodology",
+        caption: "The calculation rules are written out in the app itself, so reviewers do not have to take the numbers on trust.",
+      },
+    ],
+    methods: [
+      {
+        title: "Use Case Points (UCP)",
+        points: [
+          "Each WBS item per role is classed Simple (5), Average (10) or Complex (15) from the number of steps involved.",
+          "Roles that only support an item count for part of it (default 25%).",
+          "Actor weights, then technical (TCF) and environmental (EF) factors. Ratings start at 3 and change only with evidence.",
+          "Points are multiplied by hours per point, then converted with hours per day, days per month and project length into average FTE.",
+        ],
+        note: "Based on Karner (1993), Resource estimation for objectory projects.",
+      },
+      {
+        title: "Bottom-up",
+        points: [
+          "Working days for each item come straight from the WBS schedule.",
+          "The agent proposes a fair FTE allocation for the workload, following allocation guidance rather than copying the requested headcount.",
+          "Person-days = working days × allocation × headcount, summed per role and converted into FTE.",
+        ],
+        note: "Both methods run separately. When they agree within ±15% the figure is more reliable; when they differ, the Reviewer Agent re-checks the row.",
+      },
+    ],
+    agents: [
+      { name: "Orchestrator", kind: "Code", text: "Controls scope, ordering, retries, review rounds and the run trace." },
+      {
+        name: "Intake Agent",
+        kind: "Code + LLM",
+        text: "Reads the WBS in any reasonable layout (leaf work packages only) and the requested FTE per role from the request document.",
+      },
+      {
+        name: "Estimator Agent",
+        kind: "LLM + code",
+        text: "Decides primary or supporting role, UCP class and FTE allocation per item with a written reason, then calculates both methods.",
+      },
+      {
+        name: "Reviewer Agent",
+        kind: "Code + LLM",
+        text: "Compares the two methods and sends rows that disagree back for another judgement, up to two rounds. Flags gaps, overlaps and work that appears only in meeting notes.",
+      },
+      {
+        name: "Augmentation Agent",
+        kind: "LLM + code",
+        text: "Optional. Maps tasks to capabilities and shows an AI-assistance scenario without touching the baseline numbers.",
+      },
+      {
+        name: "Report",
+        kind: "LLM + code",
+        text: "Drafts the reply message and fills the Excel workbook with live formulas.",
+      },
+    ],
+    stack: [
+      { label: "Agents", value: "Python 3.12 · LangGraph · LangChain chat models" },
+      { label: "Contracts", value: "Pydantic v2, structured output with schema validation" },
+      { label: "API", value: "FastAPI on Vercel Python Functions (stateless)" },
+      { label: "Excel", value: "openpyxl, formulas recalculated by Excel on open" },
+      { label: "UI", value: "Next.js · React · Tailwind CSS · Recharts" },
+      { label: "Evaluation", value: "Kedro pipeline (offline)" },
+      { label: "Tooling", value: "uv · Ruff · mypy · pytest · pre-commit · GitHub Actions" },
+      { label: "Models", value: "Gemini, Claude, OpenAI, Azure OpenAI or any OpenAI-compatible endpoint" },
+    ],
+    quality: [
+      "Ruff lint and format",
+      "mypy type checks",
+      "pytest with 94% coverage",
+      "Excel formulas recalculated in LibreOffice and compared with the engine",
+      "Kedro evaluation pipeline",
+      "Dependency lock check with uv",
+      "TypeScript checks on the UI",
+      "Next.js production build",
+    ],
+    privacy: [
+      "No database, and the server writes no files. Every request stands alone.",
+      "Uploaded files are parsed in memory; the API key stays in browser memory.",
+      "E-mail addresses, phone numbers and 16-digit ID numbers are masked before text reaches a model.",
+      "Results live in the browser tab and disappear when it closes.",
+      "The repository holds no real project data. The demo project is fictional.",
+    ],
+    docsNote:
+      "Documented along the phases of the Unified Process (planning, analysis, design, implementation), following Dennis, Wixom and Tegarden, Systems Analysis and Design.",
   },
 ];
 

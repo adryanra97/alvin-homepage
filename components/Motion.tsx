@@ -18,6 +18,8 @@ const TARGETS = [
   ".projects-grid > *",
   ".timeline > li",
   ".pcard",
+  ".sc",
+  ".cs-block",
   ".cert-card",
 ].join(",");
 

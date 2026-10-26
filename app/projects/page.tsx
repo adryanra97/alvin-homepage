@@ -23,8 +23,8 @@ export default function ProjectsPage() {
       />
       <section className="section section-tight">
         <div className="container proj-list">
-          {projects.map((p) => (
-            <ProjectCard key={p.slug} project={p} />
+          {projects.map((p, i) => (
+            <ProjectCard key={p.slug} project={p} priority={i === 0} />
           ))}
           <div className="soon-card">
             <p className="hand-quote-inline">Next project loading…</p>
