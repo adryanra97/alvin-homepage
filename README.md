@@ -64,3 +64,8 @@ Kalau nanti pakai domain sendiri, set env `NEXT_PUBLIC_SITE_URL` di Vercel.
 
 `public/images/hero.jpg` (Bundaran HI, Jakarta) and `public/images/contact.jpg` (Jakarta skyline at night)
 are free-to-use photos from [Pexels](https://www.pexels.com) (Pexels License, no attribution required).
+
+## Blog
+
+Posts live in `data/posts.ts` (newest first by date). Add an object to publish, set `draft: true` to hide one.
+The starter post "Hello, and why this site exists" is a placeholder: rewrite or hide it. RSS is at `/feed.xml`.
