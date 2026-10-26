@@ -7,14 +7,14 @@ export default function Footer() {
   return (
     <footer className="footer">
       <div className="container footer-inner">
-        <Link href="/" className="brand" aria-label="Beranda">
+        <Link href="/" className="brand">
           <Logo initials={profile.initials} />
           <span className="brand-stack">
             <strong>{profile.name}</strong>
             <small>Data · AI · People</small>
           </span>
         </Link>
-        <nav className="footer-nav" aria-label="Navigasi footer">
+        <nav className="footer-nav" aria-label="Footer">
           {nav.map((n) => (
             <Link key={n.href} href={n.href}>
               {n.label}
@@ -26,7 +26,7 @@ export default function Footer() {
           <br />
           All rights reserved.
         </p>
-        <a href="#top" className="to-top" aria-label="Kembali ke atas">
+        <a href="#top" className="to-top" aria-label="Back to top">
           ↑
         </a>
       </div>

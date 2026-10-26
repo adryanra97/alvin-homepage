@@ -26,7 +26,7 @@ export default function Skills({ groups = allGroups }: { groups?: SkillGroup[] }
 
   return (
     <div className="skills-wrap">
-      <div className="tabs" role="tablist" aria-label="Kategori skill" onKeyDown={onKeyDown}>
+      <div className="tabs" role="tablist" aria-label="Skill categories" onKeyDown={onKeyDown}>
         {groups.map((g) => (
           <button
             key={g.id}
@@ -46,13 +46,8 @@ export default function Skills({ groups = allGroups }: { groups?: SkillGroup[] }
           </button>
         ))}
       </div>
-      <ul
-        className={group.variant === "cert" ? "skill-grid cert-grid" : "skill-grid"}
-        role="tabpanel"
-        id={`panel-${uid}`}
-        aria-labelledby={`tab-${uid}-${group.id}`}
-        key={group.id}
-      >
+      <div role="tabpanel" id={`panel-${uid}`} aria-labelledby={`tab-${uid}-${group.id}`} key={group.id}>
+      <ul className={group.variant === "cert" ? "skill-grid cert-grid" : "skill-grid"}>
         {group.items.map((s) => (
           <li key={s.name} className={group.variant === "cert" ? "skill-card cert-card" : "skill-card"}>
             <span className="skill-ico">
@@ -72,6 +67,7 @@ export default function Skills({ groups = allGroups }: { groups?: SkillGroup[] }
           </li>
         ))}
       </ul>
+      </div>
       {group.link ? (
         <a className="more-link" href={group.link.href} target="_blank" rel="noopener noreferrer">
           {group.link.label} →

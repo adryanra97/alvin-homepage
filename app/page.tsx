@@ -11,6 +11,7 @@ import { publicImage } from "@/lib/images";
 
 export default function Home() {
   const heroImg = publicImage("hero");
+  const heroSm = heroImg ? publicImage("hero-sm") : null;
   const years = new Date().getFullYear() - profile.careerStartYear;
 
   return (
@@ -20,7 +21,13 @@ export default function Home() {
         {heroImg ? (
           <div className="hero-bg" aria-hidden="true">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={heroImg} alt="" fetchPriority="high" />
+            <img
+              src={heroImg}
+              srcSet={heroSm ? `${heroSm} 800w, ${heroImg} 1600w` : undefined}
+              sizes="100vw"
+              alt=""
+              fetchPriority="high"
+            />
           </div>
         ) : null}
         <div className="container hero-grid">
@@ -94,7 +101,7 @@ export default function Home() {
       </section>
 
       {/* STATS */}
-      <section className="stats" aria-label="Ringkasan">
+      <section className="stats" aria-label="Summary">
         <div className="container stats-grid">
           <div className="stat">
             <Building2 size={26} />

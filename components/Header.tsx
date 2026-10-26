@@ -38,12 +38,12 @@ export default function Header() {
   return (
     <header className="site-header" id="top">
       <div className="container header-inner">
-        <Link href="/" className="brand" aria-label={`${profile.name} — beranda`}>
+        <Link href="/" className="brand">
           <Logo initials={profile.initials} />
           <span className="brand-name">{profile.name}</span>
         </Link>
 
-        <nav className={`nav ${open ? "open" : ""}`} aria-label="Navigasi utama">
+        <nav className={`nav ${open ? "open" : ""}`} aria-label="Main">
           {nav.map((n) => (
             <Link
               key={n.href}
@@ -65,7 +65,7 @@ export default function Header() {
             type="button"
             className={`theme-toggle ${dark ? "dark" : ""}`}
             onClick={toggleTheme}
-            aria-label={dark ? "Aktifkan mode terang" : "Aktifkan mode gelap"}
+            aria-label={dark ? "Switch to light mode" : "Switch to dark mode"}
           >
             <span className="tt-icon">{dark ? <Sun size={14} /> : <Moon size={14} />}</span>
             <span className={`tt-knob ${dark ? "on" : ""}`} />
@@ -77,7 +77,7 @@ export default function Header() {
             type="button"
             className="menu-btn"
             onClick={() => setOpen((v) => !v)}
-            aria-label={open ? "Tutup menu" : "Buka menu"}
+            aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
           >
             {open ? <X size={22} /> : <Menu size={22} />}
