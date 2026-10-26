@@ -759,10 +759,10 @@ main:focus { outline: none; }
 .post-item h2 a:hover { text-decoration: underline; }
 .post-meta { font-size: .85rem; color: var(--muted, #667); margin: 0; }
 .post-tags { display: flex; gap: 10px; font-size: .82rem; color: var(--muted, #667); margin: 10px 0 0; }
-.post-body > * { max-width: 680px; }
+.post-body { max-width: 740px; margin-inline: auto; }
 .post-body h1 { margin: 8px 0 22px; }
 .post-body h2 { margin: 30px 0 8px; font-size: 1.3rem; }
-.post-body p { line-height: 1.75; font-size: 1.05rem; }
+.post-body p { line-height: 1.75; font-size: 1.05rem; margin: 0 0 1.15em; }
 .back-link { display: inline-flex; align-items: center; gap: 6px; margin-bottom: 18px; font-weight: 600; text-decoration: none; }
 
 /* ---------- hero: personal intro + photo collage ---------- */
@@ -805,15 +805,15 @@ main:focus { outline: none; }
 @media (min-width: 861px) and (max-width: 960px) { .nav-cta { display: none; } .nav { gap: 14px; } }
 
 /* ---------- blog: photos with stories ---------- */
-.post-body > .post-fig { max-width: none; margin: 34px 0; }
+.post-body > .post-fig { margin: 30px 0; }
 .post-fig img { display: block; width: 100%; height: auto; border-radius: 14px; box-shadow: var(--shadow); }
 .post-fig figcaption { margin-top: 10px; font-family: var(--hand); font-size: 1.25rem; line-height: 1.3; color: var(--muted); }
-.post-fig-sm { max-width: 400px !important; }
-.post-fig-md { max-width: 560px !important; }
-.post-fig-lg { max-width: 680px !important; }
-.post-fig:nth-of-type(odd) { transform: rotate(-.6deg); }
-.post-fig:nth-of-type(even) { transform: rotate(.5deg); margin-left: auto; }
-@media (max-width: 700px) { .post-fig, .post-fig:nth-of-type(even) { transform: none; margin-left: 0; } .post-fig-sm, .post-fig-md { max-width: 100% !important; } }
+.post-fig-lg { max-width: 100%; }
+.post-fig-md { max-width: 520px; }
+.post-fig-sm { float: right; width: 270px; margin: 6px 0 18px 28px !important; }
+.post-body h2 { clear: both; }
+.post-body::after { content: ""; display: block; clear: both; }
+@media (max-width: 700px) { .post-fig-sm { float: none; width: auto; max-width: 340px; margin: 26px 0 !important; } }
 .post-item.has-cover { display: grid; grid-template-columns: 220px 1fr; gap: 24px; align-items: center; }
 .post-cover img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 12px; }
 @media (max-width: 640px) { .post-item.has-cover { grid-template-columns: 1fr; } }
