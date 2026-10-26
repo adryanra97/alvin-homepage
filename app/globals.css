@@ -742,3 +742,9 @@ main:focus { outline: none; }
   .cs-nav { top: 60px; }
 }
 .cs-meta dd, .cs-stack dd { margin-left: 0; }
+
+/* About "Get to know me": text stays in view while the tall photo column scrolls */
+@media (min-width: 861px) {
+  .know-grid { align-items: start; }
+  .know-copy { position: sticky; top: max(116px, calc(50vh - 200px)); padding-top: 12px; }
+}
