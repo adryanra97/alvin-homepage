@@ -48,10 +48,11 @@ export default function Home() {
                 </a>
               )}
             </div>
+            {heroImg ? <p className="hero-quote">“{profile.tagline}”</p> : null}
           </div>
 
           <div className="hero-art">
-            <p className="hand-quote">“{profile.tagline}”</p>
+            {heroImg ? null : <p className="hand-quote">“{profile.tagline}”</p>}
             {heroImg ? null : (
               <>
                 <div className="hero-shape">
@@ -60,7 +61,24 @@ export default function Home() {
                 <span className="red-slash" aria-hidden="true" />
               </>
             )}
-            <ul className="info-card">
+            {heroImg ? null : (
+              <ul className="info-card">
+                {hero.infoCards.map((c) => (
+                  <li key={c.title}>
+                    <Icon name={c.icon} size={22} />
+                    <div>
+                      <strong>{c.title}</strong>
+                      <span>{c.sub}</span>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+        </div>
+        {heroImg ? (
+          <div className="container">
+            <ul className="hero-strip">
               {hero.infoCards.map((c) => (
                 <li key={c.title}>
                   <Icon name={c.icon} size={22} />
@@ -72,7 +90,7 @@ export default function Home() {
               ))}
             </ul>
           </div>
-        </div>
+        ) : null}
       </section>
 
       {/* STATS */}

@@ -29,7 +29,7 @@ export default function GetToKnowMe() {
       {photos.length > 0 ? (
         <ul className="polaroids">
           {photos.map((p, i) => (
-            <li key={p.name} className={`polaroid pol-${i + 1}`}>
+            <li key={p.name} className={`polaroid pol-${(i % 4) + 1}${p.wide ? " pol-wide" : ""}`}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={p.src} alt={p.alt} loading="lazy" />
               <span className="pol-cap">{p.caption}</span>

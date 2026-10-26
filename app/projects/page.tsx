@@ -19,7 +19,7 @@ export default function ProjectsPage() {
         accent="real solutions."
         intro={pageIntros.projects.intro}
         note={pageIntros.projects.note}
-        photo={pageIntros.projects.photo}
+        photos={pageIntros.projects.photos}
       />
       <section className="section section-tight">
         <div className="container proj-list">

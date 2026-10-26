@@ -19,7 +19,7 @@ export default function ExperiencePage() {
         accent="journey."
         intro={pageIntros.experience.intro}
         note={pageIntros.experience.note}
-        photo={pageIntros.experience.photo}
+        photos={pageIntros.experience.photos}
       />
       <section className="section section-tight">
         <div className="container container-narrow">

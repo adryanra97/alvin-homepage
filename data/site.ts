@@ -52,17 +52,26 @@ export const pageIntros = {
   experience: {
     intro: "The places, teams, and people that shaped how I work. Every role taught me something I still use today.",
     note: "every role taught me something",
-    photo: { name: "about/work", caption: "Work mode: on", alt: "Adryan in a navy work shirt" },
+    photos: [
+      { name: "about/work", caption: "Work mode: on", alt: "Adryan in a navy work shirt" },
+      { name: "about/office", caption: "Daily workspace", alt: "Adryan at the office" },
+    ],
   },
   projects: {
     intro: "Things I've built, tinkered with, and learned from. The list is small for now, but it's growing.",
     note: "more on the way!",
-    photo: { name: "about/casual", caption: "Always tinkering", alt: "Adryan taking a casual selfie" },
+    photos: [
+      { name: "about/casual", caption: "Always tinkering", alt: "Adryan taking a casual selfie" },
+      { name: "about/batik", caption: "Batik, always", alt: "Adryan in a batik shirt" },
+    ],
   },
   skills: {
     intro: "What's in my toolbox, from data and AI to governance and people skills, plus what I'm still learning.",
     note: "always learning",
-    photo: { name: "about/road", caption: "Learning on the go", alt: "Adryan in a helmet with a headset" },
+    photos: [
+      { name: "about/road", caption: "Learning on the go", alt: "Adryan in a helmet with a headset" },
+      { name: "about/trail", caption: "Taking a breather", alt: "Adryan at a scenic viewpoint" },
+    ],
   },
 };
 
@@ -72,15 +81,19 @@ export const aboutPersonal = {
   accent: "just a curious person.",
   body: [
     "Outside of models and pipelines, I genuinely enjoy learning from people: a client with a tricky problem, a teammate in the field, a fellow student in class.",
-    "If you're curious about my work, want to collaborate, or simply want to say hi, I'd love to connect. No pitch needed.",
+    "I laugh a lot and love joking around with friends, and I care about staying healthy and active. If you're curious about my work, want to collaborate, or simply want to say hi, I'd love to connect. No pitch needed.",
   ],
   cta: "Say hi on LinkedIn",
+  /** `wide: true` = landscape photo spanning both columns. */
   photos: [
-    { name: "about/batik", caption: "Batik, always", alt: "Adryan in a batik shirt" },
-    { name: "about/office", caption: "Daily workspace", alt: "Adryan at the office" },
+    { name: "about/dressup", caption: "Dressed up", alt: "Adryan in a batik shirt" },
+    { name: "about/sport", caption: "Staying active", alt: "Adryan in sportswear outdoors" },
+    { name: "about/friends", caption: "Good times with friends", alt: "Adryan and two friends joking around", wide: true },
+    { name: "about/office2", caption: "Daily workspace", alt: "Adryan at the office" },
     { name: "about/road", caption: "Out and about", alt: "Adryan in a helmet with a headset" },
     { name: "about/trail", caption: "Taking a breather", alt: "Adryan at a scenic viewpoint" },
-  ],
+    { name: "about/batik", caption: "Batik, always", alt: "Adryan in a colorful batik shirt" },
+  ] as { name: string; caption: string; alt: string; wide?: boolean }[],
 };
 
 export const about = {

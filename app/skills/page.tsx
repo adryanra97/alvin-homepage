@@ -19,7 +19,7 @@ export default function SkillsPage() {
         accent="technologies."
         intro={pageIntros.skills.intro}
         note={pageIntros.skills.note}
-        photo={pageIntros.skills.photo}
+        photos={pageIntros.skills.photos}
       />
       <section className="section section-tight">
         <div className="container">

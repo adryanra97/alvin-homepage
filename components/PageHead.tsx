@@ -1,13 +1,15 @@
 import type { ReactNode } from "react";
 import { publicImage } from "@/lib/images";
 
+type Photo = { name: string; caption: string; alt: string };
+
 export default function PageHead({
   eyebrow,
   title,
   accent,
   intro,
   note,
-  photo,
+  photos,
 }: {
   eyebrow: string;
   title: ReactNode;
@@ -15,13 +17,16 @@ export default function PageHead({
   intro?: string;
   /** Short handwritten annotation shown under the intro. */
   note?: string;
-  /** Optional polaroid-style photo on the right (file in /public/images). */
-  photo?: { name: string; caption: string; alt: string };
+  /** Up to two polaroid-style photos on the right (files in /public/images). */
+  photos?: Photo[];
 }) {
-  const src = photo ? publicImage(photo.name) : null;
+  const shown = (photos ?? [])
+    .slice(0, 2)
+    .map((p) => ({ ...p, src: publicImage(p.name) }))
+    .filter((p): p is Photo & { src: string } => Boolean(p.src));
   return (
     <section className="page-head">
-      <div className={`container${src ? " page-head-grid" : ""}`}>
+      <div className={`container${shown.length ? " page-head-grid" : ""}`}>
         <div>
           <p className="eyebrow">
             <span>{eyebrow}</span>
@@ -32,12 +37,16 @@ export default function PageHead({
           {intro ? <p className="lead page-lead">{intro}</p> : null}
           {note ? <p className="head-note">{note}</p> : null}
         </div>
-        {src && photo ? (
-          <figure className="polaroid head-polaroid">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={src} alt={photo.alt} />
-            <figcaption className="pol-cap">{photo.caption}</figcaption>
-          </figure>
+        {shown.length ? (
+          <div className="head-pair">
+            {shown.map((p, i) => (
+              <figure key={p.name} className={`polaroid head-pol head-pol-${i + 1}`}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={p.src} alt={p.alt} />
+                <figcaption className="pol-cap">{p.caption}</figcaption>
+              </figure>
+            ))}
+          </div>
         ) : null}
       </div>
     </section>
