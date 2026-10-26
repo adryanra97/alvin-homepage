@@ -22,7 +22,14 @@ export default function BlogPage() {
         <div className="container post-list">
           {publishedPosts.length === 0 ? <p>No posts yet. Check back soon.</p> : null}
           {publishedPosts.map((p) => (
-            <article key={p.slug} className="post-item">
+            <article key={p.slug} className={`post-item${p.cover ? " has-cover" : ""}`}>
+              {p.cover ? (
+                <Link href={`/blog/${p.slug}`} className="post-cover" tabIndex={-1} aria-hidden="true">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={p.cover} alt="" loading="lazy" />
+                </Link>
+              ) : null}
+              <div className="post-text">
               <p className="post-meta">
                 <time dateTime={p.date}>{formatDate(p.date)}</time> · {readingMinutes(p)} min read
               </p>
@@ -31,6 +38,7 @@ export default function BlogPage() {
               </h2>
               <p>{p.summary}</p>
               <p className="post-tags">{p.tags.map((t) => <span key={t}>#{t}</span>)}</p>
+              </div>
             </article>
           ))}
         </div>

@@ -803,3 +803,17 @@ main:focus { outline: none; }
 @media (min-width: 861px) and (max-width: 1180px) { .nav { gap: 18px; } .nav .ext-label { display: none; } .nav-cta { padding-inline: 14px; } }
 @media (max-width: 860px) { .nav-sep { display: none; } .nav .nav-ext { gap: 10px; } }
 @media (min-width: 861px) and (max-width: 960px) { .nav-cta { display: none; } .nav { gap: 14px; } }
+
+/* ---------- blog: photos with stories ---------- */
+.post-body > .post-fig { max-width: none; margin: 34px 0; }
+.post-fig img { display: block; width: 100%; height: auto; border-radius: 14px; box-shadow: var(--shadow); }
+.post-fig figcaption { margin-top: 10px; font-family: var(--hand); font-size: 1.25rem; line-height: 1.3; color: var(--muted); }
+.post-fig-sm { max-width: 400px !important; }
+.post-fig-md { max-width: 560px !important; }
+.post-fig-lg { max-width: 680px !important; }
+.post-fig:nth-of-type(odd) { transform: rotate(-.6deg); }
+.post-fig:nth-of-type(even) { transform: rotate(.5deg); margin-left: auto; }
+@media (max-width: 700px) { .post-fig, .post-fig:nth-of-type(even) { transform: none; margin-left: 0; } .post-fig-sm, .post-fig-md { max-width: 100% !important; } }
+.post-item.has-cover { display: grid; grid-template-columns: 220px 1fr; gap: 24px; align-items: center; }
+.post-cover img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 12px; }
+@media (max-width: 640px) { .post-item.has-cover { grid-template-columns: 1fr; } }
