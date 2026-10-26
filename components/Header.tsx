@@ -40,7 +40,7 @@ export default function Header() {
       <div className="container header-inner">
         <Link href="/" className="brand">
           <Logo />
-          <span className="brand-name">{profile.nickname}</span>
+          <span className="brand-name">{profile.name}</span>
         </Link>
 
         <nav className={`nav ${open ? "open" : ""}`} aria-label="Main">

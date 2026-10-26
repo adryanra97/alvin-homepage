@@ -11,7 +11,7 @@ import { profile } from "@/data/site";
 import { siteUrl } from "@/lib/site-url";
 
 
-const title = `${profile.name} — Data, AI & Technology`;
+const title = `${profile.name} (${profile.nickname}) — Data, AI & Technology`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -70,6 +70,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     "@context": "https://schema.org",
     "@type": "Person",
     name: profile.name,
+    alternateName: profile.nickname,
     url: siteUrl,
     jobTitle: profile.role,
     worksFor: { "@type": "Organization", name: profile.company },

@@ -102,7 +102,7 @@ h2 { font-size: clamp(1.8rem, 3.4vw, 2.5rem); line-height: 1.12; font-weight: 80
 }
 .header-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; height: 68px; }
 .brand { display: inline-flex; align-items: center; gap: 12px; font-weight: 700; }
-.brand-name { font-size: 1.35rem; font-weight: 800; letter-spacing: -0.03em; }
+.brand-name { font-size: 1rem; font-weight: 800; letter-spacing: -0.015em; }
 .brand-stack { display: flex; flex-direction: column; line-height: 1.25; }
 .brand-stack strong { font-size: 0.9rem; }
 .brand-stack small { color: var(--muted); font-size: 0.72rem; font-weight: 500; }
