@@ -59,3 +59,8 @@ Kalau nanti pakai domain sendiri, set env `NEXT_PUBLIC_SITE_URL` di Vercel.
 - **Logo institusi** (Telkom, UI, dll.): taruh file di `public/logos/` dengan nama `telkom`, `ui`, `danone`, `sman1-depok`
   (`.svg` atau `.png`). Otomatis menggantikan tile monogram.
 - **Badge sertifikat**: taruh di `public/badges/` lalu isi `image: "/badges/nama.png"` pada item sertifikatnya.
+
+## Photo credits
+
+`public/images/hero.jpg` (Bundaran HI, Jakarta) and `public/images/contact.jpg` (Jakarta skyline at night)
+are free-to-use photos from [Pexels](https://www.pexels.com) (Pexels License, no attribution required).

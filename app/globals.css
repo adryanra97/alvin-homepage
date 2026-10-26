@@ -317,6 +317,8 @@ h2 { font-size: clamp(1.8rem, 3.4vw, 2.5rem); line-height: 1.12; font-weight: 80
 .round-light { background: #fff; color: var(--primary); border: 1px solid var(--border); }
 .contact-art { position: relative; height: 230px; margin-right: -24px; }
 .hand-quote-contact { top: 16px; left: 4%; font-size: 1.6rem; max-width: 240px; z-index: 3; }
+/* sits over the dark night-sky part of the photo (all widths) */
+.contact-art .hand-quote-contact { position: absolute; top: 16px; left: 26%; transform: none; margin: 0; color: #fff; text-shadow: 0 1px 10px rgba(0, 0, 0, .55); }
 .contact-shape { position: absolute; inset: 0 0 0 0; overflow: hidden; clip-path: polygon(14% 0, 100% 0, 100% 100%, 0 100%); }
 .red-slash-2 { left: 26%; bottom: 14px; width: 130px; height: 70px; clip-path: polygon(40% 0, 100% 0, 60% 100%, 0 100%); opacity: 0.9; }
 
