@@ -1,4 +1,15 @@
 import {
+  Award,
+  Box,
+  Cloud,
+  CircleCheck,
+  Eye,
+  FileText,
+  Flag,
+  Handshake,
+  Lock,
+  Scale,
+  TrendingUp,
   Bot,
   BookOpen,
   Briefcase,
@@ -33,6 +44,17 @@ import {
 } from "lucide-react";
 
 const map: Record<string, LucideIcon> = {
+  award: Award,
+  box: Box,
+  cloud: Cloud,
+  check: CircleCheck,
+  eye: Eye,
+  file: FileText,
+  flag: Flag,
+  handshake: Handshake,
+  lock: Lock,
+  scale: Scale,
+  trend: TrendingUp,
   bot: Bot,
   book: BookOpen,
   briefcase: Briefcase,

@@ -185,16 +185,32 @@ export default function Home() {
                     <Icon name={e.icon} size={22} />
                   </span>
                   <div className="tl-main">
-                    <strong>{e.org}</strong>
-                    <span>
-                      {e.role} {e.current ? <em>(Current)</em> : null}
-                    </span>
+                    <strong>
+                      {e.org} {e.current ? <em>(Current)</em> : null}
+                    </strong>
+                    <ul className="tl-roles">
+                      {e.roles.map((r) => (
+                        <li key={r.title + r.period}>
+                          <span>{r.title}</span>
+                          {e.roles.length > 1 ? <small>{r.period}</small> : null}
+                        </li>
+                      ))}
+                    </ul>
+                    {e.highlights ? (
+                      <ul className="tl-highlights">
+                        {e.highlights.map((h) => (
+                          <li key={h}>{h}</li>
+                        ))}
+                      </ul>
+                    ) : null}
                   </div>
                   <div className="tl-meta">
                     <strong>{e.period}</strong>
-                    <span>
-                      <MapPin size={13} /> {e.place}
-                    </span>
+                    {e.place ? (
+                      <span>
+                        <MapPin size={13} /> {e.place}
+                      </span>
+                    ) : null}
                   </div>
                 </li>
               ))}
@@ -270,6 +286,9 @@ export default function Home() {
                 </a>
                 <a href={profile.links.github} className="round" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                   <GitHubIcon size={18} />
+                </a>
+                <a href={profile.links.credly} className="round" target="_blank" rel="noopener noreferrer" aria-label="Credly badges">
+                  <Icon name="award" size={18} />
                 </a>
                 {profile.email ? (
                   <a href={`mailto:${profile.email}`} className="round round-light" aria-label="Email">
