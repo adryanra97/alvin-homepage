@@ -1,12 +1,14 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { ArrowRight, Menu, Moon, Sun, X } from "lucide-react";
 import { Logo } from "./icons";
 import { nav, profile } from "@/data/site";
 
 export default function Header() {
-  const [active, setActive] = useState("home");
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [dark, setDark] = useState(false);
 
@@ -15,21 +17,14 @@ export default function Header() {
   }, []);
 
   useEffect(() => {
-    const els = nav
-      .map((n) => document.getElementById(n.id))
-      .filter(Boolean) as HTMLElement[];
-    const io = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-        if (visible) setActive(visible.target.id);
-      },
-      { rootMargin: "-35% 0px -55% 0px", threshold: [0, 0.2, 0.5, 1] }
-    );
-    els.forEach((el) => io.observe(el));
-    return () => io.disconnect();
-  }, []);
+    setOpen(false);
+  }, [pathname]);
+
+  const isActive = (href: string) => {
+    if (href.startsWith("#")) return false;
+    if (href === "/") return pathname === "/";
+    return pathname === href || pathname.startsWith(`${href}/`);
+  };
 
   const toggleTheme = () => {
     const next = dark ? "light" : "dark";
@@ -41,23 +36,24 @@ export default function Header() {
   };
 
   return (
-    <header className="site-header">
+    <header className="site-header" id="top">
       <div className="container header-inner">
-        <a href="#home" className="brand" aria-label={`${profile.name} — beranda`}>
+        <Link href="/" className="brand" aria-label={`${profile.name} — beranda`}>
           <Logo initials={profile.initials} />
           <span className="brand-name">{profile.name}</span>
-        </a>
+        </Link>
 
         <nav className={`nav ${open ? "open" : ""}`} aria-label="Navigasi utama">
           {nav.map((n) => (
-            <a
-              key={n.id}
-              href={`#${n.id}`}
-              className={active === n.id ? "active" : ""}
+            <Link
+              key={n.href}
+              href={n.href}
+              className={isActive(n.href) ? "active" : ""}
+              aria-current={isActive(n.href) ? "page" : undefined}
               onClick={() => setOpen(false)}
             >
               {n.label}
-            </a>
+            </Link>
           ))}
           <a href="#contact" className="btn btn-primary nav-cta-mobile" onClick={() => setOpen(false)}>
             Let&apos;s Connect <ArrowRight size={16} />

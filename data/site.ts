@@ -120,9 +120,11 @@ export const experiences: Experience[] = [
 ];
 
 export type Project = {
+  slug: string; // dipakai untuk URL halaman detail: /projects/<slug>
   title: string;
   featured?: boolean;
   description: string;
+  highlights?: string[]; // poin-poin di halaman detail
   tags: string[];
   url: string; // link ke site Vercel proyek (boleh Vercel lain)
   repo?: string;
@@ -133,6 +135,7 @@ export type Project = {
 // >>> TAMBAH PROYEK BARU DI SINI <<<
 export const projects: Project[] = [
   {
+    slug: "talent-estimation-agent",
     title: "Talent Estimation Agent",
     featured: true,
     description:
@@ -140,6 +143,14 @@ export const projects: Project[] = [
     tags: ["Next.js", "AI / LLM", "Agentic AI", "Data Analysis", "Vercel"],
     url: "https://talent-estimation-agent-ten.vercel.app/",
     repo: "https://github.com/adryanra97/talent-estimation-agent",
+    highlights: [
+      "Upload a WBS in Excel plus request documents and meeting notes.",
+      "Agents score every item per role, then compute FTE with two methods: Use Case Points and bottom-up.",
+      "Results come with a traceable breakdown: item, role, class, allocation, and the reasoning behind each number.",
+      "Highlights where AI can speed up the work, per capability.",
+      "Exports an Excel with live formulas, so changing one input updates every total.",
+      "No server-side storage: files and API keys are not saved. The model assesses, the code calculates.",
+    ],
   },
 ];
 
@@ -258,10 +269,10 @@ export const contact = {
 };
 
 export const nav = [
-  { id: "home", label: "Home" },
-  { id: "about", label: "About" },
-  { id: "experience", label: "Experience" },
-  { id: "projects", label: "Projects" },
-  { id: "skills", label: "Skills" },
-  { id: "contact", label: "Contact" },
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/experience", label: "Experience" },
+  { href: "/projects", label: "Projects" },
+  { href: "/skills", label: "Skills" },
+  { href: "#contact", label: "Contact" },
 ];

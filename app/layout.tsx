@@ -2,6 +2,9 @@ import type { Metadata, Viewport } from "next";
 import "@fontsource-variable/inter";
 import "@fontsource/caveat/500.css";
 import "./globals.css";
+import Header from "@/components/Header";
+import ContactSection from "@/components/ContactSection";
+import Footer from "@/components/Footer";
 import { profile } from "@/data/site";
 import { siteUrl } from "@/lib/site-url";
 
@@ -72,7 +75,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       </head>
-      <body>{children}</body>
+      <body>
+        <Header />
+        <main>{children}</main>
+        <ContactSection />
+        <Footer />
+      </body>
     </html>
   );
 }

@@ -10,13 +10,24 @@ npm install
 npm run dev      # http://localhost:3000
 ```
 
+## Struktur halaman
+
+| URL | Isi |
+| --- | --- |
+| `/` | Ringkasan: hero, about, pengalaman terbaru, proyek unggulan, skill |
+| `/about` | Tentang, sertifikasi, penghargaan, bahasa |
+| `/experience` | Timeline lengkap |
+| `/projects` | Daftar semua proyek (memanjang ke bawah) |
+| `/projects/<slug>` | Detail per proyek |
+| `/skills` | Semua kategori skill |
+
 ## Edit konten (tanpa menyentuh komponen)
 
 Semua teks ada di **`data/site.ts`**:
 
 | Mau ubah | Cari di `data/site.ts` |
 | --- | --- |
-| Tambah proyek | array `projects` (copy satu blok, ganti isinya) |
+| Tambah proyek | array `projects` (copy satu blok, ganti `slug` + isinya). Otomatis muncul di `/projects`, dapat halaman detail `/projects/<slug>`, dan masuk sitemap |
 | Tambah / ubah skill | array `skillGroups` (tab "AI & Agentic" sudah ada) |
 | Pengalaman | array `experiences` |
 | Link LinkedIn / GitHub, email, CV | objek `profile` |
