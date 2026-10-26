@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import PageHead from "@/components/PageHead";
+import { pageIntros } from "@/data/site";
 import Skills from "@/components/Skills";
 
 export const metadata: Metadata = {
@@ -16,7 +17,9 @@ export default function SkillsPage() {
         eyebrow="Skills"
         title="Tools &"
         accent="technologies."
-        intro="A combination of technical, AI, governance, and soft skills that I use to turn ideas into real solutions."
+        intro={pageIntros.skills.intro}
+        note={pageIntros.skills.note}
+        photo={pageIntros.skills.photo}
       />
       <section className="section section-tight">
         <div className="container">

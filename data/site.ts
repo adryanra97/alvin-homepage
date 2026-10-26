@@ -47,6 +47,25 @@ export const hero = {
 
 };
 
+/** Warm, personal page intros: edit freely. `photo` uses files in /public/images/about. */
+export const pageIntros = {
+  experience: {
+    intro: "The places, teams, and people that shaped how I work. Every role taught me something I still use today.",
+    note: "every role taught me something",
+    photo: { name: "about/work", caption: "Work mode: on", alt: "Adryan in a navy work shirt" },
+  },
+  projects: {
+    intro: "Things I've built, tinkered with, and learned from. The list is small for now, but it's growing.",
+    note: "more on the way!",
+    photo: { name: "about/casual", caption: "Always tinkering", alt: "Adryan taking a casual selfie" },
+  },
+  skills: {
+    intro: "What's in my toolbox, from data and AI to governance and people skills, plus what I'm still learning.",
+    note: "always learning",
+    photo: { name: "about/road", caption: "Learning on the go", alt: "Adryan in a helmet with a headset" },
+  },
+};
+
 export const aboutPersonal = {
   eyebrow: "Get to know me",
   title: "Beyond the dashboards,",

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import ExperienceTimeline from "@/components/ExperienceTimeline";
 import PageHead from "@/components/PageHead";
+import { pageIntros } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Experience",
@@ -16,7 +17,9 @@ export default function ExperiencePage() {
         eyebrow="Experience"
         title="My professional"
         accent="journey."
-        intro="A journey of learning, contributing, and growing in the world of data, AI, and people."
+        intro={pageIntros.experience.intro}
+        note={pageIntros.experience.note}
+        photo={pageIntros.experience.photo}
       />
       <section className="section section-tight">
         <div className="container container-narrow">

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import PageHead from "@/components/PageHead";
 import ProjectCard from "@/components/ProjectCard";
-import { projects } from "@/data/site";
+import { pageIntros, projects } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Projects",
@@ -17,13 +17,19 @@ export default function ProjectsPage() {
         eyebrow="Projects"
         title="From ideas to"
         accent="real solutions."
-        intro="A collection of projects that showcase my interest in data, AI, and building practical applications."
+        intro={pageIntros.projects.intro}
+        note={pageIntros.projects.note}
+        photo={pageIntros.projects.photo}
       />
       <section className="section section-tight">
         <div className="container proj-list">
           {projects.map((p) => (
             <ProjectCard key={p.slug} project={p} />
           ))}
+          <div className="soon-card">
+            <p className="hand-quote-inline">Next project loading…</p>
+            <p>I&apos;m always building something new. Check back soon, or say hi if you have an idea.</p>
+          </div>
         </div>
       </section>
     </>
