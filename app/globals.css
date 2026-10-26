@@ -102,18 +102,15 @@ h2 { font-size: clamp(1.8rem, 3.4vw, 2.5rem); line-height: 1.12; font-weight: 80
 }
 .header-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; height: 68px; }
 .brand { display: inline-flex; align-items: center; gap: 12px; font-weight: 700; }
-.brand-name { font-size: 0.95rem; }
+.brand-name { font-size: 1.35rem; font-weight: 800; letter-spacing: -0.03em; }
 .brand-stack { display: flex; flex-direction: column; line-height: 1.25; }
 .brand-stack strong { font-size: 0.9rem; }
 .brand-stack small { color: var(--muted); font-size: 0.72rem; font-weight: 500; }
 
-.logo-mark {
-  display: inline-flex; align-items: baseline; font-weight: 900; font-size: 1.7rem;
-  letter-spacing: -0.08em; line-height: 1; font-style: italic;
-}
-.logo-a { color: var(--primary); }
-:root[data-theme="dark"] .logo-a { color: #fff; }
-.logo-r { color: var(--accent-red); margin-left: 1px; }
+.logo-mark { flex: none; display: block; }
+.logo-mark .lg-bg { fill: var(--primary); }
+.logo-mark .lg-a { stroke: #fff; }
+:root[data-theme="dark"] .logo-mark .lg-bg { fill: #1d4c8f; }
 
 .nav { display: flex; gap: 30px; margin-inline: auto; }
 .nav a { font-size: 0.85rem; font-weight: 500; color: var(--muted); padding: 6px 0; position: relative; transition: color 0.15s; }

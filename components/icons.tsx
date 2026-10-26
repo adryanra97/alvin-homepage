@@ -116,13 +116,13 @@ export function GitHubIcon({ size = 18 }: { size?: number }) {
   );
 }
 
-export function Logo({ initials = "AR" }: { initials?: string }) {
-  const a = initials.slice(0, 1);
-  const b = initials.slice(1, 2);
+/** "Av" growth mark: a white A and a red v that doubles as a rising check mark. */
+export function Logo() {
   return (
-    <span className="logo-mark" aria-hidden="true">
-      <span className="logo-a">{a}</span>
-      <span className="logo-r">{b}</span>
-    </span>
+    <svg className="logo-mark" width="40" height="40" viewBox="0 0 46 46" aria-hidden="true" focusable="false">
+      <circle className="lg-bg" cx="23" cy="23" r="23" />
+      <path className="lg-a" d="M9 33 L17 13 L25 33" fill="none" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M24 22 L29 33 L38 12" fill="none" stroke="#e94345" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
   );
 }

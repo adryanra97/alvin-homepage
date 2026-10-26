@@ -8,7 +8,7 @@ export default function Footer() {
     <footer className="footer">
       <div className="container footer-inner">
         <Link href="/" className="brand">
-          <Logo initials={profile.initials} />
+          <Logo />
           <span className="brand-stack">
             <strong>{profile.name}</strong>
             <small>Data · AI · People</small>

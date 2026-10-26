@@ -39,8 +39,8 @@ export default function Header() {
     <header className="site-header" id="top">
       <div className="container header-inner">
         <Link href="/" className="brand">
-          <Logo initials={profile.initials} />
-          <span className="brand-name">{profile.name}</span>
+          <Logo />
+          <span className="brand-name">{profile.nickname}</span>
         </Link>
 
         <nav className={`nav ${open ? "open" : ""}`} aria-label="Main">
