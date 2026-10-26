@@ -16,10 +16,16 @@ export default function Home() {
   return (
     <>
       {/* HERO */}
-      <section className="hero">
+      <section className={`hero${heroImg ? " hero-photo" : ""}`}>
+        {heroImg ? (
+          <div className="hero-bg" aria-hidden="true">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={heroImg} alt="" fetchPriority="high" />
+          </div>
+        ) : null}
         <div className="container hero-grid">
           <div className="hero-copy">
-            <p className="eyebrow">
+            <p className={`eyebrow${heroImg ? " eyebrow-light" : ""}`}>
               {hero.eyebrow.map((w) => (
                 <span key={w}>{w}</span>
               ))}
@@ -29,7 +35,7 @@ export default function Home() {
             </h1>
             <p className="lead">{hero.intro}</p>
             <div className="cta-row">
-              <Link href="/projects" className="btn btn-primary">
+              <Link href="/projects" className={`btn ${heroImg ? "btn-light" : "btn-primary"}`}>
                 View My Work <ArrowRight size={16} />
               </Link>
               {profile.cvUrl ? (
@@ -46,15 +52,14 @@ export default function Home() {
 
           <div className="hero-art">
             <p className="hand-quote">“{profile.tagline}”</p>
-            <div className="hero-shape">
-              {heroImg ? (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img src={heroImg} alt="Jakarta" className="art-img" />
-              ) : (
-                <Skyline id="hero" />
-              )}
-            </div>
-            <span className="red-slash" aria-hidden="true" />
+            {heroImg ? null : (
+              <>
+                <div className="hero-shape">
+                  <Skyline id="hero" />
+                </div>
+                <span className="red-slash" aria-hidden="true" />
+              </>
+            )}
             <ul className="info-card">
               {hero.infoCards.map((c) => (
                 <li key={c.title}>

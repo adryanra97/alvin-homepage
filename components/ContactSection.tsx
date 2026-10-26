@@ -7,32 +7,38 @@ import { GitHubIcon, Icon, LinkedInIcon } from "./icons";
 export default function ContactSection() {
   const contactImg = publicImage("contact");
   return (
-    <section id="contact" className="contact">
+    <section id="contact" className={`contact${contactImg ? " contact-photo" : ""}`}>
+      {contactImg ? (
+        <div className="contact-bg" aria-hidden="true">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={contactImg} alt="" loading="lazy" />
+        </div>
+      ) : null}
       <div className="container contact-grid">
         <div>
-          <p className="eyebrow">
+          <p className={`eyebrow${contactImg ? " eyebrow-light" : ""}`}>
             <span>Let&apos;s Connect</span>
           </p>
           <h2>
             {contact.titleLead} <span className="accent">{contact.titleAccent}</span>
           </h2>
-          <p className="body-text">{contact.body}</p>
+          <p className={`body-text${contactImg ? " light" : ""}`}>{contact.body}</p>
           <div className="cta-row">
             <a
               href={profile.email ? `mailto:${profile.email}` : profile.links.linkedin}
-              className="btn btn-primary"
+              className={`btn ${contactImg ? "btn-light" : "btn-primary"}`}
               target={profile.email ? undefined : "_blank"}
               rel={profile.email ? undefined : "noopener noreferrer"}
             >
               Get in touch <ArrowRight size={16} />
             </a>
-            <a href={profile.links.linkedin} className="round" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <a href={profile.links.linkedin} className={`round${contactImg ? " round-light" : ""}`} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
               <LinkedInIcon size={18} />
             </a>
-            <a href={profile.links.github} className="round" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <a href={profile.links.github} className={`round${contactImg ? " round-light" : ""}`} target="_blank" rel="noopener noreferrer" aria-label="GitHub">
               <GitHubIcon size={18} />
             </a>
-            <a href={profile.links.credly} className="round" target="_blank" rel="noopener noreferrer" aria-label="Credly badges">
+            <a href={profile.links.credly} className={`round${contactImg ? " round-light" : ""}`} target="_blank" rel="noopener noreferrer" aria-label="Credly badges">
               <Icon name="award" size={18} />
             </a>
             {profile.email ? (
@@ -44,15 +50,14 @@ export default function ContactSection() {
         </div>
         <div className="contact-art">
           <p className="hand-quote hand-quote-contact">“{contact.quote}”</p>
-          <div className="contact-shape">
-            {contactImg ? (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img src={contactImg} alt="" className="art-img" />
-            ) : (
-              <Skyline2 id="contact" />
-            )}
-          </div>
-          <span className="red-slash red-slash-2" aria-hidden="true" />
+          {contactImg ? null : (
+            <>
+              <div className="contact-shape">
+                <Skyline2 id="contact" />
+              </div>
+              <span className="red-slash red-slash-2" aria-hidden="true" />
+            </>
+          )}
         </div>
       </div>
     </section>

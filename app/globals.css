@@ -462,3 +462,46 @@ h2 { font-size: clamp(1.8rem, 3.4vw, 2.5rem); line-height: 1.12; font-weight: 80
 }
 .skip-link:focus { top: 12px; }
 main:focus { outline: none; }
+
+/* ---------- full-bleed photo hero & contact ---------- */
+.hero-photo { padding-top: 0; min-height: min(88vh, 760px); display: flex; flex-direction: column; justify-content: center; color: #fff; }
+.hero-photo::before { display: none; }
+.hero-bg, .contact-bg { position: absolute; inset: 0; z-index: 0; }
+.hero-bg img, .contact-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 35%; display: block; }
+.contact-bg img { object-position: center 55%; filter: brightness(1.35) contrast(1.05); }
+.hero-bg::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(90deg, rgba(6, 27, 53, .94) 0%, rgba(6, 27, 53, .82) 36%, rgba(6, 27, 53, .35) 68%, rgba(6, 27, 53, .12) 100%),
+              linear-gradient(0deg, rgba(6, 27, 53, .55) 0%, transparent 30%);
+}
+.hero-photo .hero-grid { min-height: 0; padding-block: 64px; }
+.hero-photo .hero-copy { padding: 0; }
+.hero-photo h1 { color: #fff; }
+.hero-photo h1 .accent { color: #6db2ff; }
+.hero-photo .lead { color: #d3def2; }
+.hero-photo .hero-art { height: 440px; margin-right: 0; }
+.hero-photo .hand-quote { color: #fff; text-shadow: 0 1px 12px rgba(0, 0, 0, .5); top: 8px; left: 4%; }
+.hero-photo .btn-outline { color: #fff; border-color: rgba(255, 255, 255, .45); }
+.hero-photo .btn-outline:hover { background: rgba(255, 255, 255, .12); }
+.hero-photo .info-card { bottom: 8px; right: 0; }
+
+.contact-photo { position: relative; color: #fff; background: var(--navy-950); }
+.contact-bg::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(90deg, rgba(6, 27, 53, .92) 0%, rgba(6, 27, 53, .68) 50%, rgba(6, 27, 53, .08) 100%);
+}
+.contact-photo .contact-grid { position: relative; z-index: 1; min-height: 380px; padding-block: 88px; }
+.contact-photo h2 { color: #fff; }
+.contact-photo h2 .accent { color: #6db2ff; }
+.contact-photo .contact-art { height: auto; margin: 0; }
+.contact-photo .contact-art .hand-quote-contact { position: relative; top: auto; left: auto; font-size: 2rem; max-width: 380px; margin-left: auto; transform: rotate(-4deg); }
+@media (max-width: 860px) {
+  .hero-photo { min-height: 0; }
+  .hero-bg::after { background: linear-gradient(180deg, rgba(6, 27, 53, .9) 0%, rgba(6, 27, 53, .78) 100%); }
+  .hero-photo .hero-grid { padding-block: 40px; }
+  .hero-photo .hero-art { height: auto; }
+  .hero-photo .hand-quote { position: relative; top: auto; left: auto; margin-bottom: 12px; }
+  .hero-photo .info-card { margin-top: 8px; }
+  .contact-photo .contact-grid { padding-block: 56px; min-height: 0; }
+  .contact-photo .contact-art .hand-quote-contact { margin-left: 0; }
+}
