@@ -267,31 +267,37 @@ export const projects: Project[] = [
       },
       {
         title: "Review and export",
-        text: "Correct any flagged rows, then download the Excel workbook and a draft reply to the requester.",
+        text: "Check and correct any flagged rows, approve the result, then download the Excel workbook and a draft reply to the requester.",
       },
     ],
     shots: [
       {
+        src: `${TEA}/home.webp`,
+        title: "Start here",
+        caption:
+          "A plain-language start page: a sample result card, the three steps, and a quick checklist for the model, the capability catalog and the WBS file. A demo with fictional data runs without any API key.",
+      },
+      {
         src: `${TEA}/process.webp`,
         title: "Agents at work",
-        caption: "Six agents run in sequence with a live activity log, so you can see what each step is doing and why.",
+        caption: "Six agents run in sequence next to a live activity log, so you can see what each step is doing and why.",
       },
       {
         src: `${TEA}/summary.webp`,
         title: "FTE summary",
         caption:
-          "Required FTE per role from both methods, compared with the original request. Rows that need a human look are flagged.",
+          "Required FTE per role from both methods, grouped by team and compared with the original request. Rows that need a human look are flagged, and one click opens them.",
       },
       {
         src: `${TEA}/breakdown.webp`,
         title: "WBS breakdown",
         caption:
-          "One row per work item and role. Change the role, class or allocation and every total recalculates without calling the model.",
+          "One row per work item and role, with search and a filter for rows that need review. Change the role, class or allocation and every total recalculates without calling the model.",
       },
       {
         src: `${TEA}/monthly.webp`,
         title: "Per month",
-        caption: "Effort spread across months by working days, shown as a stacked chart plus a table with peak FTE.",
+        caption: "Effort spread across months by working days, as a stacked chart plus a table with peak FTE. Switch between methods and teams.",
       },
       {
         src: `${TEA}/ai-assist.webp`,
@@ -308,7 +314,14 @@ export const projects: Project[] = [
       {
         src: `${TEA}/message.webp`,
         title: "Draft message",
-        caption: "A ready-to-edit reply to the requester, built from the calculated numbers. Attach the Excel so every figure is traceable.",
+        caption:
+          "A ready-to-edit reply to the requester, built from the calculated numbers. Previous and next links move through the result pages in reading order.",
+      },
+      {
+        src: `${TEA}/catalog.webp`,
+        title: "Capability catalog",
+        caption:
+          "The capabilities each role can apply, in a compact list with a detail panel. Use the built-in catalog, or download it as Excel, edit it and upload your own.",
       },
       {
         src: `${TEA}/method.webp`,
@@ -323,7 +336,7 @@ export const projects: Project[] = [
           "Each WBS item per role is classed Simple (5), Average (10) or Complex (15) from the number of steps involved.",
           "Roles that only support an item count for part of it (default 25%).",
           "Actor weights, then technical (TCF) and environmental (EF) factors. Ratings start at 3 and change only with evidence.",
-          "Points are multiplied by hours per point, then converted with hours per day, days per month and project length into average FTE.",
+          "Points are multiplied by hours per point (15 by default), then converted with hours per day, days per month and project length into average FTE.",
         ],
         note: "Based on Karner (1993), Resource estimation for objectory projects.",
       },
@@ -370,16 +383,17 @@ export const projects: Project[] = [
       { label: "Contracts", value: "Pydantic v2, structured output with schema validation" },
       { label: "API", value: "FastAPI on Vercel Python Functions (stateless)" },
       { label: "Excel", value: "openpyxl, formulas recalculated by Excel on open" },
-      { label: "UI", value: "Next.js · React · Tailwind CSS · Recharts" },
+      { label: "UI", value: "Next.js · React · Tailwind CSS · Recharts (Indonesian interface)" },
       { label: "Evaluation", value: "Kedro pipeline (offline)" },
       { label: "Tooling", value: "uv · Ruff · mypy · pytest · pre-commit · GitHub Actions" },
-      { label: "Models", value: "Gemini, Claude, OpenAI, Azure OpenAI or any OpenAI-compatible endpoint" },
+      { label: "Models", value: "Gemini, Claude, OpenAI, Azure OpenAI or any OpenAI-compatible gateway, with custom headers and token limits" },
     ],
     quality: [
       "Ruff lint and format",
       "mypy type checks",
       "pytest with 94% coverage",
       "Excel formulas recalculated in LibreOffice and compared with the engine",
+      "Tests for the model client: endpoints that refuse certain settings, and budget or quota errors that must not be retried",
       "Kedro evaluation pipeline",
       "Dependency lock check with uv",
       "TypeScript checks on the UI",
