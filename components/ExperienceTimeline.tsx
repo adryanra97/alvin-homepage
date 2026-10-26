@@ -1,17 +1,26 @@
 import { MapPin } from "lucide-react";
 import { experiences } from "@/data/site";
+import { publicLogo } from "@/lib/images";
 import { Icon } from "./icons";
 
 export default function ExperienceTimeline({ limit, wide }: { limit?: number; wide?: boolean }) {
   const items = limit ? experiences.slice(0, limit) : experiences;
+  const logoOf = (name?: string) => (name ? publicLogo(name) : null);
   return (
     <ol className={wide ? "timeline timeline-wide" : "timeline"}>
       {items.map((e) => (
         <li key={e.org + e.period}>
           <span className="tl-dot" aria-hidden="true" />
-          <span className={`tl-badge tl-${e.icon}`}>
-            <Icon name={e.icon} size={22} />
-          </span>
+          {logoOf(e.logo) ? (
+            <span className="tl-badge tl-logo">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={logoOf(e.logo) as string} alt={`Logo ${e.org}`} />
+            </span>
+          ) : (
+            <span className={`tl-badge tl-${e.icon}`}>
+              <Icon name={e.icon} size={22} />
+            </span>
+          )}
           <div className="tl-main">
             <strong>
               {e.org} {e.current ? <em>(Current)</em> : null}

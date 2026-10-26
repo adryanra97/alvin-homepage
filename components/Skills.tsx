@@ -2,7 +2,7 @@
 
 import { useRef, useState, type KeyboardEvent } from "react";
 import { skillGroups as allGroups, type SkillGroup } from "@/data/site";
-import { Icon } from "./icons";
+import SkillIcon from "./SkillIcon";
 
 export default function Skills({ groups = allGroups }: { groups?: SkillGroup[] }) {
   const [active, setActive] = useState(groups[0].id);
@@ -47,21 +47,35 @@ export default function Skills({ groups = allGroups }: { groups?: SkillGroup[] }
         ))}
       </div>
       <ul
-        className="skill-grid"
+        className={group.variant === "cert" ? "skill-grid cert-grid" : "skill-grid"}
         role="tabpanel"
         id={`panel-${uid}`}
         aria-labelledby={`tab-${uid}-${group.id}`}
         key={group.id}
       >
         {group.items.map((s) => (
-          <li key={s.name} className="skill-card">
+          <li key={s.name} className={group.variant === "cert" ? "skill-card cert-card" : "skill-card"}>
             <span className="skill-ico">
-              <Icon name={s.icon} size={26} />
+              <SkillIcon
+                icon={s.icon}
+                brand={s.brand}
+                image={s.image}
+                alt={s.name}
+                size={group.variant === "cert" ? 40 : 28}
+              />
             </span>
-            <span className="skill-name">{s.name}</span>
+            <span className="skill-text">
+              <span className="skill-name">{s.name}</span>
+              {s.sub ? <span className="skill-sub">{s.sub}</span> : null}
+            </span>
           </li>
         ))}
       </ul>
+      {group.link ? (
+        <a className="more-link" href={group.link.href} target="_blank" rel="noopener noreferrer">
+          {group.link.label} →
+        </a>
+      ) : null}
     </div>
   );
 }

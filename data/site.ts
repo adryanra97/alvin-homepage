@@ -14,6 +14,7 @@ export const profile = {
   unit: "Data Scientist",
   city: "Jakarta, Indonesia",
   education: { major: "Mechanical Engineering", school: "Universitas Indonesia" },
+  studying: "Master of Information Technology (Magister Teknologi Informasi), Universitas Indonesia",
   // Tahun mulai karier profesional -> "Years of Experience" dihitung otomatis
   careerStartYear: 2020,
   tagline: "Lifelong learning, real-world impact.",
@@ -28,7 +29,7 @@ export const profile = {
     credly: "https://www.credly.com/users/adryan-rizky-alviano/badges",
   },
   description:
-    "Adryan Rizky Alviano — AI & Big Data professional and Data Scientist at Telkom Indonesia. Generative AI, LLMs, Agentic AI, Data Governance, and responsible AI aligned with UU PDP.",
+    "Adryan Rizky Alviano — AI & Big Data professional and Data Scientist at Telkom Indonesia. Generative AI, LLMs, Agentic AI, Data Governance, and responsible AI aligned with UU PDP. Master of Information Technology student at Universitas Indonesia.",
 };
 
 export const hero = {
@@ -38,17 +39,19 @@ export const hero = {
   intro:
     "I'm Adryan Rizky Alviano, an AI & Big Data professional and Data Scientist at Telkom Indonesia. I use Generative AI, LLMs, and Agentic AI to streamline enterprise automation and accelerate digital transformation.",
   infoCards: [
+    { icon: "graduation", title: "Master of Information Technology", sub: "Universitas Indonesia · Ongoing" },
     { icon: "graduation", title: "Mechanical Engineering", sub: "Universitas Indonesia · Cum Laude" },
     { icon: "briefcase", title: "Data Scientist", sub: "Telkom Indonesia" },
-    { icon: "heart", title: "Interested in", sub: "Generative & Agentic AI, Data Governance, and Responsible AI" },
+    { icon: "heart", title: "Interested in", sub: "Generative & Agentic AI, Data Governance, Responsible AI" },
   ],
+
 };
 
 export const about = {
   titleLead: "Turning curiosity into",
   titleAccent: "real impact.",
   body:
-    "I'm an AI & Big Data professional with a lifelong-learning mindset, working in the Telco IT industry. I drive high-impact AI initiatives that bridge management objectives and rapid technical execution, from Generative AI and agentic workflows to IoT data pipelines. I also advocate for responsible AI, making sure every project aligns with Indonesia's UU PDP and GDPR.",
+    "I'm an AI & Big Data professional with a lifelong-learning mindset, working in the Telco IT industry. I drive high-impact AI initiatives that bridge management objectives and rapid technical execution, from Generative AI and agentic workflows to IoT data pipelines. I also advocate for responsible AI, making sure every project aligns with Indonesia's UU PDP and GDPR. Alongside work, I'm pursuing a Master of Information Technology at Universitas Indonesia.",
   quote: "Bridging the gap between management objectives and rapid technical execution.",
   values: [
     { icon: "book", title: "Lifelong Learning", sub: "80+ certifications from Google, Microsoft & Coursera" },
@@ -62,6 +65,8 @@ export type Experience = {
   period: string;
   place?: string;
   icon: "briefcase" | "graduation" | "school";
+  // Nama file logo di /public/logos (tanpa ekstensi), mis. "telkom" -> /public/logos/telkom.svg
+  logo?: string;
   current?: boolean;
   roles: { title: string; period: string; current?: boolean }[];
   highlights?: string[];
@@ -70,6 +75,7 @@ export type Experience = {
 export const experiences: Experience[] = [
   {
     org: "Telkom Indonesia",
+    logo: "telkom",
     period: "Jan 2020 – Present",
     place: "Jakarta, Indonesia",
     icon: "briefcase",
@@ -89,6 +95,15 @@ export const experiences: Experience[] = [
   },
   {
     org: "Universitas Indonesia",
+    logo: "ui",
+    period: "Ongoing",
+    icon: "graduation",
+    current: true,
+    roles: [{ title: "Master of Information Technology (Magister Teknologi Informasi)", period: "Ongoing", current: true }],
+  },
+  {
+    org: "Universitas Indonesia",
+    logo: "ui",
     period: "Aug 2017 – Aug 2019",
     place: "Depok, Indonesia",
     icon: "graduation",
@@ -99,12 +114,14 @@ export const experiences: Experience[] = [
   },
   {
     org: "Danone Early Life Nutrition",
+    logo: "danone",
     period: "Jul 2018 – Aug 2018",
     icon: "briefcase",
     roles: [{ title: "Engineering Intern", period: "Jul 2018 – Aug 2018" }],
   },
   {
     org: "Universitas Indonesia",
+    logo: "ui",
     period: "2015 – 2019",
     place: "Depok, Indonesia",
     icon: "graduation",
@@ -112,6 +129,7 @@ export const experiences: Experience[] = [
   },
   {
     org: "SMAN 1 Depok",
+    logo: "sman1-depok",
     period: "2012 – 2015",
     place: "Depok, Indonesia",
     icon: "school",
@@ -154,7 +172,21 @@ export const projects: Project[] = [
   },
 ];
 
-export type SkillGroup = { id: string; label: string; items: { name: string; icon: string }[] };
+export type SkillItem = {
+  name: string;
+  icon: string; // ikon generik (lihat components/icons.tsx)
+  brand?: string; // logo brand resmi (lihat lib/brands.ts)
+  sub?: string; // teks kecil di bawah nama (dipakai di kartu sertifikat)
+  image?: string; // path gambar sendiri, mis. badge Credly di /public/badges/xxx.png
+};
+
+export type SkillGroup = {
+  id: string;
+  label: string;
+  variant?: "cert"; // tampilan kartu besar untuk sertifikat
+  link?: { label: string; href: string };
+  items: SkillItem[];
+};
 
 // >>> TAMBAH SKILL DI SINI. "icon" harus salah satu nama di components/icons.tsx <<<
 export const skillGroups: SkillGroup[] = [
@@ -162,18 +194,19 @@ export const skillGroups: SkillGroup[] = [
     id: "technical",
     label: "Technical",
     items: [
-      { name: "Python", icon: "code" },
+      { name: "Python", icon: "code", brand: "python" },
       { name: "SQL", icon: "database" },
-      { name: "BigQuery", icon: "database" },
-      { name: "Pandas", icon: "chart" },
+      { name: "BigQuery", icon: "database", brand: "bigquery" },
+      { name: "Pandas", icon: "chart", brand: "pandas" },
       { name: "Machine Learning", icon: "brain" },
-      { name: "Deep Learning (TensorFlow)", icon: "network" },
+      { name: "Deep Learning (TensorFlow)", icon: "network", brand: "tensorflow" },
       { name: "Computer Vision & Video Analytics", icon: "eye" },
       { name: "Forecasting & Anomaly Detection", icon: "trend" },
       { name: "Tableau & Data Visualization", icon: "chart" },
       { name: "IoT Data Pipelines", icon: "plug" },
-      { name: "Docker & Containerization", icon: "box" },
-      { name: "Cloud (GCP & Azure)", icon: "cloud" },
+      { name: "Docker & Containerization", icon: "box", brand: "docker" },
+      { name: "Google Cloud (GCP)", icon: "cloud", brand: "googlecloud" },
+      { name: "Microsoft Azure", icon: "cloud" },
     ],
   },
   {
@@ -186,7 +219,7 @@ export const skillGroups: SkillGroup[] = [
       { name: "Prompt Engineering", icon: "prompt" },
       { name: "Context Engineering", icon: "layers" },
       { name: "AI Workflow & Enterprise Automation", icon: "workflow" },
-      { name: "Tool Use & MCP", icon: "plug" },
+      { name: "Tool Use & MCP", icon: "plug", brand: "mcp" },
       { name: "RAG", icon: "search" },
       { name: "Multi-Agent Systems", icon: "network" },
       { name: "Rapid AI Prototyping", icon: "rocket" },
@@ -227,13 +260,13 @@ export const skillGroups: SkillGroup[] = [
   {
     id: "certs",
     label: "Certifications",
+    variant: "cert",
+    link: { label: "See all badges on Credly", href: profile.links.credly },
     items: [
-      { name: "80+ certifications (Google, Microsoft, Coursera)", icon: "award" },
-      { name: "TensorFlow Developer Specialization (DeepLearning.AI)", icon: "award" },
-      { name: "Complete Tableau Bootcamp", icon: "award" },
-      { name: "Modern Big Data Analysis with SQL", icon: "award" },
-      { name: "Learn SQL Basics for Data Science", icon: "award" },
-      { name: "Data Manipulation in Python: Pandas Crash Course", icon: "award" },
+      // Taruh badge resmi (mis. dari Credly) di /public/badges/ lalu isi `image`, contoh: image: "/badges/huawei-hcia.png"
+      { name: "Huawei HCIA", sub: "Huawei Certified ICT Associate", icon: "award", brand: "huawei" },
+      { name: "Azure Data Scientist Associate", sub: "Microsoft Certified", icon: "award" },
+      { name: "80+ Professional Certifications", sub: "Google · Microsoft · Coursera", icon: "award" },
     ],
   },
   {

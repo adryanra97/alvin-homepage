@@ -126,7 +126,7 @@ export default function Home() {
               View Full Experience <ArrowRight size={16} />
             </Link>
           </div>
-          <ExperienceTimeline limit={1} />
+          <ExperienceTimeline limit={2} />
         </div>
       </section>
 

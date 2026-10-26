@@ -33,6 +33,8 @@ export const metadata: Metadata = {
     "UU PDP",
     "Responsible AI",
     "Universitas Indonesia",
+    "Magister Teknologi Informasi",
+    "Huawei HCIA",
     "Portfolio",
   ],
   alternates: { canonical: "/" },
@@ -66,6 +68,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     jobTitle: profile.role,
     worksFor: { "@type": "Organization", name: profile.company },
     alumniOf: { "@type": "CollegeOrUniversity", name: profile.education.school },
+    knowsAbout: ["Generative AI", "Agentic AI", "Data Governance", "Machine Learning", "UU PDP"],
     address: { "@type": "PostalAddress", addressLocality: "Jakarta", addressCountry: "ID" },
     sameAs: [profile.links.linkedin, profile.links.github],
   };
