@@ -50,7 +50,7 @@ export const posts: Post[] = [
       "What I saw coming even less was the part after. Once the competition was over I became a facilitator. I taught data science to other people at Telkom, across two batches, and I also sat on the jury side, judging the people who came after me. Going from competitor to teacher in a few months was a weird switch. It was also the fastest way to find out what I actually understood. You can nod along to an idea for years, and then someone asks \"but why?\" and you realise you've only been nodding.",
       { h: "A unit that never does the same thing twice" },
       "After that I got the chance to move to a business digital unit, Digital Business & Technology (DBT). New team, new people, and a very different kind of work. I can't get into client details, but I can tell you the use cases never repeated themselves.",
-      "My first one was IoT data, mapping how vehicles move around. Then another IoT project, this time sensors measuring how things get used. Then, with barely any warning, I was in video analytics, which is nothing like working with tables. One of those projects was about watching how chickens move around. I'm not joking, and yes, I now have opinions about chicken behaviour. After that came CCTV, counting how crowded a place gets.",
+      "My first one was IoT data, mapping how vehicles move around. Then another IoT project, this time sensors measuring how things get used. Then, with barely any warning, I was in video analytics, which is nothing like working with tables. One of those projects was about watching how chickens move around. Yes, chickens. I'm not joking. I can now tell you how they behave when the lights are on versus off, and I will, if you ask nicely. After that came CCTV, counting how crowded a place gets, which felt very normal by comparison.",
       "Every time I had to learn a new way of looking at a problem, and a lot of these were big B2B and B2G engagements, so there were more people in the room and more riding on the result than anything I'd done before.",
       {
         img: `${P}/dbt.webp`,
@@ -87,11 +87,11 @@ export const posts: Post[] = [
       "It still feels a bit like a bonus level, to be honest.",
       {
         img: `${P}/expert.webp`,
-        alt: "Four photos: the TelkomGroup Expert booklet, the Expert Insight Leadership and Forum Expert Q2 2026 screen, Adryan taking a selfie at the venue, and a presentation slide titled The World Has Changed, Has Your Leadership",
+        alt: "Four photos: the TelkomGroup Expert gift, the Expert Insight Leadership and Forum Expert Q2 2026 screen, Adryan taking a selfie at the venue, and a presentation slide titled The World Has Changed, Has Your Leadership",
         width: 1408,
         height: 1408,
         size: "md",
-        caption: "Expert Insight Leadership & Forum Expert, Telkom Group, Q2 2026. The booklet, the screens, and one very pleased selfie.",
+        caption: "Expert Insight Leadership & Forum Expert, Telkom Group, Q2 2026. The gift bundle, the screens, and one very pleased selfie.",
       },
       { h: "Moving more, going places" },
       "Once the gym habit stuck, I wanted to try other sports. Mini soccer is the loud one. I won't promise I'm good, but I run a lot and I'm fun to have on the team.",
