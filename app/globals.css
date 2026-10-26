@@ -505,3 +505,23 @@ main:focus { outline: none; }
   .contact-photo .contact-grid { padding-block: 56px; min-height: 0; }
   .contact-photo .contact-art .hand-quote-contact { margin-left: 0; }
 }
+
+/* ---------- about: warm photo section ---------- */
+.about-photo.has-photo { aspect-ratio: 4 / 5; min-height: 0; }
+.about-photo.has-photo .art-img { object-position: center 20%; }
+.know-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 56px; align-items: center; }
+.know-copy .btn { margin-top: 24px; gap: 10px; }
+.polaroids { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px 26px; padding: 8px 12px 20px; }
+.polaroid {
+  background: #fff; padding: 10px 10px 8px; border-radius: 6px; box-shadow: 0 10px 28px rgba(9, 36, 71, .16);
+  transform: rotate(var(--rot, 0deg)); transition: transform .25s ease, box-shadow .25s ease;
+}
+.polaroid:hover { transform: rotate(0deg) translateY(-4px) scale(1.02); box-shadow: 0 16px 36px rgba(9, 36, 71, .22); }
+.polaroid img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: center 30%; display: block; border-radius: 3px; }
+.pol-cap { display: block; text-align: center; font-family: var(--hand); font-size: 1.25rem; color: #0b203d; padding: 8px 0 2px; }
+.pol-1 { --rot: -2.5deg; } .pol-2 { --rot: 2deg; margin-top: 22px; } .pol-3 { --rot: 1.5deg; } .pol-4 { --rot: -2deg; margin-top: 22px; }
+@media (max-width: 860px) {
+  .know-grid { grid-template-columns: 1fr; gap: 32px; }
+}
+@media (max-width: 420px) { .polaroids { gap: 16px 14px; padding-inline: 4px; } .pol-cap { font-size: 1.05rem; } }
+@media (max-width: 640px) { .about-photo.has-photo { aspect-ratio: 1 / 1; } .about-photo.has-photo .art-img { object-position: center 12%; } }

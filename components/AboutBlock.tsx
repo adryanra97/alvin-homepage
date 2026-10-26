@@ -25,7 +25,7 @@ export default function AboutBlock({ asPage = false }: { asPage?: boolean }) {
         )}
       </div>
       <div className="about-visual">
-        <div className="about-photo">
+        <div className={`about-photo${profileImg ? " has-photo" : ""}`}>
           {profileImg ? (
             // eslint-disable-next-line @next/next/no-img-element
             <img src={profileImg} alt={profile.name} className="art-img" />

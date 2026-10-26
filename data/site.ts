@@ -47,6 +47,23 @@ export const hero = {
 
 };
 
+export const aboutPersonal = {
+  eyebrow: "Get to know me",
+  title: "Beyond the dashboards,",
+  accent: "just a curious person.",
+  body: [
+    "Outside of models and pipelines, I genuinely enjoy learning from people: a client with a tricky problem, a teammate in the field, a fellow student in class.",
+    "If you're curious about my work, want to collaborate, or simply want to say hi, I'd love to connect. No pitch needed.",
+  ],
+  cta: "Say hi on LinkedIn",
+  photos: [
+    { name: "about/batik", caption: "Batik, always", alt: "Adryan in a batik shirt" },
+    { name: "about/office", caption: "Daily workspace", alt: "Adryan at the office" },
+    { name: "about/road", caption: "Out and about", alt: "Adryan in a helmet with a headset" },
+    { name: "about/trail", caption: "Taking a breather", alt: "Adryan at a scenic viewpoint" },
+  ],
+};
+
 export const about = {
   titleLead: "Turning curiosity into",
   titleAccent: "real impact.",

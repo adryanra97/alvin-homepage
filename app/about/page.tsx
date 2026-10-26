@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import AboutBlock from "@/components/AboutBlock";
+import GetToKnowMe from "@/components/GetToKnowMe";
 import Skills from "@/components/Skills";
 import { skillGroups } from "@/data/site";
 
@@ -17,6 +18,9 @@ export default function AboutPage() {
         <AboutBlock asPage />
       </section>
       <section className="section section-alt">
+        <GetToKnowMe />
+      </section>
+      <section className="section">
         <div className="container skills-grid">
           <div>
             <p className="eyebrow">
