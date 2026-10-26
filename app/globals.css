@@ -794,3 +794,12 @@ main:focus { outline: none; }
   .hc figcaption { font-size: 1rem; }
 }
 @media (prefers-reduced-motion: reduce) { .hc { transition: none; } .hc:hover { transform: inherit; } }
+
+/* ---------- header: external profile links (GitHub, Credly) ---------- */
+.nav .nav-ext { display: inline-flex; align-items: center; gap: 6px; }
+.nav .nav-ext svg { flex: none; }
+.nav-sep { width: 1px; height: 18px; background: var(--border); align-self: center; }
+.brand-name, .nav-cta { white-space: nowrap; }
+@media (min-width: 861px) and (max-width: 1180px) { .nav { gap: 18px; } .nav .ext-label { display: none; } .nav-cta { padding-inline: 14px; } }
+@media (max-width: 860px) { .nav-sep { display: none; } .nav .nav-ext { gap: 10px; } }
+@media (min-width: 861px) and (max-width: 960px) { .nav-cta { display: none; } .nav { gap: 14px; } }

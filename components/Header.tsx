@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ArrowRight, Menu, Moon, Sun, X } from "lucide-react";
-import { Logo } from "./icons";
+import { GitHubIcon, Icon, Logo } from "./icons";
 import { nav, profile } from "@/data/site";
 
 export default function Header() {
@@ -55,6 +55,13 @@ export default function Header() {
               {n.label}
             </Link>
           ))}
+          <span className="nav-sep" aria-hidden="true" />
+          <a href={profile.links.github} className="nav-ext" target="_blank" rel="noopener noreferrer" aria-label="GitHub (opens in a new tab)" title="GitHub">
+            <GitHubIcon size={15} /> <span className="ext-label">GitHub</span>
+          </a>
+          <a href={profile.links.credly} className="nav-ext" target="_blank" rel="noopener noreferrer" aria-label="Credly (opens in a new tab)" title="Credly">
+            <Icon name="award" size={15} /> <span className="ext-label">Credly</span>
+          </a>
           <a href="#contact" className="btn btn-primary nav-cta-mobile" onClick={() => setOpen(false)}>
             Let&apos;s Connect <ArrowRight size={16} />
           </a>
