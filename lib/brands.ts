@@ -1,38 +1,19 @@
-import {
-  siDocker,
-  siGooglebigquery,
-  siGooglecloud,
-  siHuawei,
-  siModelcontextprotocol,
-  siPandas,
-  siPython,
-  siTensorflow,
-} from "simple-icons";
+export { brandIcons } from "./brand-icons.generated";
+export type { BrandIcon } from "./brand-icons.generated";
 
-/**
- * Logo brand teknologi (data resmi dari paket `simple-icons`).
- * Untuk menambah: import ikon di atas, lalu daftarkan di `brands`.
- * Kunci inilah yang dipakai di field `brand` pada data/site.ts.
- */
-type Icon = { title: string; path: string; hex: string };
+/** Palet gradien untuk tile ikon konsep (supaya tidak polos biru). */
+export const tints = [
+  ["#3b82f6", "#1d4ed8"], // biru
+  ["#8b5cf6", "#6d28d9"], // ungu
+  ["#06b6d4", "#0e7490"], // cyan
+  ["#10b981", "#047857"], // hijau
+  ["#f59e0b", "#d97706"], // oranye
+  ["#f43f5e", "#be123c"], // merah muda
+  ["#6366f1", "#4338ca"], // indigo
+] as const;
 
-export const brands: Record<string, Icon> = {
-  python: siPython,
-  bigquery: siGooglebigquery,
-  pandas: siPandas,
-  tensorflow: siTensorflow,
-  docker: siDocker,
-  googlecloud: siGooglecloud,
-  huawei: siHuawei,
-  mcp: siModelcontextprotocol,
-};
-
-function luminance(hex: string) {
-  const [r, g, b] = [0, 2, 4].map((i) => parseInt(hex.slice(i, i + 2), 16) / 255);
-  return 0.2126 * r + 0.7152 * g + 0.0722 * b;
-}
-
-/** Warna logo untuk mode terang & gelap (logo yang terlalu gelap diganti terang di dark mode). */
-export function brandColors(hex: string) {
-  return { light: `#${hex}`, dark: luminance(hex) < 0.3 ? "#e8eefb" : `#${hex}` };
+export function tintFor(seed: string) {
+  let h = 0;
+  for (let i = 0; i < seed.length; i++) h = (h * 31 + seed.charCodeAt(i)) >>> 0;
+  return tints[h % tints.length];
 }

@@ -51,3 +51,11 @@ CV: taruh `public/cv.pdf`, lalu isi `cvUrl: "/cv.pdf"` agar tombol Download CV m
 
 Sitemap, robots.txt, metadata, Open Graph, dan JSON-LD (Person) sudah disiapkan otomatis.
 Kalau nanti pakai domain sendiri, set env `NEXT_PUBLIC_SITE_URL` di Vercel.
+
+## Logo
+
+- **Logo teknologi** (Python, Docker, Azure, dll.) berwarna asli. Daftarnya ada di `scripts/gen-brands.mjs`;
+  tambah logo baru lalu jalankan `node scripts/gen-brands.mjs`, kemudian pakai kuncinya di field `brand` pada `data/site.ts`.
+- **Logo institusi** (Telkom, UI, dll.): taruh file di `public/logos/` dengan nama `telkom`, `ui`, `danone`, `sman1-depok`
+  (`.svg` atau `.png`). Otomatis menggantikan tile monogram.
+- **Badge sertifikat**: taruh di `public/badges/` lalu isi `image: "/badges/nama.png"` pada item sertifikatnya.

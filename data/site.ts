@@ -67,6 +67,7 @@ export type Experience = {
   icon: "briefcase" | "graduation" | "school";
   // Nama file logo di /public/logos (tanpa ekstensi), mis. "telkom" -> /public/logos/telkom.svg
   logo?: string;
+  mono?: string; // inisial untuk tile berwarna selama logo belum ada
   current?: boolean;
   roles: { title: string; period: string; current?: boolean }[];
   highlights?: string[];
@@ -76,6 +77,7 @@ export const experiences: Experience[] = [
   {
     org: "Telkom Indonesia",
     logo: "telkom",
+    mono: "TI",
     period: "Jan 2020 – Present",
     place: "Jakarta, Indonesia",
     icon: "briefcase",
@@ -96,6 +98,7 @@ export const experiences: Experience[] = [
   {
     org: "Universitas Indonesia",
     logo: "ui",
+    mono: "UI",
     period: "Ongoing",
     icon: "graduation",
     current: true,
@@ -104,6 +107,7 @@ export const experiences: Experience[] = [
   {
     org: "Universitas Indonesia",
     logo: "ui",
+    mono: "UI",
     period: "Aug 2017 – Aug 2019",
     place: "Depok, Indonesia",
     icon: "graduation",
@@ -115,6 +119,7 @@ export const experiences: Experience[] = [
   {
     org: "Danone Early Life Nutrition",
     logo: "danone",
+    mono: "DE",
     period: "Jul 2018 – Aug 2018",
     icon: "briefcase",
     roles: [{ title: "Engineering Intern", period: "Jul 2018 – Aug 2018" }],
@@ -122,6 +127,7 @@ export const experiences: Experience[] = [
   {
     org: "Universitas Indonesia",
     logo: "ui",
+    mono: "UI",
     period: "2015 – 2019",
     place: "Depok, Indonesia",
     icon: "graduation",
@@ -130,6 +136,7 @@ export const experiences: Experience[] = [
   {
     org: "SMAN 1 Depok",
     logo: "sman1-depok",
+    mono: "S1",
     period: "2012 – 2015",
     place: "Depok, Indonesia",
     icon: "school",
@@ -177,6 +184,7 @@ export type SkillItem = {
   icon: string; // ikon generik (lihat components/icons.tsx)
   brand?: string; // logo brand resmi (lihat lib/brands.ts)
   sub?: string; // teks kecil di bawah nama (dipakai di kartu sertifikat)
+  badge?: string; // teks pendek di tile berwarna, mis. "SQL" (kalau tidak ada logo resmi)
   image?: string; // path gambar sendiri, mis. badge Credly di /public/badges/xxx.png
 };
 
@@ -195,18 +203,19 @@ export const skillGroups: SkillGroup[] = [
     label: "Technical",
     items: [
       { name: "Python", icon: "code", brand: "python" },
-      { name: "SQL", icon: "database" },
+      { name: "SQL", icon: "database", badge: "SQL" },
       { name: "BigQuery", icon: "database", brand: "bigquery" },
       { name: "Pandas", icon: "chart", brand: "pandas" },
       { name: "Machine Learning", icon: "brain" },
       { name: "Deep Learning (TensorFlow)", icon: "network", brand: "tensorflow" },
       { name: "Computer Vision & Video Analytics", icon: "eye" },
       { name: "Forecasting & Anomaly Detection", icon: "trend" },
-      { name: "Tableau & Data Visualization", icon: "chart" },
+      { name: "Tableau & Data Visualization", icon: "chart", brand: "tableau" },
+      { name: "Looker Studio (Data Studio)", icon: "chart", brand: "datastudio" },
       { name: "IoT Data Pipelines", icon: "plug" },
       { name: "Docker & Containerization", icon: "box", brand: "docker" },
       { name: "Google Cloud (GCP)", icon: "cloud", brand: "googlecloud" },
-      { name: "Microsoft Azure", icon: "cloud" },
+      { name: "Microsoft Azure", icon: "cloud", brand: "azure" },
     ],
   },
   {
@@ -265,7 +274,7 @@ export const skillGroups: SkillGroup[] = [
     items: [
       // Taruh badge resmi (mis. dari Credly) di /public/badges/ lalu isi `image`, contoh: image: "/badges/huawei-hcia.png"
       { name: "Huawei HCIA", sub: "Huawei Certified ICT Associate", icon: "award", brand: "huawei" },
-      { name: "Azure Data Scientist Associate", sub: "Microsoft Certified", icon: "award" },
+      { name: "Azure Data Scientist Associate", sub: "Microsoft Certified", icon: "award", brand: "microsoft" },
       { name: "80+ Professional Certifications", sub: "Google · Microsoft · Coursera", icon: "award" },
     ],
   },
@@ -287,9 +296,9 @@ export const skillGroups: SkillGroup[] = [
     id: "languages",
     label: "Languages",
     items: [
-      { name: "Indonesian · Native", icon: "globe" },
-      { name: "English · Professional Working", icon: "globe" },
-      { name: "Japanese · Limited Working", icon: "globe" },
+      { name: "Indonesian · Native", icon: "globe", brand: "flag-id" },
+      { name: "English · Professional Working", icon: "globe", brand: "flag-gb" },
+      { name: "Japanese · Limited Working", icon: "globe", brand: "flag-jp" },
     ],
   },
 ];

@@ -1,5 +1,7 @@
 import { MapPin } from "lucide-react";
 import { experiences } from "@/data/site";
+import type { CSSProperties } from "react";
+import { tintFor } from "@/lib/brands";
 import { publicLogo } from "@/lib/images";
 import { Icon } from "./icons";
 
@@ -15,6 +17,14 @@ export default function ExperienceTimeline({ limit, wide }: { limit?: number; wi
             <span className="tl-badge tl-logo">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={logoOf(e.logo) as string} alt={`Logo ${e.org}`} />
+            </span>
+          ) : e.mono ? (
+            <span
+              className="tl-badge tl-mono"
+              style={{ "--c1": tintFor(e.org)[0], "--c2": tintFor(e.org)[1] } as CSSProperties}
+              aria-hidden="true"
+            >
+              {e.mono}
             </span>
           ) : (
             <span className={`tl-badge tl-${e.icon}`}>

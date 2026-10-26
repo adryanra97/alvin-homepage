@@ -57,11 +57,12 @@ export default function Skills({ groups = allGroups }: { groups?: SkillGroup[] }
           <li key={s.name} className={group.variant === "cert" ? "skill-card cert-card" : "skill-card"}>
             <span className="skill-ico">
               <SkillIcon
+                name={s.name}
                 icon={s.icon}
                 brand={s.brand}
                 image={s.image}
-                alt={s.name}
-                size={group.variant === "cert" ? 40 : 28}
+                badge={s.badge}
+                size={group.variant === "cert" ? 40 : 34}
               />
             </span>
             <span className="skill-text">
