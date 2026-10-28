@@ -12,8 +12,8 @@ import HeroCollage from "@/components/HeroCollage";
 
 const highlights = (years: number) => [
   { value: `${years}+`, label: "years working with data and technology" },
-  { value: "6", label: "specialised AI agents in my flagship project" },
-  { value: "2", label: "bootcamp batches facilitated, plus jury duty" },
+  { value: "80+", label: "professional certifications from Google, Microsoft & Coursera" },
+  { value: "80%+", label: "faster issue identification with AI at Telkom" },
 ];
 
 export default function Home() {
