@@ -24,15 +24,23 @@ export default function PageHead({
     .slice(0, 2)
     .map((p) => ({ ...p, src: publicImage(p.name) }))
     .filter((p): p is Photo & { src: string } => Boolean(p.src));
+  const bg = publicImage("hero");
+  const bgSm = bg ? publicImage("hero-sm") : null;
   return (
-    <section className="page-head">
+    <section className={`page-head${bg ? " page-head-photo" : ""}`}>
+      {bg ? (
+        <div className="ph-bg" aria-hidden="true">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={bg} srcSet={bgSm ? `${bgSm} 800w, ${bg} 1600w` : undefined} sizes="100vw" alt="" />
+        </div>
+      ) : null}
       <div className={`container${shown.length ? " page-head-grid" : ""}`}>
         <div>
-          <p className="eyebrow">
+          <p className={`eyebrow${bg ? " eyebrow-light" : ""}`}>
             <span>{eyebrow}</span>
           </p>
           <h1>
-            {title} {accent ? <span className="accent">{accent}</span> : null}
+            {title} {accent ? <span className={bg ? "accent-light" : "accent"}>{accent}</span> : null}
           </h1>
           {intro ? <p className="lead page-lead">{intro}</p> : null}
           {note ? <p className="head-note">{note}</p> : null}

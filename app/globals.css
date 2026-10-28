@@ -916,3 +916,35 @@ main:focus { outline: none; }
   .tabs::-webkit-scrollbar { display: none; }
   .tab { flex: none; white-space: nowrap; }
 }
+
+/* ---------- compact photo banner for inner pages ---------- */
+.page-head-photo { padding: 44px 0 40px; background: var(--navy-950, #061b35); color: #fff; }
+.page-head-photo::before { display: none; }
+.ph-bg { position: absolute; inset: 0; z-index: 0; }
+.ph-bg img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 8%; display: block; }
+.ph-bg::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(90deg, rgba(6, 27, 53, .95) 0%, rgba(6, 27, 53, .84) 45%, rgba(6, 27, 53, .45) 100%);
+}
+.page-head-photo h1 { color: #fff; }
+.page-head-photo .page-lead { color: #c3d0e8; }
+.page-head-photo .head-note { color: #fff; text-shadow: 0 1px 12px rgba(0, 0, 0, .4); }
+:root[data-theme="dark"] .page-head-photo .head-note { color: #fff; }
+.page-head-photo .page-head-grid { grid-template-columns: 1fr 330px; }
+.page-head-photo .head-pair { width: 330px; height: 260px; }
+.page-head-photo .head-pol { width: 142px; }
+.page-head-photo .head-pol-1 { left: 0; top: 8px; }
+.page-head-photo .head-pol-2 { right: 0; top: 40px; }
+.page-head-photo + .section, .page-head-photo + .section-tight { padding-top: 48px; }
+@media (max-width: 700px) {
+  .page-head-photo { padding: 32px 0 28px; }
+  .page-head-photo .page-head-grid { grid-template-columns: 1fr; }
+  .page-head-photo .head-pair { width: 100%; max-width: 300px; height: 190px; }
+  .page-head-photo .head-pol { width: 112px; }
+  .page-head-photo .head-pol-2 { top: 28px; left: 120px; right: auto; }
+  .ph-bg::after { background: linear-gradient(180deg, rgba(6, 27, 53, .92), rgba(6, 27, 53, .8)); }
+}
+.page-head-photo .accent-light { color: #6db2ff; }
+.page-head-photo .head-pol { width: 150px; }
+.page-head-photo .pol-cap { font-size: 1.05rem; white-space: nowrap; }
+@media (max-width: 700px) { .page-head-photo .head-pol { width: 118px; } .page-head-photo .pol-cap { font-size: .92rem; } }
