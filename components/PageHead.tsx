@@ -57,6 +57,7 @@ export default function PageHead({
           </div>
         ) : null}
       </div>
+      {bg ? <span className="ph-cue" aria-hidden="true" /> : null}
     </section>
   );
 }
