@@ -52,7 +52,7 @@ export const hero = {
 /** Warm, personal page intros: edit freely. `photo` uses files in /public/images/about. */
 export const pageIntros = {
   experience: {
-    intro: "The places, teams, and people that shaped how I work. Every role taught me something I still use today.",
+    intro: "My work at Telkom Indonesia and Danone, and my studies at Universitas Indonesia. Every role taught me something I still use today.",
     note: "every role taught me something",
     photos: [
       { name: "about/work", caption: "Work mode: on", alt: "Adryan in a navy work shirt" },
@@ -101,7 +101,7 @@ export const about = {
   titleLead: "Turning curiosity into",
   titleAccent: "real impact.",
   body:
-    "I'm an AI & Big Data professional with a lifelong-learning mindset, working in the Telco IT industry. I drive high-impact AI initiatives that bridge management objectives and rapid technical execution, from Generative AI and agentic workflows to IoT data pipelines. I also advocate for responsible AI, making sure every project aligns with Indonesia's UU PDP and GDPR. Alongside work, I'm pursuing a Master of Information Technology at Universitas Indonesia.",
+    "I'm an AI & Big Data professional at Telkom Indonesia, turning Generative AI and agentic workflows into practical solutions. I care about responsible AI, and I'm pursuing a Master of Information Technology at Universitas Indonesia.",
   quote: "Bridging the gap between management objectives and rapid technical execution.",
   values: [
     { icon: "book", title: "Lifelong Learning", sub: "80+ certifications from Google, Microsoft & Coursera" },
@@ -425,6 +425,7 @@ export type SkillGroup = {
   label: string;
   variant?: "cert"; // tampilan kartu besar untuk sertifikat
   link?: { label: string; href: string };
+  blurb?: string; // satu kalimat tentang kategori ini
   items: SkillItem[];
 };
 
@@ -432,6 +433,7 @@ export type SkillGroup = {
 export const skillGroups: SkillGroup[] = [
   {
     id: "technical",
+    blurb: "The hands-on toolbox I use to move, model and visualise data.",
     label: "Technical",
     items: [
       { name: "Python", icon: "code", brand: "python" },
@@ -452,6 +454,7 @@ export const skillGroups: SkillGroup[] = [
   },
   {
     id: "ai",
+    blurb: "Where I spend most of my time now: building with LLMs and agents.",
     label: "AI & Agentic",
     items: [
       { name: "Generative AI", icon: "sparkles" },
@@ -470,6 +473,7 @@ export const skillGroups: SkillGroup[] = [
   },
   {
     id: "itm",
+    blurb: "Frameworks for designing systems and improving how organisations work.",
     label: "IT Management",
     items: [
       { name: "Enterprise Architecture (TOGAF)", icon: "layers", badge: "TOGAF" },
@@ -483,6 +487,7 @@ export const skillGroups: SkillGroup[] = [
   },
   {
     id: "governance",
+    blurb: "Keeping data trustworthy, private and compliant with UU PDP and GDPR.",
     label: "Data Governance",
     items: [
       { name: "Data Governance", icon: "shield" },
@@ -499,6 +504,7 @@ export const skillGroups: SkillGroup[] = [
   },
   {
     id: "soft",
+    blurb: "Getting people, priorities and delivery pointing the same way.",
     label: "Leadership & Soft",
     items: [
       { name: "Task Force Leadership", icon: "flag" },
@@ -513,6 +519,7 @@ export const skillGroups: SkillGroup[] = [
   },
   {
     id: "certs",
+    blurb: "Verified credentials, with the full list of badges on Credly.",
     label: "Certifications",
     variant: "cert",
     link: { label: "See all badges on Credly", href: profile.links.credly },
@@ -525,6 +532,7 @@ export const skillGroups: SkillGroup[] = [
   },
   {
     id: "honors",
+    blurb: "Recognition from Universitas Indonesia and Telkom.",
     label: "Honors & Awards",
     items: [
       { name: "Cum Laude · Universitas Indonesia", icon: "award" },
@@ -539,6 +547,7 @@ export const skillGroups: SkillGroup[] = [
   },
   {
     id: "languages",
+    blurb: "The languages I work and travel in.",
     label: "Languages",
     items: [
       { name: "Indonesian · Native", icon: "globe", brand: "flag-id" },
@@ -562,4 +571,33 @@ export const nav = [
   { href: "/experience", label: "Experience" },
   { href: "/skills", label: "Skills" },
   { href: "/blog", label: "Blog" },
+];
+
+/** Home-page skills bento: a short story per area, where it is used, and the skills to show. */
+export const skillHighlights = [
+  {
+    id: "ai",
+    title: "AI & Agentic",
+    text: "Where I spend most of my time now: building with LLMs and multi-agent workflows.",
+    usedIn: { label: "Used in the Talent Estimation Agent", href: "/projects" },
+    items: ["Generative AI", "LLMs", "Agentic AI", "Prompt Engineering", "Context Engineering", "Tool Use & MCP", "RAG", "Multi-Agent Systems", "AI Workflow & Enterprise Automation", "Rapid AI Prototyping", "AI-Assisted Development"],
+  },
+  {
+    id: "technical",
+    title: "Data & Engineering",
+    text: "From pipelines and models to dashboards people actually read.",
+    items: ["Python", "SQL", "BigQuery", "Deep Learning (TensorFlow)", "Tableau & Data Visualization", "Docker & Containerization", "Google Cloud (GCP)", "Microsoft Azure"],
+  },
+  {
+    id: "governance",
+    title: "Data Governance",
+    text: "Responsible AI that respects UU PDP and GDPR.",
+    items: ["Data Governance", "DAMA-DMBOK", "UU PDP (Indonesia PDP Law)", "GDPR"],
+  },
+  {
+    id: "soft",
+    title: "Leadership & Teaching",
+    text: "Facilitating bootcamps and aligning stakeholders.",
+    items: ["Training & Facilitation", "Task Force Leadership", "Stakeholder Alignment"],
+  },
 ];

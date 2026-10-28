@@ -46,6 +46,7 @@ export default function Skills({ groups = allGroups }: { groups?: SkillGroup[] }
           </button>
         ))}
       </div>
+      {group.blurb ? <p className="skills-blurb">{group.blurb}</p> : null}
       <div role="tabpanel" id={`panel-${uid}`} aria-labelledby={`tab-${uid}-${group.id}`} key={group.id}>
       <ul className={group.variant === "cert" ? "skill-grid cert-grid" : "skill-grid"}>
         {group.items.map((s) => (

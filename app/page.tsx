@@ -3,10 +3,10 @@ import { ArrowRight, Download } from "lucide-react";
 import AboutBlock from "@/components/AboutBlock";
 import ExperienceTimeline from "@/components/ExperienceTimeline";
 import FeaturedProject from "@/components/FeaturedProject";
-import Skills from "@/components/Skills";
+import SkillsBento from "@/components/SkillsBento";
 import { Skyline } from "@/components/Art";
 import { Icon, LinkedInIcon } from "@/components/icons";
-import { hero, profile, projects, skillGroups } from "@/data/site";
+import { hero, profile, projects } from "@/data/site";
 import { publicImage } from "@/lib/images";
 import HeroCollage from "@/components/HeroCollage";
 
@@ -132,9 +132,13 @@ export default function Home() {
             <p className="eyebrow">
               <span>Experience</span>
             </p>
-            <h2>My professional journey</h2>
+            <h2>
+              Where I've worked
+              <br />
+              <span className="accent">&amp; studied.</span>
+            </h2>
             <p className="body-text">
-              A journey of learning, contributing, and growing in the world of data, AI, and people.
+              Telkom Indonesia and Danone, plus a Mechanical Engineering degree and an ongoing Master of IT, both at Universitas Indonesia.
             </p>
             <Link href="/experience" className="btn btn-primary">
               View Full Experience <ArrowRight size={16} />
@@ -169,25 +173,24 @@ export default function Home() {
 
       {/* SKILLS (teaser) */}
       <section className="section">
-        <div className="container skills-grid">
-          <div>
-            <p className="eyebrow">
-              <span>Skills</span>
-            </p>
-            <h2>
-              Tools &amp;
-              <br />
-              Technologies
-            </h2>
-            <p className="body-text">
-              A combination of technical skills, AI, governance, and soft skills that I use to turn ideas into real
-              solutions.
-            </p>
+        <div className="container">
+          <div className="skills-head">
+            <div>
+              <p className="eyebrow">
+                <span>Skills</span>
+              </p>
+              <h2>
+                Tools &amp; <span className="accent">technologies.</span>
+              </h2>
+              <p className="body-text">
+                What I use to turn ideas into real solutions, and where it shows up.
+              </p>
+            </div>
             <Link href="/skills" className="btn btn-outline">
               All Skills <ArrowRight size={16} />
             </Link>
           </div>
-          <Skills groups={skillGroups.slice(0, 3)} />
+          <SkillsBento />
         </div>
       </section>
     </>

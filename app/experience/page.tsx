@@ -15,8 +15,8 @@ export default function ExperiencePage() {
     <>
       <PageHead
         eyebrow="Experience"
-        title="My professional"
-        accent="journey."
+        title="Work &"
+        accent="study."
         intro={pageIntros.experience.intro}
         note={pageIntros.experience.note}
         photos={pageIntros.experience.photos}
