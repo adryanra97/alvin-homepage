@@ -31,7 +31,7 @@ export default function PageHead({
       {bg ? (
         <div className="ph-bg" aria-hidden="true">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={bg} srcSet={bgSm ? `${bgSm} 800w, ${bg} 1600w` : undefined} sizes="100vw" alt="" />
+          <img src={bg} srcSet={bgSm ? `${bgSm} 800w, ${bg} 1600w` : undefined} sizes="100vw" alt="" fetchPriority="high" />
         </div>
       ) : null}
       <div className={`container${shown.length ? " page-head-grid" : ""}`}>

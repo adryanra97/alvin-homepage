@@ -579,6 +579,10 @@ export const skillHighlights = [
     id: "ai",
     title: "AI & Agentic",
     text: "Where I spend most of my time now: building with LLMs and multi-agent workflows.",
+    outcomes: [
+      "Led rapid AI prototyping with LLMs and agents for CX and digital transformation.",
+      "Cut issue identification time by over 80% by turning product feedback into structured insights.",
+    ],
     usedIn: { label: "Used in the Talent Estimation Agent", href: "/projects" },
     items: ["Generative AI", "LLMs", "Agentic AI", "Prompt Engineering", "Context Engineering", "Tool Use & MCP", "RAG", "Multi-Agent Systems", "AI Workflow & Enterprise Automation", "Rapid AI Prototyping", "AI-Assisted Development"],
   },

@@ -31,6 +31,13 @@ export default function SkillsBento() {
                 ))}
               </ul>
             )}
+            {"outcomes" in h && h.outcomes ? (
+              <ul className="bento-outcomes">
+                {h.outcomes.map((o) => (
+                  <li key={o}>{o}</li>
+                ))}
+              </ul>
+            ) : null}
             {"usedIn" in h && h.usedIn ? (
               <Link href={h.usedIn.href} className="bento-used">
                 {h.usedIn.label} <ArrowRight size={14} />

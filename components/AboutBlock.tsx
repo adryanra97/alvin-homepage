@@ -34,7 +34,7 @@ export default function AboutBlock({ asPage = false }: { asPage?: boolean }) {
           )}
         </div>
         <blockquote className="about-quote">
-          <Quote size={18} aria-hidden="true" />
+          <Quote size={30} aria-hidden="true" />
           <p>{about.quote}</p>
           <span className="swoosh" aria-hidden="true" />
         </blockquote>

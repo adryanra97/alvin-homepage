@@ -50,7 +50,7 @@ export default function Skills({ groups = allGroups }: { groups?: SkillGroup[] }
       </div>
       <div className="panel-head">
         <div>
-          <h3 className="panel-title">{group.label}</h3>
+          <h2 className="panel-title">{group.label}</h2>
           {group.blurb ? <p className="panel-blurb">{group.blurb}</p> : null}
         </div>
         <span className="panel-count">

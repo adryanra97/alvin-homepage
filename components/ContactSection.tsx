@@ -6,12 +6,19 @@ import { GitHubIcon, Icon, LinkedInIcon } from "./icons";
 
 export default function ContactSection() {
   const contactImg = publicImage("contact");
+  const contactSm = contactImg ? publicImage("contact-sm") : null;
   return (
     <section id="contact" className={`contact${contactImg ? " contact-photo" : ""}`}>
       {contactImg ? (
         <div className="contact-bg" aria-hidden="true">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={contactImg} alt="" loading="lazy" />
+          <img
+            src={contactImg}
+            srcSet={contactSm ? `${contactSm} 800w, ${contactImg} 1600w` : undefined}
+            sizes="100vw"
+            alt=""
+            loading="lazy"
+          />
         </div>
       ) : null}
       <div className="container contact-grid">

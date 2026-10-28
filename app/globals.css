@@ -623,7 +623,7 @@ main:focus { outline: none; }
 .bframe-bar i { width: 10px; height: 10px; border-radius: 50%; background: #ff5f57; }
 .bframe-bar i:nth-of-type(2) { background: #febc2e; }
 .bframe-bar i:nth-of-type(3) { background: #28c840; }
-.bframe-bar span { margin-left: 12px; flex: 1; max-width: 380px; padding: 4px 12px; border-radius: 6px; background: #fff; color: #6b7a90; font-size: 11px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.bframe-bar span { margin-left: 12px; flex: 1; max-width: 380px; padding: 4px 12px; border-radius: 6px; background: #fff; color: #4a586d; font-size: 11px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .bframe img { display: block; width: 100%; height: auto; }
 .btn-ghost-light { background: transparent; color: #fff; border: 1px solid rgba(255, 255, 255, .42); }
 .btn-ghost-light:hover { background: rgba(255, 255, 255, .12); }
@@ -976,3 +976,12 @@ main:focus { outline: none; }
 }
 .ph-bg { overflow: hidden; }
 .ph-bg img { height: 158%; object-position: 50% 0%; }
+
+/* ---------- polish: fuller quote card, sticky copy, bento outcomes ---------- */
+.about-quote { display: flex; flex-direction: column; justify-content: center; gap: 14px; padding: 28px; }
+.about-quote p { margin: 0; font-family: var(--font-display); font-size: 1.28rem; font-weight: 700; line-height: 1.38; letter-spacing: -0.01em; color: var(--text); }
+.about-quote .swoosh { margin-top: 4px; }
+@media (min-width: 901px) { .know-copy { position: sticky; top: 112px; align-self: start; } }
+.bento-outcomes { margin-top: 18px; padding-top: 18px; border-top: 1px solid rgba(255, 255, 255, .18); display: grid; gap: 12px; position: relative; z-index: 1; }
+.bento-outcomes li { position: relative; padding-left: 18px; font-size: .9rem; line-height: 1.5; color: #dbe5f7; }
+.bento-outcomes li::before { content: ""; position: absolute; left: 0; top: .55em; width: 7px; height: 7px; border-radius: 50%; background: var(--accent-red); }

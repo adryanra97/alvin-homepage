@@ -33,7 +33,7 @@ Semua teks ada di **`data/site.ts`**:
 | Link LinkedIn / GitHub, email, CV | objek `profile` |
 
 Foto (opsional, otomatis dipakai kalau ada): taruh di `public/images/`
-`hero.jpg`, `profile.jpg`, `contact.jpg`. Kalau tidak ada, dipakai ilustrasi bawaan.
+`hero.webp`, `profile.webp`, `contact.webp`. Kalau tidak ada, dipakai ilustrasi bawaan.
 Screenshot proyek: taruh di `public/projects/` lalu isi field `image` pada proyeknya.
 CV: taruh `public/cv.pdf`, lalu isi `cvUrl: "/cv.pdf"` agar tombol Download CV muncul.
 
@@ -62,7 +62,7 @@ Kalau nanti pakai domain sendiri, set env `NEXT_PUBLIC_SITE_URL` di Vercel.
 
 ## Photo credits
 
-`public/images/hero.jpg` (desk with laptop, notebook and tablet) and `public/images/contact.jpg` (Jakarta skyline at night)
+`public/images/hero.webp` (desk with laptop, notebook and tablet) and `public/images/contact.webp` (Jakarta skyline at night)
 are free-to-use photos from [Pexels](https://www.pexels.com) (Pexels License, no attribution required).
 
 ## Blog

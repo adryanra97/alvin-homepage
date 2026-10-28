@@ -1,7 +1,7 @@
 /**
  * Ilustrasi skyline Jakarta (SVG) yang dipakai kalau foto sendiri belum ada.
- * Mau pakai foto? Taruh di /public/images/hero.jpg, /public/images/profile.jpg,
- * dan /public/images/contact.jpg — otomatis dipakai.
+ * Mau pakai foto? Taruh di /public/images/hero.webp, /public/images/profile.webp,
+ * dan /public/images/contact.webp — otomatis dipakai.
  */
 
 const towers = [
