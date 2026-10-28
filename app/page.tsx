@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ArrowRight, Download } from "lucide-react";
 import AboutBlock from "@/components/AboutBlock";
 import ExperienceTimeline from "@/components/ExperienceTimeline";
-import FeaturedProject from "@/components/FeaturedProject";
+import ProjectShowcase from "@/components/ProjectShowcase";
 import SkillsBento from "@/components/SkillsBento";
 import { Skyline } from "@/components/Art";
 import { Icon, LinkedInIcon } from "@/components/icons";
@@ -150,24 +150,24 @@ export default function Home() {
 
       {/* PROJECTS (teaser) */}
       <section className="projects">
-        <div className="container projects-grid">
-          <div className="projects-intro">
-            <p className="eyebrow eyebrow-light">
-              <span>Projects</span>
-            </p>
-            <h2>
-              From ideas
-              <br />
-              to <span className="accent-light">real solutions.</span>
-            </h2>
-            <p className="body-text light">
-              A collection of projects that showcase my interest in data, AI, and building practical applications.
-            </p>
-            <Link href="/projects" className="btn btn-light">
-              View All Projects ({projects.length}) <ArrowRight size={16} />
+        <div className="container pj-wrap">
+          <div className="pj-head">
+            <div>
+              <p className="eyebrow eyebrow-light">
+                <span>Projects</span>
+              </p>
+              <h2>
+                From ideas to <span className="accent-light">real solutions.</span>
+              </h2>
+              <p className="body-text light">
+                What I build to learn, and to solve real problems with data and AI.
+              </p>
+            </div>
+            <Link href="/projects" className="btn btn-outline-light">
+              All projects ({projects.length}) <ArrowRight size={16} />
             </Link>
           </div>
-          <FeaturedProject />
+          <ProjectShowcase />
         </div>
       </section>
 
