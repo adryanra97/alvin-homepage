@@ -13,6 +13,7 @@ export default function BlogPage() {
   return (
     <>
       <PageHead
+        size="short"
         eyebrow="Blog"
         title="Notes from"
         accent="my notebook."

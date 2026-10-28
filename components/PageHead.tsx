@@ -13,6 +13,8 @@ export default function PageHead({
   note,
   photos,
   facts,
+  size = "full",
+  flip = false,
 }: {
   eyebrow: string;
   title: ReactNode;
@@ -24,6 +26,10 @@ export default function PageHead({
   photos?: Photo[];
   /** Glass info strip at the bottom of the banner: quick, useful facts about the page. */
   facts?: HeadFact[];
+  /** full = fills the first screen, tall = most of it, short = fits its content. */
+  size?: "full" | "tall" | "short";
+  /** Put the photos on the left and the text on the right. */
+  flip?: boolean;
 }) {
   const shown = (photos ?? [])
     .slice(0, 2)
@@ -32,7 +38,7 @@ export default function PageHead({
   const bg = publicImage("hero");
   const bgSm = bg ? publicImage("hero-sm") : null;
   return (
-    <section className={`page-head${bg ? " page-head-photo" : ""}`}>
+    <section className={`page-head${bg ? ` page-head-photo ph-${size}${flip ? " ph-flip" : ""}` : ""}`}>
       {bg ? (
         <div className="ph-bg" aria-hidden="true">
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -97,7 +103,7 @@ export default function PageHead({
           </ul>
         </div>
       ) : null}
-      {bg ? <span className="ph-cue" aria-hidden="true" /> : null}
+      {bg && size !== "short" ? <span className="ph-cue" aria-hidden="true" /> : null}
     </section>
   );
 }

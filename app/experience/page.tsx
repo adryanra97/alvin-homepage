@@ -14,6 +14,8 @@ export default function ExperiencePage() {
   return (
     <>
       <PageHead
+        size="tall"
+        flip
         eyebrow="Experience"
         title="Work &"
         accent="study."

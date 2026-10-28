@@ -1010,3 +1010,14 @@ a.ph-fact:hover { background: rgba(255, 255, 255, .08); }
   .ph-facts li + li { border-left: 0; border-top: 1px solid rgba(255, 255, 255, .14); }
   .ph-fact { padding: 13px 16px; }
 }
+
+/* ---------- banner variants: different heights and a flipped layout ---------- */
+.page-head-photo.ph-tall { min-height: min(calc(100svh - 68px), 720px); min-height: min(calc(100vh - 68px), 720px); }
+.page-head-photo.ph-short { min-height: 0; padding: 48px 0 52px; }
+.page-head-photo.ph-short .page-head-grid .head-pair { height: 330px; }
+.page-head-photo.ph-short .page-head-grid .head-pol-2 { top: 60px; }
+@media (min-width: 701px) {
+  .page-head-photo.ph-flip .page-head-grid { grid-template-columns: 420px 1fr; }
+  .page-head-photo.ph-flip .page-head-grid > .head-pair { order: -1; justify-self: start; }
+  .page-head-photo.ph-flip .page-head-grid > div:not(.head-pair) { padding-left: 24px; }
+}

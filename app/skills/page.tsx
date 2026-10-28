@@ -15,6 +15,7 @@ export default function SkillsPage() {
   return (
     <>
       <PageHead
+        size="short"
         eyebrow="Skills"
         title="Tools &"
         accent="technologies."
