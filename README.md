@@ -62,7 +62,7 @@ Kalau nanti pakai domain sendiri, set env `NEXT_PUBLIC_SITE_URL` di Vercel.
 
 ## Photo credits
 
-`public/images/hero.jpg` (Bundaran HI, Jakarta) and `public/images/contact.jpg` (Jakarta skyline at night)
+`public/images/hero.jpg` (desk with laptop, notebook and tablet) and `public/images/contact.jpg` (Jakarta skyline at night)
 are free-to-use photos from [Pexels](https://www.pexels.com) (Pexels License, no attribution required).
 
 ## Blog
