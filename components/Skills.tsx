@@ -4,6 +4,8 @@ import { useRef, useState, type KeyboardEvent } from "react";
 import { skillGroups as allGroups, type SkillGroup } from "@/data/site";
 import SkillIcon from "./SkillIcon";
 
+const unit: Record<string, string> = { certs: "credentials", honors: "awards", languages: "languages" };
+
 export default function Skills({ groups = allGroups }: { groups?: SkillGroup[] }) {
   const [active, setActive] = useState(groups[0].id);
   const group = groups.find((g) => g.id === active) ?? groups[0];
@@ -46,7 +48,15 @@ export default function Skills({ groups = allGroups }: { groups?: SkillGroup[] }
           </button>
         ))}
       </div>
-      {group.blurb ? <p className="skills-blurb">{group.blurb}</p> : null}
+      <div className="panel-head">
+        <div>
+          <h3 className="panel-title">{group.label}</h3>
+          {group.blurb ? <p className="panel-blurb">{group.blurb}</p> : null}
+        </div>
+        <span className="panel-count">
+          {group.items.length} {unit[group.id] ?? "skills"}
+        </span>
+      </div>
       <div role="tabpanel" id={`panel-${uid}`} aria-labelledby={`tab-${uid}-${group.id}`} key={group.id}>
       <ul className={group.variant === "cert" ? "skill-grid cert-grid" : "skill-grid"}>
         {group.items.map((s) => (
