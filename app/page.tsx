@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, Download, MapPin, BarChart3, Building2, Users } from "lucide-react";
+import { ArrowRight, Download } from "lucide-react";
 import AboutBlock from "@/components/AboutBlock";
 import ExperienceTimeline from "@/components/ExperienceTimeline";
 import FeaturedProject from "@/components/FeaturedProject";
@@ -9,6 +9,12 @@ import { Icon, LinkedInIcon } from "@/components/icons";
 import { hero, profile, projects, skillGroups } from "@/data/site";
 import { publicImage } from "@/lib/images";
 import HeroCollage from "@/components/HeroCollage";
+
+const highlights = (years: number) => [
+  { value: `${years}+`, label: "years working with data and technology" },
+  { value: "6", label: "specialised AI agents in my flagship project" },
+  { value: "2", label: "bootcamp batches facilitated, plus jury duty" },
+];
 
 export default function Home() {
   const heroImg = publicImage("hero");
@@ -48,7 +54,7 @@ export default function Home() {
                 See what I&apos;ve built <ArrowRight size={16} />
               </Link>
               <a href="#contact" className="btn btn-outline">
-                Say hi
+                Let&apos;s collaborate
               </a>
             </div>
             {heroImg ? <p className="hero-quote">“{profile.tagline}”</p> : null}
@@ -97,39 +103,20 @@ export default function Home() {
         ) : null}
       </section>
 
-      {/* STATS */}
-      <section className="stats" aria-label="Summary">
+      {/* HIGHLIGHTS + COLLAB */}
+      <section className="stats" aria-label="Highlights">
         <div className="container stats-grid">
-          <div className="stat">
-            <Building2 size={26} />
-            <div>
-              <small>Currently at</small>
-              <strong>{profile.company}</strong>
+          {highlights(years).map((h) => (
+            <div className="stat" key={h.label}>
+              <strong className="stat-num">{h.value}</strong>
+              <span className="stat-label">{h.label}</span>
             </div>
-          </div>
-          <div className="stat">
-            <MapPin size={26} />
-            <div>
-              <small>Based in</small>
-              <strong>{profile.city}</strong>
-            </div>
-          </div>
-          <div className="stat">
-            <BarChart3 size={26} />
-            <div>
-              <small>
-                <b className="big">{years}+</b>
-              </small>
-              <strong>Years of Experience</strong>
-            </div>
-          </div>
-          <div className="stat">
-            <Users size={26} />
-            <div>
-              <small>Focus Area</small>
-              <strong>Data · AI · Governance</strong>
-            </div>
-          </div>
+          ))}
+          <a href="#contact" className="stat stat-cta">
+            <span className="stat-cta-eyebrow">Open to collaboration</span>
+            <strong>Got an idea or a project? Let&apos;s talk.</strong>
+            <ArrowRight size={20} className="stat-cta-arrow" />
+          </a>
         </div>
       </section>
 

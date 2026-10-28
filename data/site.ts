@@ -39,7 +39,7 @@ export const hero = {
   titleAccent: "Alvin.",
   subline: "Adryan Rizky Alviano · Data Scientist at Telkom Indonesia",
   intro:
-    "I turn complex data into practical solutions with Generative AI, LLMs and agentic workflows. I'm also a Master of IT student at Universitas Indonesia, and I like learning out loud.",
+    "I turn complex data into practical solutions with Generative AI, LLMs and agentic workflows. I'm also a Master of IT student at Universitas Indonesia, and I like learning out loud. Always happy to collaborate.",
   infoCards: [
     { icon: "graduation", title: "Master of Information Technology", sub: "Universitas Indonesia · Ongoing" },
     { icon: "graduation", title: "Mechanical Engineering", sub: "Universitas Indonesia · Cum Laude" },

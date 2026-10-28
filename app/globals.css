@@ -173,14 +173,27 @@ h2 { font-size: clamp(1.8rem, 3.4vw, 2.5rem); line-height: 1.12; font-weight: 80
 .info-card strong { display: block; font-size: 0.8rem; color: var(--text); line-height: 1.3; }
 .info-card span { display: block; font-size: 0.7rem; color: var(--muted); line-height: 1.4; }
 
-/* ---------- stats ---------- */
+/* ---------- highlights + collaboration band ---------- */
 .stats { background: var(--surface); border-block: 1px solid var(--border); position: relative; z-index: 2; }
-.stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); }
-.stat { display: flex; align-items: center; gap: 16px; padding: 26px 28px; color: var(--accent-blue); }
+.stats-grid { display: grid; grid-template-columns: 1fr 1fr 1fr 1.25fr; }
+.stat { display: flex; flex-direction: column; justify-content: center; gap: 6px; padding: 34px 28px; }
 .stat + .stat { border-left: 1px solid var(--border); }
-.stat small { display: block; font-size: 0.72rem; color: var(--muted); }
-.stat strong { display: block; font-size: 0.92rem; color: var(--text); font-weight: 700; }
-.stat .big { font-size: 1.15rem; color: var(--text); font-weight: 800; }
+.stat-num {
+  font-family: var(--font-display, inherit); font-size: clamp(2.4rem, 4.2vw, 3.3rem); font-weight: 800; line-height: 1; letter-spacing: -0.03em;
+  background: linear-gradient(135deg, var(--primary), var(--accent-blue)); -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+:root[data-theme="dark"] .stat-num { background: linear-gradient(135deg, #fff, var(--accent-blue)); -webkit-background-clip: text; background-clip: text; }
+.stat-label { font-size: 0.85rem; color: var(--muted); line-height: 1.4; max-width: 22ch; }
+.stat-cta {
+  position: relative; color: #fff; text-decoration: none; border-left: 0 !important; overflow: hidden;
+  background: linear-gradient(135deg, var(--primary) 0%, #123d7a 100%); transition: filter .2s;
+}
+.stat-cta::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 5px; background: var(--accent-red); }
+.stat-cta:hover { filter: brightness(1.12); }
+.stat-cta-eyebrow { font-size: 0.7rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #8fc1ff; }
+.stat-cta strong { font-size: 1.05rem; line-height: 1.35; color: #fff; padding-right: 36px; }
+.stat-cta-arrow { position: absolute; right: 24px; bottom: 30px; transition: transform .2s; }
+.stat-cta:hover .stat-cta-arrow { transform: translateX(4px); }
 
 /* ---------- about ---------- */
 .about-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 56px; align-items: center; }
@@ -334,9 +347,9 @@ h2 { font-size: clamp(1.8rem, 3.4vw, 2.5rem); line-height: 1.12; font-weight: 80
   .hero-copy { padding-bottom: 10px; }
   .hero-art { margin-right: 0; height: 440px; }
   .contact-art { margin-right: 0; }
-  .stats-grid { grid-template-columns: repeat(2, 1fr); }
-  .stat:nth-child(3) { border-left: 0; }
-  .stat:nth-child(n + 3) { border-top: 1px solid var(--border); }
+  .stats-grid { grid-template-columns: repeat(3, 1fr); }
+  .stat-cta { grid-column: 1 / -1; }
+  .stat { padding: 26px 20px; }
   .proj-card { grid-template-columns: 1fr; }
   .skill-grid { grid-template-columns: repeat(3, 1fr); }
 }
@@ -368,7 +381,10 @@ h2 { font-size: clamp(1.8rem, 3.4vw, 2.5rem); line-height: 1.12; font-weight: 80
   .tl-meta { grid-column: 2; text-align: left; }
   .skill-grid { grid-template-columns: repeat(2, 1fr); }
   .stats-grid { grid-template-columns: 1fr; }
+  .stat { flex-direction: row; align-items: center; gap: 16px; padding: 20px 16px; }
   .stat + .stat { border-left: 0; border-top: 1px solid var(--border); }
+  .stat-num { min-width: 64px; }
+  .stat-cta { flex-direction: column; align-items: flex-start; gap: 6px; }
   .footer-inner { flex-direction: column; align-items: flex-start; }
   .copy { text-align: left; }
   .contact-art { height: 200px; }
@@ -465,6 +481,7 @@ main:focus { outline: none; }
 .hero-photo::before { display: none; }
 .hero-bg, .contact-bg { position: absolute; inset: 0; z-index: 0; }
 .hero-bg img, .contact-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 35%; display: block; }
+.hero-bg img { object-position: 50% 8%; }
 .contact-bg img { object-position: center 55%; filter: brightness(1.35) contrast(1.05); }
 .hero-bg::after {
   content: ""; position: absolute; inset: 0;
