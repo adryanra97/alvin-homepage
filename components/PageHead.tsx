@@ -1,7 +1,9 @@
+import Link from "next/link";
 import type { ReactNode } from "react";
 import { publicImage } from "@/lib/images";
 
 type Photo = { name: string; caption: string; alt: string };
+export type HeadFact = { label: string; title: string; sub?: string; href?: string };
 
 export default function PageHead({
   eyebrow,
@@ -10,6 +12,7 @@ export default function PageHead({
   intro,
   note,
   photos,
+  facts,
 }: {
   eyebrow: string;
   title: ReactNode;
@@ -19,6 +22,8 @@ export default function PageHead({
   note?: string;
   /** Up to two polaroid-style photos on the right (files in /public/images). */
   photos?: Photo[];
+  /** Glass info strip at the bottom of the banner: quick, useful facts about the page. */
+  facts?: HeadFact[];
 }) {
   const shown = (photos ?? [])
     .slice(0, 2)
@@ -57,6 +62,41 @@ export default function PageHead({
           </div>
         ) : null}
       </div>
+      {bg && facts?.length ? (
+        <div className="container">
+          <ul className="ph-facts" style={{ ["--n" as string]: facts.length }}>
+            {facts.map((f) => {
+              const body = (
+                <>
+                  <span className="ph-fact-label">{f.label}</span>
+                  <strong>{f.title}</strong>
+                  {f.sub ? <span className="ph-fact-sub">{f.sub}</span> : null}
+                </>
+              );
+              const external = f.href?.startsWith("http");
+              return (
+                <li key={f.label + f.title}>
+                  {!f.href ? (
+                    <div className="ph-fact">{body}</div>
+                  ) : external ? (
+                    <a className="ph-fact" href={f.href} target="_blank" rel="noopener noreferrer">
+                      {body}
+                    </a>
+                  ) : f.href.startsWith("#") || f.href.endsWith(".xml") ? (
+                    <a className="ph-fact" href={f.href}>
+                      {body}
+                    </a>
+                  ) : (
+                    <Link className="ph-fact" href={f.href}>
+                      {body}
+                    </Link>
+                  )}
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      ) : null}
       {bg ? <span className="ph-cue" aria-hidden="true" /> : null}
     </section>
   );

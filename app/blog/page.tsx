@@ -17,6 +17,24 @@ export default function BlogPage() {
         title="Notes from"
         accent="my notebook."
         intro="Short write-ups on what I build and learn, plus a little about who I am outside work."
+        facts={
+          publishedPosts.length
+            ? [
+                {
+                  label: "Latest",
+                  title: publishedPosts[0].title,
+                  sub: `${formatDate(publishedPosts[0].date)} · ${readingMinutes(publishedPosts[0])} min read`,
+                  href: `/blog/${publishedPosts[0].slug}`,
+                },
+                {
+                  label: "Topics",
+                  title: Array.from(new Set(publishedPosts.flatMap((p) => p.tags))).map((t) => `#${t}`).join(" "),
+                  sub: `${publishedPosts.length} ${publishedPosts.length === 1 ? "post" : "posts"} so far`,
+                },
+                { label: "Subscribe", title: "RSS feed", sub: "Get new posts in your reader", href: "/feed.xml" },
+              ]
+            : undefined
+        }
       />
       <section className="section section-tight">
         <div className="container post-list">

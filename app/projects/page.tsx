@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import PageHead from "@/components/PageHead";
 import ProjectCard from "@/components/ProjectCard";
-import { pageIntros, projects } from "@/data/site";
+import { pageIntros, profile, projects } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Projects",
@@ -20,6 +20,12 @@ export default function ProjectsPage() {
         intro={pageIntros.projects.intro}
         note={pageIntros.projects.note}
         photos={pageIntros.projects.photos}
+        facts={[
+          { label: "Live", title: projects[0].title, sub: projects[0].category, href: `/projects/${projects[0].slug}` },
+          { label: "Open source", title: "MIT licence", sub: "Read the code on GitHub", href: projects[0].repo },
+          { label: "Built with", title: "LangGraph · FastAPI · Next.js", sub: "Python backend, deployed on Vercel" },
+          { label: "Next up", title: "More on the way", sub: "New projects land on GitHub first", href: profile.links.github },
+        ]}
       />
       <section className="section section-tight">
         <div className="container proj-list">
