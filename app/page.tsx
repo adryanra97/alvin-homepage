@@ -160,7 +160,7 @@ export default function Home() {
                 From ideas to <span className="accent-light">real solutions.</span>
               </h2>
               <p className="body-text light">
-                What I build to learn, and to solve real problems with data and AI.
+                What I build to learn, and to solve real problems with AI, grounded in data and told as stories.
               </p>
             </div>
             <Link href="/projects" className="btn btn-outline-light">

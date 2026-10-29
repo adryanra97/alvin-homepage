@@ -30,16 +30,16 @@ export const profile = {
     credly: "https://www.credly.com/users/adryan-rizky-alviano/badges",
   },
   description:
-    "Adryan Rizky Alviano — AI & Big Data professional and Data Scientist at Telkom Indonesia. Generative AI, LLMs, Agentic AI, Data Governance, and responsible AI aligned with UU PDP. Master of Information Technology student at Universitas Indonesia.",
+    "Adryan Rizky Alviano — AI & Big Data professional and Data Scientist at Telkom Indonesia. Generative AI, LLMs, Agentic AI and responsible AI aligned with UU PDP, grounded in data and told as stories. Master of Information Technology student at Universitas Indonesia.",
 };
 
 export const hero = {
-  eyebrow: ["Data", "AI", "People"],
+  eyebrow: ["AI", "Data", "Stories"],
   titleLead: "Hi, I'm",
   titleAccent: "Alvin.",
   subline: "Adryan Rizky Alviano · Data Scientist at Telkom Indonesia",
   intro:
-    "I turn complex data into practical solutions with Generative AI, LLMs and agentic workflows. I'm also a Master of IT student at Universitas Indonesia, and I like learning out loud. Always happy to collaborate.",
+    "I build with Generative AI, LLMs and agentic workflows, grounded in solid data and told as stories people can trust. I'm also a Master of IT student at Universitas Indonesia, and I like learning out loud. Always happy to collaborate.",
   infoCards: [
     { icon: "graduation", title: "Master of Information Technology", sub: "Universitas Indonesia · Ongoing" },
     { icon: "graduation", title: "Mechanical Engineering", sub: "Universitas Indonesia · Cum Laude" },
@@ -255,13 +255,13 @@ export const projects: Project[] = [
     title: "Jakarta, 730 Hari",
     featured: true,
     category: "Data storytelling · News analytics",
-    tagline: "An interactive data film about two years of Jakarta in the news.",
+    tagline: "An AI-assisted data film about two years of Jakarta in the news.",
     description:
       "A seven-scene data film built on 690,828 news articles from November 2024 to October 2026. It shows which issues dominated, when attention rose and faded, and how confident each finding is, backed by a pipeline that collects, cleans, labels and tests the data.",
     status: "Live · interactive data film",
     year: "2026",
     role: "Author & developer",
-    tags: ["Data storytelling", "NLP", "LangGraph", "PostgreSQL", "Elasticsearch", "Next.js"],
+    tags: ["Multi-agent AI", "LLM review", "Data storytelling", "NLP", "LangGraph", "PostgreSQL"],
     url: "https://jakarta730.adryanrizkyalviano.me/en/",
     cover: `${JK}/story-map.webp`,
     cover2: `${JK}/story-dashboard.webp`,
@@ -320,6 +320,7 @@ export const projects: Project[] = [
     limits: [
       "The film measures news coverage, not the city's actual condition.",
       "Missing is not zero: two weeks in June 2025 are absent from the snapshot and shown as gaps.",
+      "“730 days” is the film's name for about two years; the data itself spans 102 weeks, from November 2024 to October 2026.",
       "Topic, tone and entity labels are model output until checked against human-labelled examples.",
       "International outlets are a small share of the sample.",
     ],

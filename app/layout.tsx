@@ -12,7 +12,7 @@ import { profile } from "@/data/site";
 import { siteUrl } from "@/lib/site-url";
 
 
-const title = `${profile.name} (${profile.nickname}) — Data, AI & Technology`;
+const title = `${profile.name} (${profile.nickname}) — AI, Data & Storytelling`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -51,9 +51,9 @@ export const metadata: Metadata = {
     title,
     description: profile.description,
     siteName: profile.name,
-    locale: "id_ID",
+    locale: "en_US",
   },
-  twitter: { card: "summary", title, description: profile.description },
+  twitter: { card: "summary_large_image", title, description: profile.description },
   robots: { index: true, follow: true },
 };
 

@@ -61,7 +61,7 @@ export default function PageHead({
             {shown.map((p, i) => (
               <figure key={p.name} className={`polaroid head-pol head-pol-${i + 1}`}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={p.src} alt={p.alt} />
+                <img src={p.src.endsWith(".webp") ? p.src.replace(/\.webp$/, "-sm.webp") : p.src} srcSet={p.src.endsWith(".webp") ? `${p.src.replace(/\.webp$/, "-sm.webp")} 420w, ${p.src} 900w` : undefined} sizes="240px" alt={p.alt} />
                 <figcaption className="pol-cap">{p.caption}</figcaption>
               </figure>
             ))}

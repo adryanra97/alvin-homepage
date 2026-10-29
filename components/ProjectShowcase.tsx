@@ -70,7 +70,7 @@ export default function ProjectShowcase() {
           <p className="pj-found-label">More projects</p>
           {others.map((o) => (
             <Link key={o.slug} href={`/projects/${o.slug}`} className="pj-other" data-spot>
-              <BrowserFrame src={o.cover} alt={`${o.title}: preview`} className="pj-other-img" />
+              <BrowserFrame src={o.cover} alt={`${o.title}: preview`} className="pj-other-img" sizes="150px" />
               <span className="pj-other-text">
                 <small>{o.category}</small>
                 <strong>{o.title}</strong>
