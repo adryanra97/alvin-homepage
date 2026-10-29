@@ -108,7 +108,7 @@ export default function Home() {
         <div className="container stats-grid">
           {highlights(years).map((h) => (
             <div className="stat" key={h.label}>
-              <strong className="stat-num">{h.value}</strong>
+              <strong className="stat-num" data-count>{h.value}</strong>
               <span className="stat-label">{h.label}</span>
             </div>
           ))}

@@ -12,7 +12,7 @@ export default function SkillsBento() {
         const items = h.items.map((n) => all.find((s) => s.name === n)).filter(Boolean) as typeof all;
         const showIcons = h.id === "technical";
         return (
-          <article key={h.id} className={`bento-card bento-${h.id}`}>
+          <article key={h.id} className={`bento-card bento-${h.id}`} data-spot>
             <h3>{h.title}</h3>
             <p>{h.text}</p>
             {showIcons ? (

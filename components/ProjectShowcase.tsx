@@ -12,7 +12,8 @@ export default function ProjectShowcase() {
   return (
     <>
       <div className="pj-stage">
-        <div className="pj-visual">
+        <div className="pj-visual" data-tilt>
+          <Link href={`/projects/${p.slug}`} className="pj-visual-link" tabIndex={-1} aria-hidden="true" data-cue="View case study" />
           <BrowserFrame src={p.cover} alt={p.copy?.coverAlt ?? `${p.title}: overview`} className="pj-main" />
           {p.cover2 ? <BrowserFrame src={p.cover2} alt={`${p.title}: second screen`} className="pj-second" /> : null}
         </div>
@@ -28,7 +29,7 @@ export default function ProjectShowcase() {
           <ul className="pj-stats">
             {p.stats.map((s) => (
               <li key={s.label}>
-                <strong>{s.value}</strong>
+                <strong data-count>{s.value}</strong>
                 <span>{s.label}</span>
               </li>
             ))}
@@ -54,8 +55,8 @@ export default function ProjectShowcase() {
           <p className="pj-found-label">What the film found</p>
           <ul>
             {teaser.map((f) => (
-              <li key={f.title}>
-                <strong>{f.value}</strong>
+              <li key={f.title} data-spot>
+                <strong data-count>{f.value}</strong>
                 <span>{f.title}</span>
                 <em className={`pj-conf conf-${f.confidence.toLowerCase()}`}>{f.confidence} confidence</em>
               </li>
@@ -68,7 +69,7 @@ export default function ProjectShowcase() {
         <div className="pj-others">
           <p className="pj-found-label">More projects</p>
           {others.map((o) => (
-            <Link key={o.slug} href={`/projects/${o.slug}`} className="pj-other">
+            <Link key={o.slug} href={`/projects/${o.slug}`} className="pj-other" data-spot>
               <BrowserFrame src={o.cover} alt={`${o.title}: preview`} className="pj-other-img" />
               <span className="pj-other-text">
                 <small>{o.category}</small>

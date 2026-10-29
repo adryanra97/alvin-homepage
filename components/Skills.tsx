@@ -60,7 +60,7 @@ export default function Skills({ groups = allGroups }: { groups?: SkillGroup[] }
       <div role="tabpanel" id={`panel-${uid}`} aria-labelledby={`tab-${uid}-${group.id}`} key={group.id}>
       <ul className={group.variant === "cert" ? "skill-grid cert-grid" : "skill-grid"}>
         {group.items.map((s) => (
-          <li key={s.name} className={group.variant === "cert" ? "skill-card cert-card" : "skill-card"}>
+          <li key={s.name} className={group.variant === "cert" ? "skill-card cert-card" : "skill-card"} data-spot>
             <span className="skill-ico">
               <SkillIcon
                 name={s.name}
