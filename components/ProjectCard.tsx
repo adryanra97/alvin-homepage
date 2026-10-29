@@ -6,7 +6,6 @@ import { GitHubIcon } from "./icons";
 
 /** Kartu showcase proyek untuk /projects: visual besar, angka kunci, satu aksi utama yang jelas. */
 export default function ProjectCard({ project: p, priority = false }: { project: Project; priority?: boolean }) {
-  const host = p.url.replace(/^https?:\/\//, "").replace(/\/$/, "");
   return (
     <article className="sc">
       <div className="sc-copy">
@@ -42,7 +41,7 @@ export default function ProjectCard({ project: p, priority = false }: { project:
             Read the case study <ArrowRight size={16} />
           </span>
           <a href={p.url} target="_blank" rel="noopener noreferrer" className="link-ghost sc-ext">
-            Live demo <ArrowUpRight size={14} />
+            {p.copy?.demoLabel ? "Watch it live" : "Live demo"} <ArrowUpRight size={14} />
           </a>
           {p.repo ? (
             <a href={p.repo} target="_blank" rel="noopener noreferrer" className="link-ghost sc-ext">
@@ -55,13 +54,13 @@ export default function ProjectCard({ project: p, priority = false }: { project:
       <div className="sc-visual" aria-hidden="false">
         <BrowserFrame
           src={p.cover}
-          alt={`${p.title}: FTE summary screen`}
-          label={host}
+          alt={p.copy?.coverAlt ?? `${p.title}: FTE summary screen`}
+         
           priority={priority}
           className="sc-main"
         />
         {p.cover2 ? (
-          <BrowserFrame src={p.cover2} alt={`${p.title}: monthly effort chart`} className="sc-second" />
+          <BrowserFrame src={p.cover2} alt={`${p.title}: second screen`} className="sc-second" />
         ) : null}
       </div>
     </article>

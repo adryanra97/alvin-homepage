@@ -21,10 +21,12 @@ export default function ProjectsPage() {
         note={pageIntros.projects.note}
         photos={pageIntros.projects.photos}
         facts={[
-          { label: "Live", title: projects[0].title, sub: projects[0].category, href: `/projects/${projects[0].slug}` },
-          { label: "Open source", title: "MIT licence", sub: "Read the code on GitHub", href: projects[0].repo },
-          { label: "Built with", title: "LangGraph · FastAPI · Next.js", sub: "Python backend, deployed on Vercel" },
-          { label: "Next up", title: "More on the way", sub: "New projects land on GitHub first", href: profile.links.github },
+          { label: "Featured", title: projects[0].title, sub: projects[0].category, href: `/projects/${projects[0].slug}` },
+          ...(projects[1] ? [{ label: "Also live", title: projects[1].title, sub: projects[1].category, href: `/projects/${projects[1].slug}` }] : []),
+          ...(projects.find((x) => x.repo)
+            ? [{ label: "Open source", title: `${projects.find((x) => x.repo)!.title}`, sub: "MIT licence, code on GitHub", href: projects.find((x) => x.repo)!.repo }]
+            : []),
+          { label: "Next up", title: "More on the way", sub: "Follow along on GitHub", href: profile.links.github },
         ]}
       />
       <section className="section section-tight">

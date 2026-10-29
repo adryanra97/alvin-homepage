@@ -7,7 +7,6 @@ export default function ProjectPreview({ project, priority = false }: { project:
     <BrowserFrame
       src={project.cover}
       alt={`${project.title}: tampilan ringkasan hasil`}
-      label={project.url.replace(/^https?:\/\//, "").replace(/\/$/, "")}
       priority={priority}
     />
   );

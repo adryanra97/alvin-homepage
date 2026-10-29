@@ -1021,3 +1021,37 @@ a.ph-fact:hover { background: rgba(255, 255, 255, .08); }
   .page-head-photo.ph-flip .page-head-grid > .head-pair { order: -1; justify-self: start; }
   .page-head-photo.ph-flip .page-head-grid > div:not(.head-pair) { padding-left: 24px; }
 }
+
+/* ---------- case study: findings + limits ---------- */
+.cs-findings { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.cs-findings .cs-card { display: flex; flex-direction: column; gap: 8px; }
+.cs-findings h3 { font-size: 1rem; line-height: 1.35; margin: 0; }
+.cs-findings p { margin: 0; color: var(--muted); font-size: .9rem; line-height: 1.5; }
+.cs-fval { font-family: var(--font-display); font-size: 2.6rem; line-height: 1; letter-spacing: -.03em; color: var(--accent-blue); }
+.cs-conf { align-self: flex-start; font-size: .68rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 4px 10px; border-radius: 999px; border: 1px solid currentColor; }
+.conf-high { color: #1a7f4b; } .conf-medium { color: #a86a00; } .conf-low { color: #b23a3a; }
+:root[data-theme="dark"] .conf-high { color: #5fd29a; } :root[data-theme="dark"] .conf-medium { color: #f2b95c; } :root[data-theme="dark"] .conf-low { color: #ff8f8f; }
+.cs-limits { padding: 24px 26px; border-radius: 18px; border: 1px dashed var(--border); background: color-mix(in srgb, var(--surface) 70%, transparent); }
+.cs-limits h3 { margin: 0 0 10px; font-size: 1.05rem; }
+@media (max-width: 900px) { .cs-findings { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 560px) { .cs-findings { grid-template-columns: 1fr; } }
+
+/* ---------- home: findings teaser + other projects ---------- */
+.pj-found { margin-top: 36px; }
+.pj-found-label { margin: 0 0 12px; font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #8fc1ff; }
+.pj-found ul { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.pj-found li { display: grid; gap: 6px; align-content: start; padding: 18px 20px; border-radius: 16px; background: rgba(255, 255, 255, .06); border: 1px solid rgba(255, 255, 255, .12); }
+.pj-found li strong { font-family: var(--font-display); font-size: 2.2rem; line-height: 1; color: #fff; letter-spacing: -.03em; }
+.pj-found li span { font-size: .9rem; line-height: 1.4; color: #dbe5f7; }
+.pj-conf { font-style: normal; font-size: .66rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+.projects .conf-high { color: #5fd29a; } .projects .conf-medium { color: #f2b95c; } .projects .conf-low { color: #ff8f8f; }
+.pj-others { margin-top: 32px; }
+.pj-other { display: grid; grid-template-columns: 150px 1fr auto; gap: 20px; align-items: center; padding: 14px 20px 14px 14px; border-radius: 16px; border: 1px solid rgba(255, 255, 255, .14); color: #fff; text-decoration: none; transition: background-color .2s, border-color .2s; }
+.pj-other:hover { background: rgba(255, 255, 255, .07); border-color: rgba(255, 255, 255, .35); }
+.pj-other-img { pointer-events: none; }
+.pj-other-text { display: grid; gap: 3px; }
+.pj-other-text small { font-size: .7rem; letter-spacing: .1em; text-transform: uppercase; color: #8fc1ff; font-weight: 700; }
+.pj-other-text strong { font-size: 1.1rem; }
+.pj-other-text span { font-size: .88rem; color: #c3d0e8; }
+@media (max-width: 900px) { .pj-found ul { grid-template-columns: 1fr; } }
+@media (max-width: 560px) { .pj-other { grid-template-columns: 96px 1fr; } .pj-other > svg { display: none; } }

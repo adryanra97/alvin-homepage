@@ -5,7 +5,7 @@ import type { ProjectShot } from "@/data/site";
 import BrowserFrame from "./BrowserFrame";
 
 /** Galeri screenshot: tab yang dikontrol pengunjung (tanpa auto-play), caption menjelaskan tiap layar. */
-export default function ShotGallery({ shots, host }: { shots: ProjectShot[]; host: string }) {
+export default function ShotGallery({ shots }: { shots: ProjectShot[] }) {
   const [i, setI] = useState(0);
   const refs = useRef<(HTMLButtonElement | null)[]>([]);
   const warm = (n: number) => {
@@ -51,7 +51,7 @@ export default function ShotGallery({ shots, host }: { shots: ProjectShot[]; hos
       </div>
 
       <div id="shot-panel" role="tabpanel" aria-labelledby={`shot-tab-${i}`} className="gal-panel">
-        <BrowserFrame key={cur.src} src={cur.src} alt={`${cur.title} screen`} label={host} className="gal-frame" />
+        <BrowserFrame key={cur.src} src={cur.src} alt={`${cur.title} screen`} className="gal-frame" />
         <div className="gal-cap">
           <strong>
             {i + 1}/{shots.length} · {cur.title}

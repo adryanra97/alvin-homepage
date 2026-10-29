@@ -1,22 +1,20 @@
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
-import { GitHubIcon } from "./icons";
-import { profile, projects } from "@/data/site";
+import { projects } from "@/data/site";
 import BrowserFrame from "./BrowserFrame";
 
-/** Showcase proyek unggulan di Home: visual besar, angka kunci, dan ajakan ke GitHub. */
+/** Showcase proyek unggulan di Home: visual besar, angka kunci, temuan utama, dan proyek lain sebagai kartu kecil. */
 export default function ProjectShowcase() {
   const p = projects.find((x) => x.featured) ?? projects[0];
   if (!p) return null;
-  const host = p.url.replace(/^https?:\/\//, "").replace(/\/$/, "");
+  const others = projects.filter((x) => x.slug !== p.slug);
+  const teaser = p.findings?.slice(0, 3) ?? [];
   return (
     <>
       <div className="pj-stage">
         <div className="pj-visual">
-          <BrowserFrame src={p.cover} alt={`${p.title}: results overview`} label={host} className="pj-main" />
-          {p.cover2 ? (
-            <BrowserFrame src={p.cover2} alt={`${p.title}: monthly view`} className="pj-second" />
-          ) : null}
+          <BrowserFrame src={p.cover} alt={p.copy?.coverAlt ?? `${p.title}: overview`} className="pj-main" />
+          {p.cover2 ? <BrowserFrame src={p.cover2} alt={`${p.title}: second screen`} className="pj-second" /> : null}
         </div>
         <div className="pj-info">
           <div className="pj-top">
@@ -41,22 +39,47 @@ export default function ProjectShowcase() {
             ))}
           </ul>
           <div className="proj-links">
-            <Link href={`/projects/${p.slug}`} className="btn btn-light">
+            <a href={p.url} target="_blank" rel="noopener noreferrer" className="btn btn-light">
+              {p.copy?.demoLabel ?? "Live demo"} <ArrowUpRight size={16} />
+            </a>
+            <Link href={`/projects/${p.slug}`} className="link-arrow">
               Read the case study <ArrowRight size={16} />
             </Link>
-            <a href={p.url} target="_blank" rel="noopener noreferrer" className="link-ghost">
-              Live demo <ArrowUpRight size={14} />
-            </a>
           </div>
         </div>
       </div>
-      <a href={profile.links.github} target="_blank" rel="noopener noreferrer" className="pj-more">
-        <GitHubIcon size={18} />
-        <span>
-          <strong>More experiments live on GitHub.</strong> New projects land there first.
-        </span>
-        <ArrowUpRight size={16} aria-hidden="true" />
-      </a>
+
+      {teaser.length ? (
+        <div className="pj-found">
+          <p className="pj-found-label">What the film found</p>
+          <ul>
+            {teaser.map((f) => (
+              <li key={f.title}>
+                <strong>{f.value}</strong>
+                <span>{f.title}</span>
+                <em className={`pj-conf conf-${f.confidence.toLowerCase()}`}>{f.confidence} confidence</em>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ) : null}
+
+      {others.length ? (
+        <div className="pj-others">
+          <p className="pj-found-label">More projects</p>
+          {others.map((o) => (
+            <Link key={o.slug} href={`/projects/${o.slug}`} className="pj-other">
+              <BrowserFrame src={o.cover} alt={`${o.title}: preview`} className="pj-other-img" />
+              <span className="pj-other-text">
+                <small>{o.category}</small>
+                <strong>{o.title}</strong>
+                <span>{o.tagline}</span>
+              </span>
+              <ArrowRight size={18} aria-hidden="true" />
+            </Link>
+          ))}
+        </div>
+      ) : null}
     </>
   );
 }

@@ -223,16 +223,227 @@ export type Project = {
   quality?: string[];
   privacy?: string[];
   docsNote?: string;
+  /** Headline findings (each with how confident it is) and what the project does not claim. */
+  findings?: { value: string; title: string; text: string; confidence: "High" | "Medium" | "Low" }[];
+  limits?: string[];
+  /** Pipeline shown as a flow above the agent cards. */
+  flow?: { label: string; note?: string; tone?: "loop" | "opt" }[];
+  /** Optional copy overrides for the case-study page; defaults suit the Talent Estimation Agent. */
+  copy?: {
+    demoLabel?: string;
+    coverAlt?: string;
+    galleryIntro?: string;
+    howTitle?: string;
+    methodsTitle?: string;
+    archTitle?: string;
+    archIntro?: string;
+    qualityTitle?: string;
+    qualityCard?: string;
+    privacyCard?: string;
+    ctaTitle?: string;
+    ctaText?: string;
+  };
 };
 
 const TEA = "/projects/talent-estimation-agent";
+const JK = "/projects/jakarta-730-hari";
 
 // >>> TAMBAH PROYEK BARU DI SINI (salin satu blok, ganti isinya). Halaman detailnya otomatis dibuat. <<<
 export const projects: Project[] = [
   {
+    slug: "jakarta-730-hari",
+    title: "Jakarta, 730 Hari",
+    featured: true,
+    category: "Data storytelling · News analytics",
+    tagline: "An interactive data film about two years of Jakarta in the news.",
+    description:
+      "A seven-scene data film built on 690,828 news articles from November 2024 to October 2026. It shows which issues dominated, when attention rose and faded, and how confident each finding is, backed by a pipeline that collects, cleans, labels and tests the data.",
+    status: "Live · interactive data film",
+    year: "2026",
+    role: "Author & developer",
+    tags: ["Data storytelling", "NLP", "LangGraph", "PostgreSQL", "Elasticsearch", "Next.js"],
+    url: "https://jakarta-730-hari.vercel.app/en/",
+    cover: `${JK}/story-map.webp`,
+    cover2: `${JK}/story-dashboard.webp`,
+    stats: [
+      { value: "690,828", label: "news articles analysed" },
+      { value: "102", label: "weeks, Nov 2024 to Oct 2026" },
+      { value: "7", label: "scenes in the film" },
+      { value: "8", label: "issues tracked" },
+    ],
+    problem:
+      "News about a city arrives as thousands of separate stories. Almost no one can see what dominated, when attention rose and faded, or who was asked to answer for it.",
+    approach:
+      "A pipeline collects and cleans the news, removes duplicates, labels issues, tone and actors, and tests each claim statistically. A static film then tells the result in seven scenes, where every dot stands for about 1,200 articles.",
+    principle: {
+      title: "Coverage is not reality.",
+      text: "More flood stories do not prove more floods, and a missing week is not a quiet week. The film measures what the media covered, shows gaps as gaps, and labels every finding with how confident it is.",
+    },
+    findings: [
+      {
+        value: "21%",
+        title: "of all Jakarta news in one week of March 2025 was about floods",
+        text: "20× the normal share, and the highest peak of any issue in two years.",
+        confidence: "High",
+      },
+      {
+        value: "1 wk",
+        title: "Media attention on floods halves within a week",
+        text: "Five of the six major floods follow this pattern.",
+        confidence: "High",
+      },
+      {
+        value: "51%",
+        title: "January 2026 was the darkest month",
+        text: "The highest share of negative-toned articles in 24 months.",
+        confidence: "High",
+      },
+      {
+        value: "+46%",
+        title: "Only public transport and crime grew convincingly",
+        text: "Share of coverage in year 2 versus year 1. Crime grew by 23%.",
+        confidence: "High",
+      },
+      {
+        value: "4.3×",
+        title: "Traffic stories are born from events at Monas and MRT works",
+        text: "Traffic and public-space stories appear together 4.3× more often than expected.",
+        confidence: "Medium",
+      },
+      {
+        value: "4.0×",
+        title: "Foreign media write 4× more about pollution",
+        text: "The foreign sample is small, so the direction is clear but the size is not.",
+        confidence: "Low",
+      },
+    ],
+    limits: [
+      "The film measures news coverage, not the city's actual condition.",
+      "Missing is not zero: two weeks in June 2025 are absent from the snapshot and shown as gaps.",
+      "Topic, tone and entity labels are model output until checked against human-labelled examples.",
+      "International outlets are a small share of the sample.",
+    ],
+    steps: [
+      {
+        title: "Collect and clean",
+        text: "RSS feeds, sitemaps and responsible crawling, with GDELT as a supplement. Duplicates are removed on three levels, from identical URLs to the same event told by different outlets.",
+      },
+      {
+        title: "Label and measure",
+        text: "Every article gets issues, tone and the actors involved. Ambiguous cases go to a language model for review, then statistics test which patterns are real.",
+      },
+      {
+        title: "Publish a snapshot",
+        text: "Checked results become a versioned snapshot. The site only reads that file, so it never crawls or calls a model while you watch.",
+      },
+    ],
+    shots: [
+      {
+        src: `${JK}/story-map.webp`,
+        title: "Scene 1 · Every dot is news",
+        caption:
+          "Jakarta as a map of dots, one per roughly 1,200 articles, filling in week by week. Orange weeks lean negative and blue weeks lean positive, with a live ticker of incoming headlines.",
+      },
+      {
+        src: `${JK}/story-dashboard.webp`,
+        title: "Scene 2 · The city's mood",
+        caption:
+          "A chapter at a time: tone of the city against normal, what moved it, the biggest surge of the month, and a timeline of the issues behind it.",
+      },
+      {
+        src: `${JK}/story-patterns.webp`,
+        title: "Scene 5 · Two years, two patterns",
+        caption:
+          "Which issues truly grew between year 1 and year 2, with 95% intervals, and which only flare up briefly. Colour means the change is convincing.",
+      },
+      {
+        src: `${JK}/epilogue.webp`,
+        title: "Epilogue · Six findings",
+        caption:
+          "The summary: each finding comes with its evidence, a number and a confidence label of High, Medium or Low, based on sample size and a statistical test.",
+      },
+      {
+        src: `${JK}/method.webp`,
+        title: "How the data works",
+        caption:
+          "A methodology page that walks through the eight stages from raw HTML to a verified story, so nothing in the film has to be taken on trust.",
+      },
+    ],
+    methods: [
+      {
+        title: "Three levels of de-duplication",
+        points: [
+          "Exact: SHA-256 hashes and canonical URLs.",
+          "Near-duplicate: MinHash with LSH over five-word shingles and estimated Jaccard similarity.",
+          "Shared event: multilingual-e5-base embeddings plus time, place and source context, to separate copies from independent coverage of one event.",
+        ],
+      },
+      {
+        title: "Two-stage labelling",
+        points: [
+          "Stage 1, local: GLiNER2 assigns issues, area relevance, sentiment and entities, with a confidence score and model version stored for every label.",
+          "Stage 2, review: ambiguous or high-impact cases escalate to a language model that answers in a validated, logged format.",
+          "Sentiment is scored per actor, so a resident's complaint and an official's reply in one story can differ.",
+        ],
+        note: "Escalation triggers: a top issue score below 0.60, a gap under 0.15 between the top two, uncertain location, or a major story covered by 10+ outlets.",
+      },
+    ],
+    flow: [
+      { label: "Scout" },
+      { label: "Crawler" },
+      { label: "Dedup" },
+      { label: "Classifier", note: "LLM review for unclear cases", tone: "loop" },
+      { label: "Analyst" },
+      { label: "Verifier" },
+      { label: "Publisher" },
+    ],
+    agents: [
+      { name: "Scout", kind: "Discovery", text: "Finds articles through RSS feeds, sitemaps and GDELT, strips tracking parameters and checks the queue before any fetch." },
+      { name: "Crawler", kind: "Rules + extraction", text: "Fetches within robots.txt, per-domain rate limits and paywall rules, then removes menus, ads and recommendations." },
+      { name: "Dedup", kind: "Hash + embeddings", text: "Separates duplicate copies from independent coverage of the same event." },
+      { name: "Classifier", kind: "NLP + LLM", text: "Runs GLiNER2 locally and escalates only the unclear or high-impact cases to a language model." },
+      { name: "Analyst", kind: "Statistics", text: "Issue share, surge detection, outlets per event, media half-life, co-occurrence and bootstrap intervals." },
+      { name: "Verifier", kind: "Quality gates", text: "Eight gates from source health to publishing. Failed extractions are flagged, never counted as zero." },
+      { name: "Publisher", kind: "Schema + review", text: "Validates the snapshot, opens a pull request for review, then ships it to the site." },
+    ],
+    stack: [
+      { label: "Discovery", value: "RSS · sitemaps · GDELT · httpx · Crawl4AI · Trafilatura" },
+      { label: "Orchestration", value: "LangGraph · Prefect · Langfuse" },
+      { label: "Storage", value: "PostgreSQL 16 with pgvector · Elasticsearch 8 · MinIO/S3" },
+      { label: "Models", value: "GLiNER2 · multilingual-e5 embeddings · a structured LLM for escalations" },
+      { label: "Delivery", value: "Pydantic validation · GitHub pull-request review · Next.js on Vercel" },
+    ],
+    quality: [
+      "Eight quality gates, from source health to publishing.",
+      "Every insight links back to article IDs; runs record stage counts, cost and model versions.",
+      "Missing weeks stay visible as gaps, and unsupported claims are not exported.",
+      "If the pipeline fails, the last published snapshot stays live.",
+      "Evaluation criteria were set up front: a 1,000-article human-labelled reference set. These are targets, not reported results.",
+    ],
+    privacy: [
+      "Crawlers follow robots.txt and keep to one request every two seconds per domain.",
+      "Paywalls and access rules are respected, and public excerpts are kept short.",
+      "Raw HTML is kept for 180 days, and headlines stay credited to their publishers.",
+      "An independent personal project, not an official government service.",
+    ],
+    copy: {
+      demoLabel: "Watch the film",
+      coverAlt: "Scene 1: Jakarta as a map of news dots",
+      galleryIntro: "real screens from the film. Pick a tab to see what each one shows.",
+      howTitle: "From raw news to a tested story",
+      methodsTitle: "How the labels are made",
+      archTitle: "Seven roles, one pipeline",
+      archIntro: "Only some roles use a language model. The rest are deterministic or classic NLP, which keeps model calls and cost low.",
+      qualityTitle: "Built to be audited, and honest about its limits",
+      qualityCard: "Quality gates",
+      privacyCard: "Responsible data",
+      ctaTitle: "Want to watch it?",
+      ctaText: "Press play, or step through the seven scenes yourself. Switch to EN for English.",
+    },
+  },
+  {
     slug: "talent-estimation-agent",
     title: "Talent Estimation Agent",
-    featured: true,
     category: "Agentic AI · Workforce planning",
     tagline: "Validate talent requests from a WBS, with numbers you can trace.",
     description:
@@ -349,6 +560,13 @@ export const projects: Project[] = [
         ],
         note: "Both methods run separately. When they agree within ±15% the figure is more reliable; when they differ, the Reviewer Agent re-checks the row.",
       },
+    ],
+    flow: [
+      { label: "Intake" },
+      { label: "Estimator" },
+      { label: "Reviewer", note: "re-judges up to 2×", tone: "loop" },
+      { label: "Augmentation", note: "optional", tone: "opt" },
+      { label: "Report" },
     ],
     agents: [
       { name: "Orchestrator", kind: "Code", text: "Controls scope, ordering, retries, review rounds and the run trace." },

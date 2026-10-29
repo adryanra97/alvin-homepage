@@ -25,8 +25,9 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   };
 }
 
-const NAV = [
+const NAV_BASE = [
   { id: "overview", label: "Overview" },
+  { id: "findings", label: "Findings", only: "findings" as const },
   { id: "walkthrough", label: "Walkthrough" },
   { id: "how", label: "How it works" },
   { id: "architecture", label: "Architecture" },
@@ -39,7 +40,8 @@ export default async function ProjectPage({ params }: { params: Promise<Params> 
   if (index === -1) notFound();
   const p = projects[index];
   const next = projects.length > 1 ? projects[(index + 1) % projects.length] : null;
-  const host = p.url.replace(/^https?:\/\//, "").replace(/\/$/, "");
+  const c = p.copy ?? {};
+  const NAV = NAV_BASE.filter((n) => !n.only || p.findings?.length);
 
   return (
     <article className="cs">
@@ -72,7 +74,7 @@ export default async function ProjectPage({ params }: { params: Promise<Params> 
 
           <div className="cs-cta">
             <a href={p.url} target="_blank" rel="noopener noreferrer" className="btn btn-light">
-              Try the live demo <ArrowUpRight size={16} />
+              {c.demoLabel ?? "Try the live demo"} <ArrowUpRight size={16} />
             </a>
             {p.repo ? (
               <a href={p.repo} target="_blank" rel="noopener noreferrer" className="btn btn-ghost-light">
@@ -81,7 +83,7 @@ export default async function ProjectPage({ params }: { params: Promise<Params> 
             ) : null}
           </div>
 
-          <BrowserFrame src={p.cover} alt={`${p.title}: FTE summary screen`} label={host} priority className="cs-cover" />
+          <BrowserFrame src={p.cover} alt={c.coverAlt ?? `${p.title}: FTE summary screen`} priority className="cs-cover" />
         </div>
       </header>
 
@@ -136,8 +138,45 @@ export default async function ProjectPage({ params }: { params: Promise<Params> 
         </div>
       </section>
 
+      {/* FINDINGS */}
+      {p.findings?.length ? (
+        <section id="findings" className="cs-sec cs-alt">
+          <div className="container">
+            <div className="cs-block">
+              <p className="eyebrow">
+                <span>Findings</span>
+              </p>
+              <h2>
+                Two years, <span className="accent">six findings.</span>
+              </h2>
+              <p className="body-text">Each finding is labelled with how confident it is, based on sample size and a statistical test.</p>
+            </div>
+            <ul className="cs-findings cs-block">
+              {p.findings.map((f) => (
+                <li key={f.title} className="cs-card">
+                  <span className={`cs-conf conf-${f.confidence.toLowerCase()}`}>{f.confidence} confidence</span>
+                  <strong className="cs-fval">{f.value}</strong>
+                  <h3>{f.title}</h3>
+                  <p>{f.text}</p>
+                </li>
+              ))}
+            </ul>
+            {p.limits?.length ? (
+              <div className="cs-limits cs-block">
+                <h3>What this does not claim</h3>
+                <ul className="cs-checks">
+                  {p.limits.map((l) => (
+                    <li key={l}>{l}</li>
+                  ))}
+                </ul>
+              </div>
+            ) : null}
+          </div>
+        </section>
+      ) : null}
+
       {/* WALKTHROUGH */}
-      <section id="walkthrough" className="cs-sec cs-alt">
+      <section id="walkthrough" className={`cs-sec${p.findings?.length ? "" : " cs-alt"}`}>
         <div className="container">
           <div className="cs-block">
             <p className="eyebrow">
@@ -147,11 +186,11 @@ export default async function ProjectPage({ params }: { params: Promise<Params> 
               Don&apos;t just read about it. <span className="accent">See each screen.</span>
             </h2>
             <p className="body-text">
-              {p.shots.length} real screens from the app. Pick a tab to see what each one is for.
+              {p.shots.length} {c.galleryIntro ?? "real screens from the app. Pick a tab to see what each one is for."}
             </p>
           </div>
           <div className="cs-block">
-            <ShotGallery shots={p.shots} host={host} />
+            <ShotGallery shots={p.shots} />
           </div>
         </div>
       </section>
@@ -163,7 +202,7 @@ export default async function ProjectPage({ params }: { params: Promise<Params> 
             <p className="eyebrow">
               <span>How it works</span>
             </p>
-            <h2>Three steps for the user, rules you can read</h2>
+            <h2>{c.howTitle ?? "Three steps for the user, rules you can read"}</h2>
           </div>
           <ol className="cs-steps cs-block">
             {p.steps.map((s, n) => (
@@ -177,7 +216,7 @@ export default async function ProjectPage({ params }: { params: Promise<Params> 
 
           {p.methods?.length ? (
             <>
-              <h3 className="cs-sub cs-block">How the numbers are calculated</h3>
+              <h3 className="cs-sub cs-block">{c.methodsTitle ?? "How the numbers are calculated"}</h3>
               <div className="cs-two cs-block">
                 {p.methods.map((m) => (
                   <div key={m.title} className="cs-card cs-method">
@@ -204,18 +243,18 @@ export default async function ProjectPage({ params }: { params: Promise<Params> 
               <p className="eyebrow">
                 <span>Architecture</span>
               </p>
-              <h2>Six agents, each with one job</h2>
+              <h2>{c.archTitle ?? "Six agents, each with one job"}</h2>
               <p className="body-text">
-                Every language-model step has a rule-based fallback, which also powers the demo mode and the tests.
+                {c.archIntro ?? "Every language-model step has a rule-based fallback, which also powers the demo mode and the tests."}
               </p>
             </div>
 
             <ol className="cs-flow cs-block" aria-label="Agent pipeline">
-              <li>Intake</li>
-              <li>Estimator</li>
-              <li className="loop">Reviewer <em>re-judges up to 2×</em></li>
-              <li className="opt">Augmentation <em>optional</em></li>
-              <li>Report</li>
+              {(p.flow ?? []).map((f) => (
+                <li key={f.label} className={f.tone}>
+                  {f.label} {f.note ? <em>{f.note}</em> : null}
+                </li>
+              ))}
             </ol>
 
             <ul className="cs-agents cs-block">
@@ -253,13 +292,13 @@ export default async function ProjectPage({ params }: { params: Promise<Params> 
               <p className="eyebrow">
                 <span>Quality &amp; privacy</span>
               </p>
-              <h2>Built to be checked, and to forget</h2>
+              <h2>{c.qualityTitle ?? "Built to be checked, and to forget"}</h2>
             </div>
             <div className="cs-two cs-block">
               {p.quality?.length ? (
                 <div className="cs-card">
                   <Check size={22} aria-hidden="true" />
-                  <h3>Checked on every push</h3>
+                  <h3>{c.qualityCard ?? "Checked on every push"}</h3>
                   <ul className="cs-checks">
                     {p.quality.map((q) => (
                       <li key={q}>{q}</li>
@@ -271,7 +310,7 @@ export default async function ProjectPage({ params }: { params: Promise<Params> 
               {p.privacy?.length ? (
                 <div className="cs-card">
                   <ShieldCheck size={22} aria-hidden="true" />
-                  <h3>Privacy by design</h3>
+                  <h3>{c.privacyCard ?? "Privacy by design"}</h3>
                   <ul className="cs-checks">
                     {p.privacy.map((q) => (
                       <li key={q}>{q}</li>
@@ -287,11 +326,11 @@ export default async function ProjectPage({ params }: { params: Promise<Params> 
       {/* CTA */}
       <section className="cs-sec cs-cta-band">
         <div className="container cs-block">
-          <h2>Want to see it run?</h2>
-          <p>The demo works without an API key. It runs the agents on a fictional project in about 15 seconds.</p>
+          <h2>{c.ctaTitle ?? "Want to see it run?"}</h2>
+          <p>{c.ctaText ?? "The demo works without an API key. It runs the agents on a fictional project in about 15 seconds."}</p>
           <div className="cs-cta">
             <a href={p.url} target="_blank" rel="noopener noreferrer" className="btn btn-light">
-              Try the live demo <ArrowUpRight size={16} />
+              {c.demoLabel ?? "Try the live demo"} <ArrowUpRight size={16} />
             </a>
             {p.repo ? (
               <a href={p.repo} target="_blank" rel="noopener noreferrer" className="btn btn-ghost-light">
