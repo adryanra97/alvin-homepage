@@ -262,7 +262,7 @@ export const projects: Project[] = [
     year: "2026",
     role: "Author & developer",
     tags: ["Data storytelling", "NLP", "LangGraph", "PostgreSQL", "Elasticsearch", "Next.js"],
-    url: "https://jakarta-730-hari.vercel.app/en/",
+    url: "https://jakarta730.adryanrizkyalviano.me/en/",
     cover: `${JK}/story-map.webp`,
     cover2: `${JK}/story-dashboard.webp`,
     stats: [
@@ -452,7 +452,7 @@ export const projects: Project[] = [
     year: "2026",
     role: "Author & developer",
     tags: ["Agentic AI", "LangGraph", "Python", "FastAPI", "Next.js", "Vercel"],
-    url: "https://talent-estimation-agent-ten.vercel.app/",
+    url: "https://talentlens.adryanrizkyalviano.me/",
     repo: "https://github.com/adryanra97/talent-estimation-agent",
     cover: `${TEA}/summary.webp`,
     cover2: `${TEA}/monthly.webp`,
