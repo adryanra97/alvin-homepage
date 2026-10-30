@@ -52,7 +52,7 @@ export default function ProjectShowcase() {
 
       {teaser.length ? (
         <div className="pj-found">
-          <p className="pj-found-label">What the film found</p>
+          <p className="pj-found-label">What the analysis found</p>
           <ul>
             {teaser.map((f) => (
               <li key={f.title} data-spot>

@@ -30,7 +30,7 @@ export const profile = {
     credly: "https://www.credly.com/users/adryan-rizky-alviano/badges",
   },
   description:
-    "Adryan Rizky Alviano — AI & Big Data professional and Data Scientist at Telkom Indonesia. Generative AI, LLMs, Agentic AI and responsible AI aligned with UU PDP, grounded in data and told as stories. Master of Information Technology student at Universitas Indonesia.",
+    "Portfolio of Adryan Rizky Alviano (Alvin), Data Scientist at Telkom Indonesia, featuring AI, agentic workflows, data analytics, and interactive storytelling.",
 };
 
 export const hero = {
@@ -254,11 +254,11 @@ export const projects: Project[] = [
     slug: "jakarta-730-hari",
     title: "Jakarta, 730 Hari",
     featured: true,
-    category: "Data storytelling · News analytics",
-    tagline: "An AI-assisted data film about two years of Jakarta in the news.",
+    category: "Interactive analytics · Data storytelling",
+    tagline: "An immersive, AI-assisted analytics dashboard exploring two years of Jakarta news.",
     description:
-      "A seven-scene data film built on 690,828 news articles from November 2024 to October 2026. It shows which issues dominated, when attention rose and faded, and how confident each finding is, backed by a pipeline that collects, cleans, labels and tests the data.",
-    status: "Live · interactive data film",
+      "An interactive, seven-chapter data storytelling experience built on a fixed snapshot of 690,828 Jakarta news articles from November 2024 to October 2026. Explore trends, sentiment and evidence-backed insights through rich visualizations. The portfolio dataset is locked and does not update in real time.",
+    status: "Interactive · fixed historical dataset",
     year: "2026",
     role: "Author & developer",
     tags: ["Multi-agent AI", "LLM review", "Data storytelling", "NLP", "LangGraph", "PostgreSQL"],
@@ -268,16 +268,16 @@ export const projects: Project[] = [
     stats: [
       { value: "690,828", label: "news articles analysed" },
       { value: "102", label: "weeks, Nov 2024 to Oct 2026" },
-      { value: "7", label: "scenes in the film" },
+      { value: "7", label: "interactive chapters" },
       { value: "8", label: "issues tracked" },
     ],
     problem:
       "News about a city arrives as thousands of separate stories. Almost no one can see what dominated, when attention rose and faded, or who was asked to answer for it.",
     approach:
-      "A pipeline collects and cleans the news, removes duplicates, labels issues, tone and actors, and tests each claim statistically. A static film then tells the result in seven scenes, where every dot stands for about 1,200 articles.",
+      "A pipeline collected and cleaned the historical news, removed duplicates, labelled issues, tone and actors, and tested the findings statistically. Seven interactive chapters present the resulting fixed snapshot, where every dot represents roughly 1,200 articles.",
     principle: {
       title: "Coverage is not reality.",
-      text: "More flood stories do not prove more floods, and a missing week is not a quiet week. The film measures what the media covered, shows gaps as gaps, and labels every finding with how confident it is.",
+      text: "More flood stories do not prove more floods, and a missing week is not a quiet week. The analysis measures what the media covered, shows gaps as gaps, and labels every finding with its level of confidence.",
     },
     findings: [
       {
@@ -318,9 +318,9 @@ export const projects: Project[] = [
       },
     ],
     limits: [
-      "The film measures news coverage, not the city's actual condition.",
+      "The dashboard measures historical news coverage, not the city's actual condition.",
       "Missing is not zero: two weeks in June 2025 are absent from the snapshot and shown as gaps.",
-      "“730 days” is the film's name for about two years; the data itself spans 102 weeks, from November 2024 to October 2026.",
+      "“730 days” is the project's title for about two years; the locked dataset spans 102 weeks, from November 2024 to October 2026.",
       "Topic, tone and entity labels are model output until checked against human-labelled examples.",
       "International outlets are a small share of the sample.",
     ],
@@ -343,7 +343,7 @@ export const projects: Project[] = [
         src: `${JK}/story-map.webp`,
         title: "Scene 1 · Every dot is news",
         caption:
-          "Jakarta as a map of dots, one per roughly 1,200 articles, filling in week by week. Orange weeks lean negative and blue weeks lean positive, with a live ticker of incoming headlines.",
+          "Jakarta as a map of dots, one per roughly 1,200 articles, animating through historical weeks. Orange weeks lean negative and blue weeks lean positive; the headline ticker replays items from the fixed dataset.",
       },
       {
         src: `${JK}/story-dashboard.webp`,
@@ -367,7 +367,7 @@ export const projects: Project[] = [
         src: `${JK}/method.webp`,
         title: "How the data works",
         caption:
-          "A methodology page that walks through the eight stages from raw HTML to a verified story, so nothing in the film has to be taken on trust.",
+          "A methodology page that walks through eight stages from raw HTML to verified insights, so the visual story can be checked against its evidence.",
       },
     ],
     methods: [
@@ -418,7 +418,7 @@ export const projects: Project[] = [
       "Eight quality gates, from source health to publishing.",
       "Every insight links back to article IDs; runs record stage counts, cost and model versions.",
       "Missing weeks stay visible as gaps, and unsupported claims are not exported.",
-      "If the pipeline fails, the last published snapshot stays live.",
+      "The published portfolio reads a locked, versioned snapshot; it does not ingest new articles or run AI models during exploration.",
       "Evaluation criteria were set up front: a 1,000-article human-labelled reference set. These are targets, not reported results.",
     ],
     privacy: [
@@ -428,9 +428,9 @@ export const projects: Project[] = [
       "An independent personal project, not an official government service.",
     ],
     copy: {
-      demoLabel: "Watch the film",
+      demoLabel: "Explore the dashboard",
       coverAlt: "Scene 1: Jakarta as a map of news dots",
-      galleryIntro: "real screens from the film. Pick a tab to see what each one shows.",
+      galleryIntro: "real screens from the interactive experience. Pick a tab to explore each chapter.",
       howTitle: "From raw news to a tested story",
       methodsTitle: "How the labels are made",
       archTitle: "Seven roles, one pipeline",
@@ -438,8 +438,8 @@ export const projects: Project[] = [
       qualityTitle: "Built to be audited, and honest about its limits",
       qualityCard: "Quality gates",
       privacyCard: "Responsible data",
-      ctaTitle: "Want to watch it?",
-      ctaText: "Press play, or step through the seven scenes yourself. Switch to EN for English.",
+      ctaTitle: "Want to explore the data?", 
+      ctaText: "Explore the visualizations or move through the seven chapters at your own pace. Switch to EN for English.",
     },
   },
   {
