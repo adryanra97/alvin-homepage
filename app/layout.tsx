@@ -12,7 +12,7 @@ import { profile } from "@/data/site";
 import { siteUrl } from "@/lib/site-url";
 
 
-const title = `${profile.name} (${profile.nickname}) — AI, Data & Storytelling`;
+const title = `${profile.name} (${profile.nickname}) — Data Scientist & AI Portfolio`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
