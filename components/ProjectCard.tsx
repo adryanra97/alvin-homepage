@@ -41,7 +41,7 @@ export default function ProjectCard({ project: p, priority = false }: { project:
             Read the case study <ArrowRight size={16} />
           </span>
           <a href={p.url} target="_blank" rel="noopener noreferrer" className="link-ghost sc-ext">
-            {p.copy?.demoLabel ? "Watch it live" : "Live demo"} <ArrowUpRight size={14} />
+            {p.copy?.demoLabel ?? "Live demo"} <ArrowUpRight size={14} />
           </a>
           {p.repo ? (
             <a href={p.repo} target="_blank" rel="noopener noreferrer" className="link-ghost sc-ext">
