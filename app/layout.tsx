@@ -54,7 +54,10 @@ export const metadata: Metadata = {
     locale: "en_US",
   },
   twitter: { card: "summary_large_image", title, description: profile.description },
-  robots: { index: true, follow: true },
+  // Prevent preview/staging copies from competing with the production site in search results.
+  robots: process.env.VERCEL_ENV === "preview"
+    ? { index: false, follow: false }
+    : { index: true, follow: true },
 };
 
 export const viewport: Viewport = {
