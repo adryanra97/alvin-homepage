@@ -13,8 +13,11 @@ export default function BlogPage() {
   return (
     <>
       <PageHead
-        size="short"
         eyebrow="Blog"
+        photos={[
+          { name: "about/neon", caption: "Thinking out loud", alt: "Adryan smiling in a black T-shirt in front of a neon coffee sign" },
+          { name: "about/trail", caption: "Fresh air, fresh ideas", alt: "Adryan smiling at a scenic mountain viewpoint" },
+        ]}
         title="Notes from"
         accent="my notebook."
         intro="Short write-ups on what I build and learn, plus a little about who I am outside work."

@@ -1139,3 +1139,12 @@ a.ph-fact:hover { background: rgba(255, 255, 255, .08); }
   .page-head-photo:not(.ph-short) .head-pair.hp3:has(.pol-landscape) { height: 230px; }
   .page-head-photo:not(.ph-short) .hp3 .head-pol-3.pol-landscape { left: auto; right: 0; top: 10px; }
 }
+
+/* ---------- consistent inner-page banners: same height, same background crop, info strip pinned to the bottom ---------- */
+.page-head-photo { justify-content: flex-start; }
+.page-head-photo > .ph-content { margin-block: auto; }
+.page-head-photo > .ph-facts-wrap { margin-top: 0; }
+@media (min-width: 901px) {
+  /* one shared height on desktop: the screen height, but never shorter than the tallest banner content */
+  .page-head-photo { min-height: max(calc(100vh - 68px), 880px); min-height: max(calc(100svh - 68px), 880px); }
+}

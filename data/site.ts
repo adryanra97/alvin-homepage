@@ -55,7 +55,7 @@ export const pageIntros = {
     intro: "My work at Telkom Indonesia and Danone, and my studies at Universitas Indonesia. Every role taught me something I still use today.",
     note: "every role taught me something",
     photos: [
-      { name: "about/work", caption: "Work mode: on", alt: "Adryan in a navy work shirt" },
+      { name: "about/meeting", caption: "Work mode: on", alt: "Adryan in a green shirt in a team meeting around a long table with laptops", wide: true },
       { name: "about/office", caption: "Daily workspace", alt: "Adryan at the office" },
       { name: "about/team", caption: "Team time", alt: "Adryan with his Telkom teammates around a table of snacks", wide: true },
     ],

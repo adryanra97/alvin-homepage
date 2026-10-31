@@ -45,7 +45,7 @@ export default function PageHead({
           <img src={bg} srcSet={bgSm ? `${bgSm} 800w, ${bg} 1600w` : undefined} sizes="100vw" alt="" fetchPriority="high" />
         </div>
       ) : null}
-      <div className={`container${shown.length ? " page-head-grid" : ""}`}>
+      <div className={`container ph-content${shown.length ? " page-head-grid" : ""}`}>
         <div>
           <p className={`eyebrow${bg ? " eyebrow-light" : ""}`}>
             <span>{eyebrow}</span>
@@ -69,7 +69,7 @@ export default function PageHead({
         ) : null}
       </div>
       {bg && facts?.length ? (
-        <div className="container">
+        <div className="container ph-facts-wrap">
           <ul className="ph-facts" style={{ ["--n" as string]: facts.length }}>
             {facts.map((f) => {
               const body = (
