@@ -57,6 +57,7 @@ export const pageIntros = {
     photos: [
       { name: "about/work", caption: "Work mode: on", alt: "Adryan in a navy work shirt" },
       { name: "about/office", caption: "Daily workspace", alt: "Adryan at the office" },
+      { name: "about/team", caption: "Team time", alt: "Adryan with his Telkom teammates around a table of snacks" },
     ],
   },
   projects: {
@@ -65,6 +66,7 @@ export const pageIntros = {
     photos: [
       { name: "about/casual", caption: "Always tinkering", alt: "Adryan taking a casual selfie" },
       { name: "about/wall", caption: "Easygoing", alt: "Adryan smiling in a grey jacket against a stone wall" },
+      { name: "about/lamp", caption: "Ready to build", alt: "Adryan smiling in a black shirt beside an ornate lamp post" },
     ],
   },
   skills: {
@@ -73,6 +75,7 @@ export const pageIntros = {
     photos: [
       { name: "about/road", caption: "Learning on the go", alt: "Adryan in a helmet with a headset" },
       { name: "about/cafe", caption: "Coffee break", alt: "Adryan giving a thumbs up at a garden cafe" },
+      { name: "about/hike", caption: "Always exploring", alt: "Adryan and friends on a hiking trail" },
     ],
   },
 };

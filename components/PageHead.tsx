@@ -32,7 +32,7 @@ export default function PageHead({
   flip?: boolean;
 }) {
   const shown = (photos ?? [])
-    .slice(0, 2)
+    .slice(0, 3)
     .map((p) => ({ ...p, src: publicImage(p.name) }))
     .filter((p): p is Photo & { src: string } => Boolean(p.src));
   const bg = publicImage("hero");
@@ -57,7 +57,7 @@ export default function PageHead({
           {note ? <p className="head-note">{note}</p> : null}
         </div>
         {shown.length ? (
-          <div className="head-pair">
+          <div className={`head-pair${shown.length === 3 ? " hp3" : ""}`}>
             {shown.map((p, i) => (
               <figure key={p.name} className={`polaroid head-pol head-pol-${i + 1}`}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}

@@ -1094,3 +1094,36 @@ a.ph-fact:hover { background: rgba(255, 255, 255, .08); }
   .pj-main, .pj-second { transform: none !important; }
   .pj-second { transform: rotate(2deg) !important; }
 }
+
+/* ---------- three polaroids in page banners ---------- */
+.head-pol-3 { --rot: -2deg; z-index: 3; }
+.page-head-photo .head-pair.hp3 { width: 440px; height: 520px; }
+.page-head-photo .hp3 .head-pol { width: 178px; }
+.page-head-photo .hp3 .head-pol-1 { left: 0; top: 0; }
+.page-head-photo .hp3 .head-pol-2 { right: 0; top: 70px; }
+.page-head-photo .hp3 .head-pol-3 { left: 108px; top: 252px; right: auto; }
+/* short banner: three in a row */
+.page-head-photo.ph-short .page-head-grid .head-pair.hp3 { width: 470px; height: 300px; }
+.page-head-photo.ph-short .hp3 .head-pol { width: 148px; }
+.page-head-photo.ph-short .hp3 .head-pol-1 { left: 0; top: 14px; }
+.page-head-photo.ph-short .hp3 .head-pol-2 { left: 160px; right: auto; top: 40px; }
+.page-head-photo.ph-short .hp3 .head-pol-3 { left: 320px; top: 6px; }
+@media (max-width: 1000px) { .page-head-photo .page-head-grid:has(.hp3) { grid-template-columns: 1fr 380px; } .page-head-photo .head-pair.hp3 { width: 380px; } .page-head-photo .hp3 .head-pol { width: 158px; } .page-head-photo .hp3 .head-pol-3 { left: 90px; } }
+@media (max-width: 700px) {
+  .page-head-photo .page-head-grid:has(.hp3) { grid-template-columns: 1fr; }
+  .page-head-photo .head-pair.hp3, .page-head-photo.ph-short .page-head-grid .head-pair.hp3 { width: 100%; max-width: 340px; height: 230px; }
+  .page-head-photo .hp3 .head-pol, .page-head-photo.ph-short .hp3 .head-pol { width: 104px; }
+  .page-head-photo .hp3 .head-pol-1, .page-head-photo.ph-short .hp3 .head-pol-1 { left: 0; top: 4px; }
+  .page-head-photo .hp3 .head-pol-2, .page-head-photo.ph-short .hp3 .head-pol-2 { left: 118px; right: auto; top: 26px; }
+  .page-head-photo .hp3 .head-pol-3, .page-head-photo.ph-short .hp3 .head-pol-3 { left: 236px; top: 0; }
+  .page-head-photo .hp3 .pol-cap { font-size: .8rem; }
+}
+@media (min-width: 701px) and (max-width: 1100px) {
+  .page-head-photo.ph-short .page-head-grid .head-pair.hp3 { width: 370px; height: 250px; }
+  .page-head-photo.ph-short .page-head-grid:has(.hp3) { grid-template-columns: 1fr 370px; }
+  .page-head-photo.ph-short .hp3 .head-pol { width: 118px; }
+  .page-head-photo.ph-short .hp3 .head-pol-1 { left: 0; top: 12px; }
+  .page-head-photo.ph-short .hp3 .head-pol-2 { left: 126px; top: 34px; }
+  .page-head-photo.ph-short .hp3 .head-pol-3 { left: 252px; top: 4px; }
+  .page-head-photo.ph-short .hp3 .pol-cap { font-size: .9rem; }
+}
