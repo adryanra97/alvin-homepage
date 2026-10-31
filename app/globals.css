@@ -1148,3 +1148,13 @@ a.ph-fact:hover { background: rgba(255, 255, 255, .08); }
   /* one shared height on desktop: the screen height, but never shorter than the tallest banner content */
   .page-head-photo { min-height: max(calc(100vh - 68px), 880px); min-height: max(calc(100svh - 68px), 880px); }
 }
+
+/* photos on the left for alternating pages (Experience, Blog); same height as every other banner */
+@media (min-width: 701px) {
+  .page-head-photo.ph-flip .page-head-grid:has(.hp3) { grid-template-columns: 460px 1fr; }
+  .page-head-photo.ph-flip .page-head-grid > .head-pair { margin-left: 0; }
+}
+@media (min-width: 701px) and (max-width: 1000px) {
+  .page-head-photo.ph-flip .page-head-grid:has(.hp3) { grid-template-columns: 390px 1fr; }
+  .page-head-photo.ph-flip .page-head-grid:not(:has(.hp3)) { grid-template-columns: 390px 1fr; }
+}

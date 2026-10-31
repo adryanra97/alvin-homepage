@@ -13,6 +13,7 @@ export default function BlogPage() {
   return (
     <>
       <PageHead
+        flip
         eyebrow="Blog"
         photos={[
           { name: "about/neon", caption: "Thinking out loud", alt: "Adryan smiling in a black T-shirt in front of a neon coffee sign" },
