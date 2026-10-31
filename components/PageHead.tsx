@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { publicImage } from "@/lib/images";
 
-type Photo = { name: string; caption: string; alt: string };
+type Photo = { name: string; caption: string; alt: string; wide?: boolean };
 export type HeadFact = { label: string; title: string; sub?: string; href?: string };
 
 export default function PageHead({
@@ -59,7 +59,7 @@ export default function PageHead({
         {shown.length ? (
           <div className={`head-pair${shown.length === 3 ? " hp3" : ""}`}>
             {shown.map((p, i) => (
-              <figure key={p.name} className={`polaroid head-pol head-pol-${i + 1}`}>
+              <figure key={p.name} className={`polaroid head-pol head-pol-${i + 1}${p.wide ? " pol-landscape" : ""}`}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={p.src.endsWith(".webp") ? p.src.replace(/\.webp$/, "-sm.webp") : p.src} srcSet={p.src.endsWith(".webp") ? `${p.src.replace(/\.webp$/, "-sm.webp")} 420w, ${p.src} 900w` : undefined} sizes="240px" alt={p.alt} />
                 <figcaption className="pol-cap">{p.caption}</figcaption>

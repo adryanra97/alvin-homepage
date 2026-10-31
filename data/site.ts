@@ -57,7 +57,7 @@ export const pageIntros = {
     photos: [
       { name: "about/work", caption: "Work mode: on", alt: "Adryan in a navy work shirt" },
       { name: "about/office", caption: "Daily workspace", alt: "Adryan at the office" },
-      { name: "about/team", caption: "Team time", alt: "Adryan with his Telkom teammates around a table of snacks" },
+      { name: "about/team", caption: "Team time", alt: "Adryan with his Telkom teammates around a table of snacks", wide: true },
     ],
   },
   projects: {

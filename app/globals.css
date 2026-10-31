@@ -1127,3 +1127,15 @@ a.ph-fact:hover { background: rgba(255, 255, 255, .08); }
   .page-head-photo.ph-short .hp3 .head-pol-3 { left: 252px; top: 4px; }
   .page-head-photo.ph-short .hp3 .pol-cap { font-size: .9rem; }
 }
+
+/* landscape polaroid: shows the whole photo (no side crop), used for group shots */
+.head-pol.pol-landscape img { aspect-ratio: 4 / 3; object-position: center; }
+.page-head-photo:not(.ph-short) .hp3 .head-pol.pol-landscape { width: 262px; }
+.page-head-photo:not(.ph-short) .head-pair.hp3:has(.pol-landscape) { height: 572px; }
+.page-head-photo:not(.ph-short) .hp3 .head-pol-3.pol-landscape { left: 40px; top: 304px; }
+@media (max-width: 1000px) { .page-head-photo:not(.ph-short) .hp3 .head-pol.pol-landscape { width: 228px; } .page-head-photo:not(.ph-short) .hp3 .head-pol-3.pol-landscape { left: 30px; } }
+@media (max-width: 700px) {
+  .page-head-photo:not(.ph-short) .hp3 .head-pol.pol-landscape { width: 138px; }
+  .page-head-photo:not(.ph-short) .head-pair.hp3:has(.pol-landscape) { height: 230px; }
+  .page-head-photo:not(.ph-short) .hp3 .head-pol-3.pol-landscape { left: auto; right: 0; top: 10px; }
+}
