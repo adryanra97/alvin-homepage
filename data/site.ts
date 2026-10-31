@@ -64,7 +64,7 @@ export const pageIntros = {
     intro: "Things I've built, tinkered with, and learned from. The list is small for now, but it's growing.",
     note: "more on the way!",
     photos: [
-      { name: "about/casual", caption: "Always tinkering", alt: "Adryan taking a casual selfie" },
+      { name: "about/collab", caption: "Building together", alt: "Adryan with three teammates giving thumbs up in the office" },
       { name: "about/wall", caption: "Easygoing", alt: "Adryan smiling in a grey jacket against a stone wall" },
       { name: "about/lamp", caption: "Ready to build", alt: "Adryan smiling in a black shirt beside an ornate lamp post" },
     ],
