@@ -27,18 +27,18 @@
 <text x="96" y="613" fill="#d2e2f0" font-family="Arial, Helvetica, sans-serif" font-size="21">the usual share of flood coverage</text>
 <text x="97" y="652" fill="#9db5c7" font-family="Arial, Helvetica, sans-serif" font-size="17">Week of 3 Mar 2025 · 22.22% of coverage</text>
 <text x="518" y="495" fill="#94b7cf" font-family="Arial, Helvetica, sans-serif" font-size="14" letter-spacing="1">WEEKS AROUND THE PEAK</text>
-<line x1="516" y1="692" x2="859" y2="692" stroke="#93b3c6" opacity=".5"/><rect x="520.0" y="686.6" width="17" height="4.3" rx="4" fill="#5faee6" opacity="0.73"/>
-<rect x="547.2" y="682.3" width="17" height="8.7" rx="4" fill="#5faee6" opacity="0.73"/>
-<rect x="574.4" y="678.0" width="17" height="13.0" rx="4" fill="#5faee6" opacity="0.73"/>
-<rect x="601.6" y="669.3" width="17" height="21.8" rx="4" fill="#5faee6" opacity="0.73"/>
-<rect x="628.8" y="622.9" width="17" height="68.1" rx="4" fill="#5faee6" opacity="0.73"/>
-<rect x="656.0" y="575.0" width="17" height="116.0" rx="4" fill="#5faee6" opacity="0.73"/>
-<rect x="683.2" y="546.0" width="17" height="145.0" rx="4" fill="#ffb676" opacity="1"/>
-<rect x="710.4" y="625.8" width="17" height="65.3" rx="4" fill="#5faee6" opacity="0.73"/>
-<rect x="737.6" y="664.9" width="17" height="26.1" rx="4" fill="#5faee6" opacity="0.73"/>
-<rect x="764.8" y="673.6" width="17" height="17.4" rx="4" fill="#5faee6" opacity="0.73"/>
-<rect x="792.0" y="678.0" width="17" height="13.0" rx="4" fill="#5faee6" opacity="0.73"/>
-<rect x="819.2" y="679.4" width="17" height="11.6" rx="4" fill="#5faee6" opacity="0.73"/>
+<line x1="516" y1="692" x2="859" y2="692" stroke="#93b3c6" opacity=".5"/><rect x="520.0" y="682.5" width="17" height="8.5" rx="4" fill="#5faee6" opacity="0.73"/>
+<rect x="547.2" y="686.3" width="17" height="4.7" rx="4" fill="#5faee6" opacity="0.73"/>
+<rect x="574.4" y="676.8" width="17" height="14.2" rx="4" fill="#5faee6" opacity="0.73"/>
+<rect x="601.6" y="546.0" width="17" height="145.0" rx="4" fill="#ffb676" opacity="1"/>
+<rect x="628.8" y="666.0" width="17" height="25.0" rx="4" fill="#5faee6" opacity="0.73"/>
+<rect x="656.0" y="679.9" width="17" height="11.1" rx="4" fill="#5faee6" opacity="0.73"/>
+<rect x="683.2" y="683.8" width="17" height="7.2" rx="4" fill="#5faee6" opacity="0.73"/>
+<rect x="710.4" y="688.4" width="17" height="2.6" rx="4" fill="#5faee6" opacity="0.73"/>
+<rect x="737.6" y="685.3" width="17" height="5.7" rx="4" fill="#5faee6" opacity="0.73"/>
+<rect x="764.8" y="685.2" width="17" height="5.8" rx="4" fill="#5faee6" opacity="0.73"/>
+<rect x="792.0" y="685.8" width="17" height="5.2" rx="4" fill="#5faee6" opacity="0.73"/>
+<rect x="819.2" y="688.0" width="17" height="3.0" rx="4" fill="#5faee6" opacity="0.73"/>
 <text x="516" y="724" fill="#91aec3" font-family="Arial, Helvetica, sans-serif" font-size="13">BEFORE</text>
 <text x="858" y="724" fill="#91aec3" font-family="Arial, Helvetica, sans-serif" font-size="13" text-anchor="end">AFTER</text>
 <rect x="917" y="397" width="463" height="175" rx="21" fill="#101f31" stroke="#487a9b" stroke-opacity=".42"/>
