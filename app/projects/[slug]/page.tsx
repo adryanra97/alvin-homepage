@@ -76,6 +76,11 @@ export default async function ProjectPage({ params }: { params: Promise<Params> 
             <a href={p.url} target="_blank" rel="noopener noreferrer" className="btn btn-light">
               {c.demoLabel ?? "Try the live demo"} <ArrowUpRight size={16} />
             </a>
+            {p.insightsUrl ? (
+              <a href={p.insightsUrl} target="_blank" rel="noopener noreferrer" className="btn btn-ghost-light">
+                Explore the insights <ArrowUpRight size={16} />
+              </a>
+            ) : null}
             {p.repo ? (
               <a href={p.repo} target="_blank" rel="noopener noreferrer" className="btn btn-ghost-light">
                 <GitHubIcon size={15} /> Source on GitHub
@@ -147,9 +152,9 @@ export default async function ProjectPage({ params }: { params: Promise<Params> 
                 <span>Findings</span>
               </p>
               <h2>
-                Two years, <span className="accent">six findings.</span>
+                What the data <span className="accent">reveals.</span>
               </h2>
-              <p className="body-text">Each finding is labelled with how confident it is, based on sample size and a statistical test.</p>
+              <p className="body-text">These figures describe patterns in historical news coverage. Sample sizes, missing observations and statistical uncertainty are part of the story.</p>
             </div>
             <ul className="cs-findings cs-block">
               {p.findings.map((f) => (
@@ -183,7 +188,7 @@ export default async function ProjectPage({ params }: { params: Promise<Params> 
               <span>Walkthrough</span>
             </p>
             <h2>
-              Don&apos;t just read about it. <span className="accent">See each screen.</span>
+              Don&apos;t just read about it. <span className="accent">Explore the visuals.</span>
             </h2>
             <p className="body-text">
               {p.shots.length} {c.galleryIntro ?? "real screens from the app. Pick a tab to see what each one is for."}
@@ -332,6 +337,11 @@ export default async function ProjectPage({ params }: { params: Promise<Params> 
             <a href={p.url} target="_blank" rel="noopener noreferrer" className="btn btn-light">
               {c.demoLabel ?? "Try the live demo"} <ArrowUpRight size={16} />
             </a>
+            {p.insightsUrl ? (
+              <a href={p.insightsUrl} target="_blank" rel="noopener noreferrer" className="btn btn-ghost-light">
+                Explore the insights <ArrowUpRight size={16} />
+              </a>
+            ) : null}
             {p.repo ? (
               <a href={p.repo} target="_blank" rel="noopener noreferrer" className="btn btn-ghost-light">
                 <GitHubIcon size={15} /> Read the code
