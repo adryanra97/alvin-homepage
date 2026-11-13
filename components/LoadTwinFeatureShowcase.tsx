@@ -225,7 +225,7 @@ export function LoadTwinFeatureShowcase() {
               { label:"Errors", value:sample?.errors ?? "—" },
             ].map(r => <div key={r.label}><span>{r.label}</span><strong>{r.value}</strong></div>)}
           </div>
-          <div className="ltmv-metric-caption">{sample ? sample.source + " · Saved result, not recalculated" : "Preview settings changed · live metrics require a SimPy run"}</div>
+          <div className="ltmv-metric-caption">{sample ? sample.source + " · Reference value, not recalculated" : "Preview settings changed · live metrics require a SimPy run"}</div>
         </div>
         <div className="ltmv-live-bottom">
           <p>Move traffic, add nodes or break a dependency to see the topology react. <strong>This portfolio preview illustrates request routing.</strong> Run LoadTwin for recalculated p95, CPU, errors and SLA verdicts.</p>
