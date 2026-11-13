@@ -41,7 +41,7 @@ export default function ProjectCard({ project: p, priority = false }: { project:
           <span className="btn btn-light">
             Read the case study <ArrowRight size={16} />
           </span>
-          <a href={p.url} target="_blank" rel="noopener noreferrer" className="link-ghost sc-ext">
+          <a href={p.slug === "loadtwin" ? p.url + "#try" : p.url} target="_blank" rel="noopener noreferrer" className="link-ghost sc-ext">
             {p.copy?.demoLabel ?? "Live demo"} <ArrowUpRight size={14} />
           </a>
           {p.repo ? (
