@@ -457,7 +457,7 @@ export const projects: Project[] = [
     slug: "loadtwin",
     title: "LoadTwin",
     category: "Digital twin · Capacity intelligence",
-    tagline: "Watch a system adapt to traffic. Then see what happens when a node fails.",
+    tagline: "A moving digital twin, seven ways to test a service.",
     description:
       "A personal engineering side project turning load-test measurements into an interactive digital twin. Watch request flow, evaluate peak and stress capacity against SLAs, and test failures such as node crashes or slow dependencies using a SimPy-based engine. Predictions are model estimates, not production telemetry.",
     status: "Live · interactive simulation",
@@ -469,9 +469,9 @@ export const projects: Project[] = [
     cover: `${LT}/architecture-preview.svg`,
     cover2: `${LT}/scenario-comparison.svg`,
     stats: [
-      { value: "LIVE", label: "interactive request flow & controls" },
-      { value: "SLA", label: "capacity evaluation at peak and stress" },
-      { value: "1 node", label: "failure injection and recovery test" },
+      { value: "7", label: "simulation methods in one service model" },
+      { value: "LIVE", label: "animated request flow & controls" },
+      { value: "SLA", label: "peak, stress & failure testing" },
       { value: "SimPy", label: "discrete-event simulation engine" },
     ],
     problem:
@@ -597,7 +597,7 @@ export const projects: Project[] = [
     copy: {
       demoLabel: "Try the live playground",
       coverAlt: "Editorial illustration of LoadTwin digital-twin topology with an example CPU and latency reading",
-      galleryIntro: "supporting editorial illustrations of the architecture and documented capacity comparison, complementing the animated feature spotlight above.",
+      galleryIntro: "supporting editorial illustrations of the architecture and documented capacity comparison, complementing the screenshot-style motion preview and seven-tool showcase above.",
       galleryNote: "Original editorial illustrations of documented simulation outputs — not screenshots of a live production service.",
       findingsTitle: "What the example model predicts",
       findingsIntro: "These values come from two documented model scenarios. They describe predictions, not statistical confidence or real-world measurements.",
@@ -610,7 +610,7 @@ export const projects: Project[] = [
       qualityCard: "What makes the results interpretable",
       privacyCard: "Data handling and responsible use",
       ctaTitle: "Curious where your service reaches its limit?",
-      ctaText: "Try the live request-flow simulator, run an SLA evaluation, or test what happens when a service node crashes. The real LoadTwin engine calculates the results from your configuration.",
+      ctaText: "Try the original animated Live Playground and all seven real simulation tools: Evaluate, Auto-size, Load Patterns, Failures, Sensitivity, Validate Model, and Ask LoadTwin. Only the real engine calculates results from your configuration.",
     },
   },
   {
