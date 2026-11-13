@@ -457,9 +457,9 @@ export const projects: Project[] = [
     slug: "loadtwin",
     title: "LoadTwin",
     category: "Digital twin · Capacity intelligence",
-    tagline: "Know your limits before traffic finds them.",
+    tagline: "Watch a system adapt to traffic. Then see what happens when a node fails."
     description:
-      "A personal engineering side project exploring how real load-test measurements can become a digital twin for service capacity decisions. Simulate higher traffic, compare infrastructure, identify resource bottlenecks, and interpret SLA trade-offs using a SimPy-based model. The outputs are predictions to validate, not live production telemetry.",
+      "A personal engineering side project turning load-test measurements into an interactive digital twin. Watch request flow, evaluate peak and stress capacity against SLAs, and test failures such as node crashes or slow dependencies using a SimPy-based engine. Predictions are model estimates, not production telemetry.",
     status: "Live · interactive simulation",
     year: "2026",
     role: "Independent creator · personal side project",
@@ -469,9 +469,9 @@ export const projects: Project[] = [
     cover: `${LT}/architecture-preview.svg`,
     cover2: `${LT}/scenario-comparison.svg`,
     stats: [
-      { value: "45", label: "req/s in the example peak scenario" },
-      { value: "90", label: "req/s in the example stress scenario" },
-      { value: "80%", label: "example CPU utilization limit" },
+      { value: "LIVE", label: "interactive request flow & controls" },
+      { value: "SLA", label: "capacity evaluation at peak and stress" },
+      { value: "1 node", label: "failure injection and recovery test" },
       { value: "SimPy", label: "discrete-event simulation engine" },
     ],
     problem:
@@ -595,9 +595,9 @@ export const projects: Project[] = [
       "Real-world infrastructure decisions should be verified with representative tests.",
     ],
     copy: {
-      demoLabel: "Explore LoadTwin",
+      demoLabel: "Try the live playground",
       coverAlt: "Editorial illustration of LoadTwin digital-twin topology with an example CPU and latency reading",
-      galleryIntro: "editorial project visuals based on documented simulation examples. Select a tab to explore the concept and capacity comparison.",
+      galleryIntro: "supporting editorial illustrations of the architecture and documented capacity comparison, complementing the animated feature spotlight above.",
       galleryNote: "Original editorial illustrations of documented simulation outputs — not screenshots of a live production service.",
       findingsTitle: "What the example model predicts",
       findingsIntro: "These values come from two documented model scenarios. They describe predictions, not statistical confidence or real-world measurements.",
@@ -610,7 +610,7 @@ export const projects: Project[] = [
       qualityCard: "What makes the results interpretable",
       privacyCard: "Data handling and responsible use",
       ctaTitle: "Curious where your service reaches its limit?",
-      ctaText: "Explore the online model, change the traffic or the hardware, and see how simulated resource constraints affect your next capacity decision.",
+      ctaText: "Try the live request-flow simulator, run an SLA evaluation, or test what happens when a service node crashes. The real LoadTwin engine calculates the results from your configuration.",
     },
   },
   {
