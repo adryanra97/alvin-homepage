@@ -5,6 +5,7 @@ import { ArrowLeft, ArrowRight, ArrowUpRight, Check, Lightbulb, ShieldCheck, Tar
 import BrowserFrame from "@/components/BrowserFrame";
 import { GitHubIcon } from "@/components/icons";
 import ShotGallery from "@/components/ShotGallery";
+import LoadTwinRealGallery from "@/components/LoadTwinRealGallery";
 import { LoadTwinFeatureShowcase, LoadTwinMotionPreview } from "@/components/LoadTwinFeatureShowcase";
 import { projects } from "@/data/site";
 
@@ -209,11 +210,13 @@ export default async function ProjectPage({ params }: { params: Promise<Params> 
               Don&apos;t just read about it. <span className="accent">Explore the visuals.</span>
             </h2>
             <p className="body-text">
-              {p.shots.length} {c.galleryIntro ?? "real screens from the app. Pick a tab to see what each one is for."}
+              {p.slug === "loadtwin" ? "Eight real views of the LoadTwin application, captured from its deployed interface. Choose a tool to see the screen and open the live experience." : `${p.shots.length} ${c.galleryIntro ?? "real screens from the app. Pick a tab to see what each one is for."}`}
             </p>
           </div>
           <div className="cs-block">
-            <ShotGallery shots={p.shots} note={c.galleryNote} />
+            {p.slug === "loadtwin"
+              ? <LoadTwinRealGallery />
+              : <ShotGallery shots={p.shots} note={c.galleryNote} />}
           </div>
         </div>
       </section>
