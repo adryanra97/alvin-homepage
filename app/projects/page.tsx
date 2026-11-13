@@ -24,7 +24,7 @@ export default function ProjectsPage() {
           { label: "Featured", title: projects[0].title, sub: projects[0].category, href: `/projects/${projects[0].slug}` },
           ...(projects[1] ? [{ label: "Also live", title: projects[1].title, sub: projects[1].category, href: `/projects/${projects[1].slug}` }] : []),
           ...(projects.find((x) => x.repo)
-            ? [{ label: "Open source", title: `${projects.find((x) => x.repo)!.title}`, sub: "MIT licence, code on GitHub", href: projects.find((x) => x.repo)!.repo }]
+            ? [{ label: "Open source", title: `${projects.find((x) => x.repo)!.title}`, sub: "Source code available on GitHub", href: projects.find((x) => x.repo)!.repo }]
             : []),
           { label: "Next up", title: "More on the way", sub: "Follow along on GitHub", href: profile.links.github },
         ]}

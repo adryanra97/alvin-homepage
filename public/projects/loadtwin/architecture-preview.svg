@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" width="1440" height="900" role="img" aria-labelledby="title desc">
+<title id="title">LoadTwin editorial preview: digital twin architecture and capacity insight</title>
+<desc id="desc">Conceptual preview of LoadTwin, showing a simplified requests, load balancer, service nodes, database topology and documented CPU and latency estimates.</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#071827"/><stop offset=".64" stop-color="#0b2740"/><stop offset="1" stop-color="#123b58"/></linearGradient>
+  <linearGradient id="net" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#6cbbe8"/><stop offset="1" stop-color="#8ee9de"/></linearGradient>
+  <filter id="glow"><feGaussianBlur stdDeviation="6"/></filter>
+</defs>
+<rect width="1440" height="900" fill="url(#bg)"/>
+<g stroke="#7bacc7" stroke-opacity=".08" stroke-width="1"><path d="M0 70V900"/><path d="M80 70V900"/><path d="M160 70V900"/><path d="M240 70V900"/><path d="M320 70V900"/><path d="M400 70V900"/><path d="M480 70V900"/><path d="M560 70V900"/><path d="M640 70V900"/><path d="M720 70V900"/><path d="M800 70V900"/><path d="M880 70V900"/><path d="M960 70V900"/><path d="M1040 70V900"/><path d="M1120 70V900"/><path d="M1200 70V900"/><path d="M1280 70V900"/><path d="M1360 70V900"/><path d="M1440 70V900"/><path d="M0 100H1440"/><path d="M0 170H1440"/><path d="M0 240H1440"/><path d="M0 310H1440"/><path d="M0 380H1440"/><path d="M0 450H1440"/><path d="M0 520H1440"/><path d="M0 590H1440"/><path d="M0 660H1440"/><path d="M0 730H1440"/><path d="M0 800H1440"/><path d="M0 870H1440"/><path d="M0 940H1440"/></g>
+<rect width="1440" height="78" fill="#061422"/>
+<rect x="67" y="29" width="31" height="22" rx="4" fill="#6bd6e8"/>
+<path d="M75 43L80 34 85 47 91 37" fill="none" stroke="#0b3550" stroke-width="3"/>
+<text x="112" y="49" fill="#f4fbff" font-size="23" font-weight="700" font-family="Arial,sans-serif">LoadTwin</text>
+<text x="520" y="47" fill="#adcbd9" font-size="14" font-family="Arial,sans-serif" letter-spacing="1">OVERVIEW</text>
+<text x="666" y="47" fill="#adcbd9" font-size="14" font-family="Arial,sans-serif" letter-spacing="1">SERVICE SETUP</text>
+<text x="847" y="47" fill="#adcbd9" font-size="14" font-family="Arial,sans-serif" letter-spacing="1">EVALUATE</text>
+<rect x="1159" y="18" width="208" height="42" fill="#d6f4ff"/>
+<text x="1263" y="45" fill="#10344f" font-size="14" font-weight="700" font-family="Arial,sans-serif" text-anchor="middle">RUN EVALUATION ↗</text>
+<path d="M0 78H1440" stroke="#a5d6eb" stroke-opacity=".32"/>
+<rect x="76" y="148" width="36" height="3" fill="#7ce1ea"/>
+<text x="130" y="155" fill="#a2cadb" font-size="14" font-family="Arial,sans-serif" letter-spacing="3.2">DIGITAL TWIN / CAPACITY INTELLIGENCE</text>
+<text x="74" y="252" font-size="78" font-family="Georgia,serif" fill="#f8fcff" letter-spacing="-2">Understand your</text>
+<text x="74" y="350" font-size="85" font-family="Georgia,serif" font-style="italic" fill="#b3e8f4" letter-spacing="-3">next bottleneck.</text>
+<text x="78" y="411" font-size="21" font-family="Arial,sans-serif" fill="#bbd2e0">Explore how traffic, compute and dependencies</text>
+<text x="78" y="442" font-size="21" font-family="Arial,sans-serif" fill="#bbd2e0">shape your next deployment.</text>
+<rect x="78" y="500" width="254" height="64" fill="#d8f2ff"/>
+<text x="205" y="540" font-size="17" font-family="Arial,sans-serif" font-weight="700" fill="#0c2d46" text-anchor="middle">EXPLORE A MODEL ↗</text>
+<g transform="translate(697 143)">
+<rect x="0" y="0" width="660" height="600" fill="#0a1d2e" stroke="#4a7c95" stroke-opacity=".8" stroke-width="1.5"/>
+<rect x="0" y="0" width="660" height="56" fill="#0d2a40"/>
+<text x="24" y="35" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#c6edf8" letter-spacing="1.5">MODEL EXPLORER</text>
+<circle cx="502" cy="28" r="5" fill="#7bddc0"/>
+<text x="515" y="33" font-family="Arial,sans-serif" font-size="11" fill="#9bbacb">DOCUMENTED EXAMPLE</text>
+<path d="M0 114H660" stroke="#426781"/>
+<text x="145" y="92" font-family="Arial,sans-serif" font-size="17" fill="#edfaff" font-weight="700" text-anchor="middle">45 req/s · Peak</text>
+<text x="485" y="92" font-family="Arial,sans-serif" font-size="17" fill="#87a9bc" text-anchor="middle">90 req/s · Stress</text>
+<path d="M30 114H306" stroke="#82d8e9" stroke-width="3"/>
+<g transform="translate(28 146)">
+<g stroke="#82c6dd" stroke-opacity=".45" stroke-width="2" fill="none">
+<path d="M68 130H138"/><path d="M245 130H287Q304 130 304 112V56Q304 40 321 40H356"/><path d="M245 130H356"/><path d="M245 130H287Q304 130 304 146V210Q304 226 321 226H356"/><path d="M479 40H499Q516 40 516 56V111Q516 130 530 130H550"/><path d="M479 130H550"/><path d="M479 226H499Q516 226 516 210V146Q516 130 530 130H550"/>
+</g>
+<circle cx="55" cy="130" r="28" fill="#123853" stroke="#86d9ea" stroke-width="2"/>
+<path d="M40 130h30M51 118l-10 12 10 12M60 118l10 12-10 12" stroke="#c6f3fb" stroke-width="2.4" fill="none"/>
+<rect x="138" y="95" width="107" height="70" rx="8" fill="#17334a" stroke="#7cbcd1" stroke-width="1.5"/>
+<path d="M158 118h66M158 132h53M158 146h61" stroke="#7facc0" stroke-width="3" stroke-linecap="round"/>
+<rect x="356" y="9" width="123" height="62" rx="7" fill="#17344a" stroke="#79b6cf" stroke-width="1.4"/><rect x="373" y="26" width="24" height="24" rx="4" fill="#2a728c"/><path d="M410 30h48M410 40h39M410 50h45" stroke="#90b8c6" stroke-width="2.5"/><circle cx="461" cy="25" r="3.5" fill="#8ce4c3"/><text x="417" y="89" text-anchor="middle" fill="#8eb5c9" font-family="Arial,sans-serif" font-size="11" font-weight="700">NODE 1</text><rect x="356" y="99" width="123" height="62" rx="7" fill="#17344a" stroke="#79b6cf" stroke-width="1.4"/><rect x="373" y="116" width="24" height="24" rx="4" fill="#2a728c"/><path d="M410 120h48M410 130h39M410 140h45" stroke="#90b8c6" stroke-width="2.5"/><circle cx="461" cy="115" r="3.5" fill="#8ce4c3"/><text x="417" y="179" text-anchor="middle" fill="#8eb5c9" font-family="Arial,sans-serif" font-size="11" font-weight="700">NODE 2</text><rect x="356" y="195" width="123" height="62" rx="7" fill="#17344a" stroke="#79b6cf" stroke-width="1.4"/><rect x="373" y="212" width="24" height="24" rx="4" fill="#2a728c"/><path d="M410 216h48M410 226h39M410 236h45" stroke="#90b8c6" stroke-width="2.5"/><circle cx="461" cy="211" r="3.5" fill="#8ce4c3"/><text x="417" y="275" text-anchor="middle" fill="#8eb5c9" font-family="Arial,sans-serif" font-size="11" font-weight="700">NODE 3</text>
+<path d="M550 104c0-9 13-15 30-15s30 6 30 15v53c0 10-13 16-30 16s-30-6-30-16zM550 104c0 9 13 16 30 16s30-7 30-16M550 130c0 9 13 16 30 16s30-7 30-16" stroke="#8ac7da" fill="none" stroke-width="1.7"/>
+<text x="55" y="205" fill="#7e9fb3" text-anchor="middle" font-family="Arial,sans-serif" font-size="11">REQUESTS</text>
+<text x="190" y="205" fill="#7e9fb3" text-anchor="middle" font-family="Arial,sans-serif" font-size="11">BALANCER</text>
+<text x="580" y="205" fill="#7e9fb3" text-anchor="middle" font-family="Arial,sans-serif" font-size="11">DATABASE</text>
+</g>
+<path d="M0 463H660" stroke="#517c98" stroke-opacity=".45"/>
+<text x="31" y="499" fill="#9fc8dc" font-family="Arial,sans-serif" font-weight="700" font-size="12" letter-spacing="1.6">PREDICTED CPU</text>
+<text x="30" y="559" fill="#f0fcff" font-family="Georgia,serif" font-size="69">46.8%</text>
+<rect x="291" y="513" width="2" height="54" fill="#46708c"/>
+<text x="316" y="499" fill="#9fc8dc" font-family="Arial,sans-serif" font-weight="700" font-size="12" letter-spacing="1.6">P95 LATENCY</text>
+<text x="315" y="553" fill="#f0fcff" font-family="Georgia,serif" font-size="59">390 <tspan font-size="24">ms</tspan></text>
+</g>
+<text x="79" y="791" fill="#b1cbd9" font-family="Arial,sans-serif" font-size="19">CALIBRATE  /  SIMULATE  /  INTERPRET</text>
+<path d="M78 827H1362" stroke="#7da5b9" stroke-opacity=".38"/>
+<text x="79" y="864" fill="#789bb0" font-family="Arial,sans-serif" font-size="12">Personal engineering side project · illustration based on LoadTwin's documented example</text>
+</svg>

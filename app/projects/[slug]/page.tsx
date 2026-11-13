@@ -152,14 +152,14 @@ export default async function ProjectPage({ params }: { params: Promise<Params> 
                 <span>Findings</span>
               </p>
               <h2>
-                What the data <span className="accent">reveals.</span>
+                {c.findingsTitle ?? <>What the data <span className="accent">reveals.</span></>}
               </h2>
-              <p className="body-text">These figures describe patterns in historical news coverage. Sample sizes, missing observations and statistical uncertainty are part of the story.</p>
+              <p className="body-text">{c.findingsIntro ?? "These figures describe patterns in historical news coverage. Sample sizes, missing observations and statistical uncertainty are part of the story."}</p>
             </div>
             <ul className="cs-findings cs-block">
               {p.findings.map((f) => (
                 <li key={f.title} className="cs-card">
-                  <span className={`cs-conf conf-${f.confidence.toLowerCase()}`}>{f.confidence} confidence</span>
+                  {!c.hideFindingConfidence && <span className={`cs-conf conf-${f.confidence.toLowerCase()}`}>{f.confidence} confidence</span>}
                   <strong className="cs-fval">{f.value}</strong>
                   <h3>{f.title}</h3>
                   <p>{f.text}</p>
@@ -195,7 +195,7 @@ export default async function ProjectPage({ params }: { params: Promise<Params> 
             </p>
           </div>
           <div className="cs-block">
-            <ShotGallery shots={p.shots} />
+            <ShotGallery shots={p.shots} note={c.galleryNote} />
           </div>
         </div>
       </section>

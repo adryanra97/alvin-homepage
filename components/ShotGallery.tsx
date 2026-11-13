@@ -5,7 +5,7 @@ import type { ProjectShot } from "@/data/site";
 import BrowserFrame from "./BrowserFrame";
 
 /** Galeri screenshot: tab yang dikontrol pengunjung (tanpa auto-play), caption menjelaskan tiap layar. */
-export default function ShotGallery({ shots }: { shots: ProjectShot[] }) {
+export default function ShotGallery({ shots, note = "Screenshots are from the built-in demo mode, which uses a fictional project." }: { shots: ProjectShot[]; note?: string }) {
   const [i, setI] = useState(0);
   const refs = useRef<(HTMLButtonElement | null)[]>([]);
   const warm = (n: number) => {
@@ -23,7 +23,7 @@ export default function ShotGallery({ shots }: { shots: ProjectShot[] }) {
       <div
         className="gal-tabs"
         role="tablist"
-        aria-label="Product screens"
+        aria-label="Project visuals"
         onKeyDown={(e) => {
           if (e.key === "ArrowRight") { e.preventDefault(); go(i + 1); }
           if (e.key === "ArrowLeft") { e.preventDefault(); go(i - 1); }
@@ -51,13 +51,13 @@ export default function ShotGallery({ shots }: { shots: ProjectShot[] }) {
       </div>
 
       <div id="shot-panel" role="tabpanel" aria-labelledby={`shot-tab-${i}`} className="gal-panel">
-        <BrowserFrame key={cur.src} src={cur.src} alt={`${cur.title} screen`} className="gal-frame" />
+        <BrowserFrame key={cur.src} src={cur.src} alt={`${cur.title} visual`} className="gal-frame" />
         <div className="gal-cap">
           <strong>
             {i + 1}/{shots.length} · {cur.title}
           </strong>
           <p>{cur.caption}</p>
-          <small>Screenshots are from the built-in demo mode, which uses a fictional project.</small>
+          <small>{note}</small>
         </div>
       </div>
     </div>

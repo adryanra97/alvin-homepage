@@ -6,7 +6,7 @@ export default function ProjectPreview({ project, priority = false }: { project:
   return (
     <BrowserFrame
       src={project.cover}
-      alt={`${project.title}: tampilan ringkasan hasil`}
+      alt={project.copy?.coverAlt ?? `${project.title}: project preview`}
       priority={priority}
     />
   );
