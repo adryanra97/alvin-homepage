@@ -250,6 +250,7 @@ export type Project = {
 
 const TEA = "/projects/talent-estimation-agent";
 const JK = "/projects/jakarta-730-hari";
+const LT = "/projects/loadtwin";
 
 // >>> TAMBAH PROYEK BARU DI SINI (salin satu blok, ganti isinya). Halaman detailnya otomatis dibuat. <<<
 export const projects: Project[] = [
@@ -443,6 +444,162 @@ export const projects: Project[] = [
       privacyCard: "Responsible data",
       ctaTitle: "Curious what the data reveals?", 
       ctaText: "Explore the seven-chapter story, jump to the most striking moments, or open The Attention Atlas for five interactive investigations. Indonesian and English versions are available.",
+    },
+  },
+  {
+    slug: "loadtwin",
+    title: "LoadTwin",
+    category: "Digital twin · Capacity intelligence",
+    tagline: "Know your limits before traffic finds them.",
+    description:
+      "A personal engineering side project exploring how real load-test measurements can become a digital twin for service capacity decisions. Simulate higher traffic, compare infrastructure, identify resource bottlenecks, and interpret SLA trade-offs using a SimPy-based model. The outputs are predictions to validate, not live production telemetry.",
+    status: "Live · interactive simulation",
+    year: "2026",
+    role: "Independent creator · personal side project",
+    tags: ["Digital twin", "Performance engineering", "SimPy", "Capacity planning", "Next.js", "Python"],
+    url: "https://loadtwin.adryanrizkyalviano.me/",
+    repo: "https://github.com/adryanra97/Loadtwin",
+    cover: `${LT}/architecture-preview.svg`,
+    cover2: `${LT}/scenario-comparison.svg`,
+    stats: [
+      { value: "45", label: "req/s in the example peak scenario" },
+      { value: "90", label: "req/s in the example stress scenario" },
+      { value: "80%", label: "example CPU utilization limit" },
+      { value: "SimPy", label: "discrete-event simulation engine" },
+    ],
+    problem:
+      "A load test reveals how a system performed under specific conditions. It cannot directly answer what happens at double the traffic, on different hardware, or with a slow dependency. Capacity decisions often demand scenarios that have not been tested yet.",
+    approach:
+      "LoadTwin uses an observed baseline to calibrate a discrete-event service model. You can explore simulated traffic and resource changes, inspect where constraints emerge, and compare predictions against SLA thresholds. The model provides decision support, not a substitute for real load testing.",
+    principle: {
+      title: "Model the bottleneck, not just the headline latency.",
+      text: "A service can remain within its p95 latency target while a critical resource is already saturated. LoadTwin keeps response time, utilization, throughput and the model's assumptions visible together.",
+    },
+    findings: [
+      {
+        value: "46.8%",
+        title: "Predicted CPU at the documented peak load",
+        text: "In the example scenario at 45 requests per second, the model predicts 46.8% CPU utilization and a p95 latency of 390 ms.",
+        confidence: "High",
+      },
+      {
+        value: "93.3%",
+        title: "The same example becomes CPU-constrained under stress",
+        text: "At 90 requests per second, predicted CPU reaches 93.3%, crossing the example 80% CPU limit. Predicted p95 is 777 ms.",
+        confidence: "High",
+      },
+    ],
+    limits: [
+      "These are reproducible documented example predictions, not measurements from a live production service.",
+      "The quality of a prediction depends on how representative the load-test baseline and resource assumptions are.",
+      "Modelled capacity and cost estimates should be checked against real load tests and actual infrastructure pricing before operational decisions.",
+    ],
+    steps: [
+      {
+        title: "Measure a baseline",
+        text: "Enter the observed service configuration, requests per second, CPU use, p95 latency and other known load-test values — or begin with the bundled example.",
+      },
+      {
+        title: "Change the conditions",
+        text: "Choose a target environment and explore traffic growth, machine sizing, traffic patterns, dependency issues or node failures.",
+      },
+      {
+        title: "Review the constraint",
+        text: "Inspect the modelled SLA result, bottleneck and assumptions. Compare scenarios and validate the output with new measurements.",
+      },
+    ],
+    shots: [
+      {
+        src: `${LT}/architecture-preview.svg`,
+        title: "Model overview · Architecture explorer",
+        caption:
+          "An original editorial visual based on the documented model example, showing how requests pass through service nodes to shared resources. This is a designed illustration, not a captured production screen.",
+      },
+      {
+        src: `${LT}/scenario-comparison.svg`,
+        title: "Peak vs stress · The first constraint",
+        caption:
+          "A comparison of two documented simulation outputs: at 45 req/s, predicted CPU is 46.8%; at 90 req/s, predicted CPU reaches 93.3% and crosses the example 80% limit. Not live telemetry.",
+      },
+    ],
+    methods: [
+      {
+        title: "Calibrated scenario modelling",
+        points: [
+          "Start from observed load-test throughput, service resources, CPU usage and p95 latency.",
+          "Use discrete-event simulation with SimPy to explore requests, queues and shared resource constraints.",
+          "Change the target infrastructure or traffic assumptions while keeping the measured baseline explicit.",
+        ],
+      },
+      {
+        title: "Interpret and validate",
+        points: [
+          "Compare predicted response time, throughput and resource utilization with the configured SLA limits.",
+          "Explore failure, traffic-pattern, sensitivity and sizing scenarios with consistent inputs.",
+          "Use model validation to compare predictions against fresh tests from tools such as k6, JMeter or Locust.",
+        ],
+        note: "Simulation results are engineering estimates, not guarantees of production behaviour.",
+      },
+    ],
+    flow: [
+      { label: "Load test" },
+      { label: "Calibration" },
+      { label: "SimPy model" },
+      { label: "Scenario" },
+      { label: "SLA review" },
+    ],
+    agents: [
+      {
+        name: "Baseline calibration",
+        kind: "Measured inputs",
+        text: "Defines the system from observed throughput, CPU, latency and test-environment resources.",
+      },
+      {
+        name: "Traffic simulation",
+        kind: "SimPy · discrete events",
+        text: "Models arrival patterns and requests moving through queues and shared service capacity.",
+      },
+      {
+        name: "Resource constraints",
+        kind: "Infrastructure model",
+        text: "Estimates how CPU, service nodes and dependency limits change under a different scenario.",
+      },
+      {
+        name: "Decision review",
+        kind: "SLA & validation",
+        text: "Compares predictions to limits and helps identify which assumption to test next.",
+      },
+    ],
+    stack: [
+      { label: "Simulation", value: "Python · SimPy · calibrated discrete-event modelling" },
+      { label: "Web app", value: "Next.js · React · TypeScript" },
+      { label: "Exploration", value: "Capacity evaluation · auto-sizing · load patterns · failure & sensitivity analysis" },
+      { label: "Validation", value: "Comparison against load-test data (k6 · JMeter · Locust)" },
+      { label: "Deployment", value: "Vercel · GitHub" },
+    ],
+    quality: [
+      "Documented example outputs are clearly separated from measured production telemetry.",
+      "The same baseline can be used to explore capacity, load, resilience and sizing questions.",
+      "Predictions are presented with resource limits and assumptions, not just pass/fail labels.",
+    ],
+    privacy: [
+      "Saved service settings are held in the visitor's browser; simulation requests are sent to the engine.",
+      "Do not paste confidential load-test records or credentials into public demonstrations.",
+      "Real-world infrastructure decisions should be verified with representative tests.",
+    ],
+    copy: {
+      demoLabel: "Explore LoadTwin",
+      coverAlt: "Editorial illustration of LoadTwin digital-twin topology with an example CPU and latency reading",
+      galleryIntro: "editorial project visuals based on documented simulation examples. Select a tab to explore the concept and capacity comparison.",
+      howTitle: "From one measured baseline to a more informed decision",
+      methodsTitle: "How the simulation works",
+      archTitle: "One model, four functional stages",
+      archIntro: "These are simulation stages and engineering components, not autonomous AI agents.",
+      qualityTitle: "Evidence, assumptions and model limits",
+      qualityCard: "What makes the results interpretable",
+      privacyCard: "Data handling and responsible use",
+      ctaTitle: "Curious where your service reaches its limit?",
+      ctaText: "Explore the online model, change the traffic or the hardware, and see how simulated resource constraints affect your next capacity decision.",
     },
   },
   {
