@@ -51,7 +51,7 @@ export default function ShotGallery({ shots, note = "Screenshots are from the bu
       </div>
 
       <div id="shot-panel" role="tabpanel" aria-labelledby={`shot-tab-${i}`} className="gal-panel">
-        <BrowserFrame key={cur.src} src={cur.src} alt={`${cur.title} visual` className="gal-frame" />
+        <BrowserFrame key={cur.src} src={cur.src} alt={`${cur.title} visual`} className="gal-frame" />
         <div className="gal-cap">
           <strong>
             {i + 1}/{shots.length} · {cur.title}
