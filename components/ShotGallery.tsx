@@ -5,7 +5,7 @@ import type { ProjectShot } from "@/data/site";
 import BrowserFrame from "./BrowserFrame";
 
 /** Galeri screenshot: tab yang dikontrol pengunjung (tanpa auto-play), caption menjelaskan tiap layar. */
-export default function ShotGallery({ shots }: { shots: ProjectShot[] }) {
+export default function ShotGallery({ shots, note = "Screenshots are from the built-in demo mode, which uses a fictional project." }: { shots: ProjectShot[]; note?: string }) {
   const [i, setI] = useState(0);
   const refs = useRef<(HTMLButtonElement | null)[]>([]);
   const warm = (n: number) => {
@@ -57,7 +57,7 @@ export default function ShotGallery({ shots }: { shots: ProjectShot[] }) {
             {i + 1}/{shots.length} · {cur.title}
           </strong>
           <p>{cur.caption}</p>
-          <small>Screenshots are from the built-in demo mode, which uses a fictional project.</small>
+          <small>{note}</small>
         </div>
       </div>
     </div>
