@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { projects } from "@/data/site";
 import BrowserFrame from "./BrowserFrame";
+import { LoadTwinMotionPreview } from "./LoadTwinFeatureShowcase";
 
 /** Showcase proyek unggulan di Home: visual besar, angka kunci, temuan utama, dan proyek lain sebagai kartu kecil. */
 export default function ProjectShowcase() {
@@ -70,7 +71,7 @@ export default function ProjectShowcase() {
           <p className="pj-found-label">More projects</p>
           {others.map((o) => (
             <Link key={o.slug} href={`/projects/${o.slug}`} className="pj-other" data-spot>
-              <BrowserFrame src={o.cover} alt={`${o.title}: preview`} className="pj-other-img" sizes="150px" />
+              {o.slug === "loadtwin" ? <LoadTwinMotionPreview size="mini" className="pj-other-img" /> : <BrowserFrame src={o.cover} alt={`${o.title}: preview`} className="pj-other-img" sizes="150px" />}
               <span className="pj-other-text">
                 <small>{o.category}</small>
                 <strong>{o.title}</strong>
