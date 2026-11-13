@@ -236,6 +236,10 @@ export type Project = {
     demoLabel?: string;
     coverAlt?: string;
     galleryIntro?: string;
+    galleryNote?: string; // distinguish screenshots and editorial illustrations
+    findingsTitle?: string;
+    findingsIntro?: string;
+    hideFindingConfidence?: boolean;
     howTitle?: string;
     methodsTitle?: string;
     archTitle?: string;
@@ -435,6 +439,7 @@ export const projects: Project[] = [
       demoLabel: "Explore the story",
       coverAlt: "The interactive Jakarta 730 story, with a map of news-coverage dots",
       galleryIntro: "project visuals: original interface captures and an editorial overview of the new Attention Atlas. Choose a tab to see what the experience reveals.",
+      galleryNote: "Gallery combines interface captures with one editorial illustration; some data is a historical snapshot, not a live feed.",
       howTitle: "From raw news to a tested story",
       methodsTitle: "How the labels are made",
       archTitle: "Seven roles, one pipeline",
@@ -591,6 +596,10 @@ export const projects: Project[] = [
       demoLabel: "Explore LoadTwin",
       coverAlt: "Editorial illustration of LoadTwin digital-twin topology with an example CPU and latency reading",
       galleryIntro: "editorial project visuals based on documented simulation examples. Select a tab to explore the concept and capacity comparison.",
+      galleryNote: "Original editorial illustrations of documented simulation outputs — not screenshots of a live production service.",
+      findingsTitle: "What the example model predicts",
+      findingsIntro: "These values come from two documented model scenarios. They describe predictions, not statistical confidence or real-world measurements.",
+      hideFindingConfidence: true,
       howTitle: "From one measured baseline to a more informed decision",
       methodsTitle: "How the simulation works",
       archTitle: "One model, four functional stages",
