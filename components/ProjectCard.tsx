@@ -60,7 +60,7 @@ export default function ProjectCard({ project: p, priority = false }: { project:
           className="sc-main"
         />
         {p.cover2 ? (
-          <BrowserFrame src={p.cover2} alt={`${p.title}: second screen`} className="sc-second" />
+          <BrowserFrame src={p.cover2} alt={`${p.title}: additional project visual` className="sc-second" />
         ) : null}
       </div>
     </article>
