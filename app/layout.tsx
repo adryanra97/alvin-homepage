@@ -4,6 +4,7 @@ import "@fontsource-variable/inter";
 import "@fontsource-variable/plus-jakarta-sans";
 import "@fontsource/caveat/500.css";
 import "./globals.css";
+import "@/components/loadtwin-showcase.css";
 import Header from "@/components/Header";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";

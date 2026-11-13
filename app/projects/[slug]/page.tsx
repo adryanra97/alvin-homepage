@@ -5,6 +5,7 @@ import { ArrowLeft, ArrowRight, ArrowUpRight, Check, Lightbulb, ShieldCheck, Tar
 import BrowserFrame from "@/components/BrowserFrame";
 import { GitHubIcon } from "@/components/icons";
 import ShotGallery from "@/components/ShotGallery";
+import { LoadTwinFeatureShowcase, LoadTwinMotionPreview } from "@/components/LoadTwinFeatureShowcase";
 import { projects } from "@/data/site";
 
 type Params = { slug: string };
@@ -42,6 +43,7 @@ export default async function ProjectPage({ params }: { params: Promise<Params> 
   const next = projects.length > 1 ? projects[(index + 1) % projects.length] : null;
   const c = p.copy ?? {};
   const NAV = NAV_BASE.filter((n) => !n.only || p.findings?.length);
+  const sections = p.slug === "loadtwin" ? [{ id: "interactive", label: "Interactive model" }, ...NAV] : NAV;
 
   return (
     <article className="cs">
@@ -73,7 +75,7 @@ export default async function ProjectPage({ params }: { params: Promise<Params> 
           </dl>
 
           <div className="cs-cta">
-            <a href={p.url} target="_blank" rel="noopener noreferrer" className="btn btn-light">
+            <a href={p.slug === "loadtwin" ? p.url + "#try" : p.url} target="_blank" rel="noopener noreferrer" className="btn btn-light">
               {c.demoLabel ?? "Try the live demo"} <ArrowUpRight size={16} />
             </a>
             {p.insightsUrl ? (
@@ -88,7 +90,9 @@ export default async function ProjectPage({ params }: { params: Promise<Params> 
             ) : null}
           </div>
 
-          <BrowserFrame src={p.cover} alt={c.coverAlt ?? `${p.title}: FTE summary screen`} priority className="cs-cover" />
+          {p.slug === "loadtwin"
+            ? <LoadTwinMotionPreview size="hero" className="cs-cover" />
+            : <BrowserFrame src={p.cover} alt={c.coverAlt ?? `${p.title}: FTE summary screen`} priority className="cs-cover" />}
         </div>
       </header>
 
@@ -106,13 +110,27 @@ export default async function ProjectPage({ params }: { params: Promise<Params> 
 
       <nav className="cs-nav" aria-label="On this page">
         <div className="container cs-nav-in">
-          {NAV.map((n) => (
+          {sections.map((n) => (
             <a key={n.id} href={`#${n.id}`}>
               {n.label}
             </a>
           ))}
         </div>
       </nav>
+
+      {/* LOADTWIN: spotlight the working product features before technical details */}
+      {p.slug === "loadtwin" ? (
+        <section id="interactive" className="cs-sec ltmv-spotlight-section" aria-labelledby="loadtwin-spotlight-title">
+          <div className="container">
+            <div className="cs-block ltmv-spotlight-intro">
+              <p className="eyebrow"><span>Feature spotlight</span></p>
+              <h2 id="loadtwin-spotlight-title">Watch requests move. <span className="accent">Then see what breaks.</span></h2>
+              <p className="body-text">Explore the moving system model, check the SLA under increasing load, or crash a node to see what fault testing looks like. Each feature links to the actual simulation tool.</p>
+            </div>
+            <div className="cs-block"><LoadTwinFeatureShowcase /></div>
+          </div>
+        </section>
+      ) : null}
 
       {/* OVERVIEW */}
       <section id="overview" className="cs-sec">
@@ -334,7 +352,7 @@ export default async function ProjectPage({ params }: { params: Promise<Params> 
           <h2>{c.ctaTitle ?? "Want to see it run?"}</h2>
           <p>{c.ctaText ?? "The demo works without an API key. It runs the agents on a fictional project in about 15 seconds."}</p>
           <div className="cs-cta">
-            <a href={p.url} target="_blank" rel="noopener noreferrer" className="btn btn-light">
+            <a href={p.slug === "loadtwin" ? p.url + "#try" : p.url} target="_blank" rel="noopener noreferrer" className="btn btn-light">
               {c.demoLabel ?? "Try the live demo"} <ArrowUpRight size={16} />
             </a>
             {p.insightsUrl ? (
