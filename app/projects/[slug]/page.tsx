@@ -147,14 +147,14 @@ export default async function ProjectPage({ params }: { params: Promise<Params> 
                 <span>Findings</span>
               </p>
               <h2>
-                Two years, <span className="accent">six findings.</span>
+                {c.findingsTitle ?? <>What the data <span className="accent">reveals.</span></>}
               </h2>
-              <p className="body-text">Each finding is labelled with how confident it is, based on sample size and a statistical test.</p>
+              <p className="body-text">{c.findingsIntro ?? "Explore the evidence behind the findings and the limits of what can be concluded from it."}</p>
             </div>
             <ul className="cs-findings cs-block">
               {p.findings.map((f) => (
                 <li key={f.title} className="cs-card">
-                  <span className={`cs-conf conf-${f.confidence.toLowerCase()}`}>{f.confidence} confidence</span>
+                  {!c.hideFindingConfidence && <span className={`cs-conf conf-${f.confidence.toLowerCase()}`}>{f.confidence} confidence</span>}
                   <strong className="cs-fval">{f.value}</strong>
                   <h3>{f.title}</h3>
                   <p>{f.text}</p>
@@ -183,14 +183,14 @@ export default async function ProjectPage({ params }: { params: Promise<Params> 
               <span>Walkthrough</span>
             </p>
             <h2>
-              Don&apos;t just read about it. <span className="accent">See each screen.</span>
+              Don&apos;t just read about it. <span className="accent">Explore the visuals.</span>
             </h2>
             <p className="body-text">
               {p.shots.length} {c.galleryIntro ?? "real screens from the app. Pick a tab to see what each one is for."}
             </p>
           </div>
           <div className="cs-block">
-            <ShotGallery shots={p.shots} />
+            <ShotGallery shots={p.shots} note={c.galleryNote} />
           </div>
         </div>
       </section>
