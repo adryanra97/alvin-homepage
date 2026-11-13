@@ -42,7 +42,8 @@ export default async function ProjectPage({ params }: { params: Promise<Params> 
   const p = projects[index];
   const next = projects.length > 1 ? projects[(index + 1) % projects.length] : null;
   const c = p.copy ?? {};
-  const NAV = [...(p.slug === "loadtwin" ? [{ id: "interactive", label: "Interactive model" }] : []), ...NAV_BASE].filter((n) => !n.only || p.findings?.length);
+  const NAV = NAV_BASE.filter((n) => !n.only || p.findings?.length);
+  const sections = p.slug === "loadtwin" ? [{ id: "interactive", label: "Interactive model" }, ...NAV] : NAV;
 
   return (
     <article className="cs">
@@ -109,7 +110,7 @@ export default async function ProjectPage({ params }: { params: Promise<Params> 
 
       <nav className="cs-nav" aria-label="On this page">
         <div className="container cs-nav-in">
-          {NAV.map((n) => (
+          {sections.map((n) => (
             <a key={n.id} href={`#${n.id}`}>
               {n.label}
             </a>
