@@ -82,7 +82,7 @@ function FlowDiagram({ failed = false, traffic = "peak", compact = false }: { fa
           <path d="M 806 184 C 806 197 822 204 841 204 C 860 204 876 197 876 184 M 806 211 C 806 224 822 230 841 230 C 860 230 876 224 876 211" />
         </g>
         {moving && routes.map((route, i) => (failed && i === 1 ? null : [0,1,2].map(j => (
-          <circle className="ltmv-particle" key={"flow-"+i+"-"+j} r={compact ? 4.6 : 5.8} cx="0" cy="0">
+          <circle className="ltmv-particle" key={"flow-"+i+"-"+j} r={compact ? 13 : 6.2} cx="0" cy="0">
             <animateMotion path={route} dur={(duration+i*0.16)+"s"} begin={(-j*(duration/3)-i*0.43)+"s"} repeatCount="indefinite" />
           </circle>
         ))))}
@@ -103,7 +103,7 @@ export function LoadTwinMotionPreview({ size = "card", className = "" }: { size?
         <span className="ltmv-preview-brand"><i /> LOADTWIN</span>
         <span className="ltmv-preview-type">MODEL IN MOTION</span>
       </div>
-      <FlowDiagram compact />
+      <FlowDiagram compact={size === "mini"} />
       <div className="ltmv-preview-footer">
         <span>Requests → Nodes → Database</span>
         <span><i /> Animated preview</span>
