@@ -517,16 +517,44 @@ export const projects: Project[] = [
     ],
     shots: [
       {
-        src: `${LT}/architecture-preview.svg`,
-        title: "Model overview · Architecture explorer",
-        caption:
-          "An original editorial visual based on the documented model example, showing how requests pass through service nodes to shared resources. This is a designed illustration, not a captured production screen.",
+        src: `${LT}/screens/live.webp`,
+        title: "Live Playground",
+        caption: "Actual LoadTwin screen: the moving request-flow simulator with its traffic, node, vCPU, thread and failure controls.",
       },
       {
-        src: `${LT}/scenario-comparison.svg`,
-        title: "Peak vs stress · The first constraint",
-        caption:
-          "A comparison of two documented simulation outputs: at 45 req/s, predicted CPU is 46.8%; at 90 req/s, predicted CPU reaches 93.3% and crosses the example 80% limit. Not live telemetry.",
+        src: `${LT}/screens/evaluate.webp`,
+        title: "Evaluate · Capacity verdict",
+        caption: "Actual successful simulation run, checking throughput, p95 latency and SLA limits on the service.",
+      },
+      {
+        src: `${LT}/screens/autosize.webp`,
+        title: "Auto-size · Infrastructure options",
+        caption: "Actual capacity and cost exploration using the built-in instance catalogue.",
+      },
+      {
+        src: `${LT}/screens/patterns.webp`,
+        title: "Load Patterns · Time series",
+        caption: "Actual run of the traffic-pattern engine with time-window performance charts.",
+      },
+      {
+        src: `${LT}/screens/failures.webp`,
+        title: "Failure Testing · Node crash",
+        caption: "Actual fault-injection simulation after choosing a node-crash preset; compares resilience with a healthy run.",
+      },
+      {
+        src: `${LT}/screens/sensitivity.webp`,
+        title: "Sensitivity · Key drivers",
+        caption: "Actual sensitivity run showing which inputs move modelled latency the most.",
+      },
+      {
+        src: `${LT}/screens/validate.webp`,
+        title: "Validate Model · Import workflow",
+        caption: "Actual load-test sample import and calibration screen. A real CPU reading is required before the validation result can be calculated.",
+      },
+      {
+        src: `${LT}/screens/ask.webp`,
+        title: "Ask LoadTwin · What-if answer",
+        caption: "Actual application response to a what-if question about traffic doubling.",
       },
     ],
     methods: [
@@ -596,9 +624,9 @@ export const projects: Project[] = [
     ],
     copy: {
       demoLabel: "Try the live playground",
-      coverAlt: "Editorial illustration of LoadTwin digital-twin topology with an example CPU and latency reading",
-      galleryIntro: "supporting editorial illustrations of the architecture and documented capacity comparison, complementing the screenshot-style motion preview and seven-tool showcase above.",
-      galleryNote: "Original editorial illustrations of documented simulation outputs — not screenshots of a live production service.",
+      coverAlt: "Animated request-flow preview styled after the actual LoadTwin Live Playground interface"
+      galleryIntro: "actual screenshots from the deployed LoadTwin app, including simulation results and the validation import workflow.",
+      galleryNote: "Screens captured in a real Chromium browser, directly from LoadTwin. Simulations used the project example service; the images do not represent current production performance.",
       findingsTitle: "What the example model predicts",
       findingsIntro: "These values come from two documented model scenarios. They describe predictions, not statistical confidence or real-world measurements.",
       hideFindingConfidence: true,
