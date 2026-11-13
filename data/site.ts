@@ -624,7 +624,7 @@ export const projects: Project[] = [
     ],
     copy: {
       demoLabel: "Try the live playground",
-      coverAlt: "Animated request-flow preview styled after the actual LoadTwin Live Playground interface"
+      coverAlt: "Animated request-flow preview styled after the actual LoadTwin Live Playground interface",
       galleryIntro: "actual screenshots from the deployed LoadTwin app, including simulation results and the validation import workflow.",
       galleryNote: "Screens captured in a real Chromium browser, directly from LoadTwin. Simulations used the project example service; the images do not represent current production performance.",
       findingsTitle: "What the example model predicts",
