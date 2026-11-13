@@ -457,7 +457,7 @@ export const projects: Project[] = [
     slug: "loadtwin",
     title: "LoadTwin",
     category: "Digital twin · Capacity intelligence",
-    tagline: "Watch a system adapt to traffic. Then see what happens when a node fails."
+    tagline: "Watch a system adapt to traffic. Then see what happens when a node fails.",
     description:
       "A personal engineering side project turning load-test measurements into an interactive digital twin. Watch request flow, evaluate peak and stress capacity against SLAs, and test failures such as node crashes or slow dependencies using a SimPy-based engine. Predictions are model estimates, not production telemetry.",
     status: "Live · interactive simulation",
