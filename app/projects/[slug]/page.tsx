@@ -76,6 +76,11 @@ export default async function ProjectPage({ params }: { params: Promise<Params> 
             <a href={p.url} target="_blank" rel="noopener noreferrer" className="btn btn-light">
               {c.demoLabel ?? "Try the live demo"} <ArrowUpRight size={16} />
             </a>
+            {p.insightsUrl ? (
+              <a href={p.insightsUrl} target="_blank" rel="noopener noreferrer" className="btn btn-ghost-light">
+                Explore the insights <ArrowUpRight size={16} />
+              </a>
+            ) : null}
             {p.repo ? (
               <a href={p.repo} target="_blank" rel="noopener noreferrer" className="btn btn-ghost-light">
                 <GitHubIcon size={15} /> Source on GitHub
@@ -149,7 +154,7 @@ export default async function ProjectPage({ params }: { params: Promise<Params> 
               <h2>
                 {c.findingsTitle ?? <>What the data <span className="accent">reveals.</span></>}
               </h2>
-              <p className="body-text">{c.findingsIntro ?? "Explore the evidence behind the findings and the limits of what can be concluded from it."}</p>
+              <p className="body-text">{c.findingsIntro ?? "These figures describe patterns in historical news coverage. Sample sizes, missing observations and statistical uncertainty are part of the story."}</p>
             </div>
             <ul className="cs-findings cs-block">
               {p.findings.map((f) => (
@@ -332,6 +337,11 @@ export default async function ProjectPage({ params }: { params: Promise<Params> 
             <a href={p.url} target="_blank" rel="noopener noreferrer" className="btn btn-light">
               {c.demoLabel ?? "Try the live demo"} <ArrowUpRight size={16} />
             </a>
+            {p.insightsUrl ? (
+              <a href={p.insightsUrl} target="_blank" rel="noopener noreferrer" className="btn btn-ghost-light">
+                Explore the insights <ArrowUpRight size={16} />
+              </a>
+            ) : null}
             {p.repo ? (
               <a href={p.repo} target="_blank" rel="noopener noreferrer" className="btn btn-ghost-light">
                 <GitHubIcon size={15} /> Read the code

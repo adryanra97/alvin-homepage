@@ -211,6 +211,7 @@ export type Project = {
   role: string;
   tags: string[];
   url: string; // link ke site Vercel proyek (boleh Vercel lain)
+  insightsUrl?: string; // optional deep dive into the live project analysis
   repo?: string;
   cover: string; // screenshot utama (/public/projects/<slug>/...)
   cover2?: string; // screenshot kedua yang menumpuk di kartu
@@ -271,6 +272,7 @@ export const projects: Project[] = [
     role: "Independent creator · side project",
     tags: ["AI-assisted analytics", "Interactive storytelling", "News analytics", "Data visualization", "NLP", "Next.js"],
     url: "https://jakarta730.adryanrizkyalviano.me/en/",
+    insightsUrl: "https://jakarta730.adryanrizkyalviano.me/en/temuan/",
     cover: `${JK}/story-map.webp`,
     cover2: `${JK}/attention-atlas-preview.svg`,
     stats: [

@@ -83,14 +83,17 @@ export default function Interactions() {
 
 function run(el: HTMLElement) {
   const text = el.textContent ?? "";
-  const m = text.match(/[\d][\d,]*/);
+  const m = text.match(/\d[\d,]*(?:\.\d+)?/);
   if (!m) return;
   const target = Number(m[0].replace(/,/g, ""));
   if (!Number.isFinite(target) || target < 2) return;
   const withComma = m[0].includes(",");
+  const decimals = m[0].includes(".") ? m[0].split(".")[1].length : 0;
   const before = text.slice(0, m.index);
   const after = text.slice((m.index ?? 0) + m[0].length);
-  const fmt = (n: number) => (withComma ? Math.round(n).toLocaleString("en-US") : String(Math.round(n)));
+  const fmt = (n: number) => (withComma
+    ? n.toLocaleString("en-US", { minimumFractionDigits: decimals, maximumFractionDigits: decimals })
+    : n.toFixed(decimals));
   const start = performance.now();
   const dur = 1100;
   const tick = (now: number) => {
