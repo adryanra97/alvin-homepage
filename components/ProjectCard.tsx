@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import type { Project } from "@/data/site";
 import BrowserFrame from "./BrowserFrame";
+import { LoadTwinMotionPreview } from "./LoadTwinFeatureShowcase";
 import { GitHubIcon } from "./icons";
 
 /** Kartu showcase proyek untuk /projects: visual besar, angka kunci, satu aksi utama yang jelas. */
@@ -52,6 +53,7 @@ export default function ProjectCard({ project: p, priority = false }: { project:
       </div>
 
       <div className="sc-visual" aria-hidden="false">
+        {p.slug === "loadtwin" ? <LoadTwinMotionPreview size="card" className="sc-main" /> : <>
         <BrowserFrame
           src={p.cover}
           alt={p.copy?.coverAlt ?? `${p.title}: FTE summary screen`}
@@ -62,6 +64,7 @@ export default function ProjectCard({ project: p, priority = false }: { project:
         {p.cover2 ? (
           <BrowserFrame src={p.cover2} alt={`${p.title}: additional project visual`} className="sc-second" />
         ) : null}
+        </>}
       </div>
     </article>
   );
