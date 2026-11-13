@@ -1,0 +1,78 @@
+{
+  "source": "https://loadtwin.adryanrizkyalviano.me",
+  "captured_at": "2026-11-13T22:11:38.493994+00:00",
+  "shots": [
+    {
+      "id": "live",
+      "source_url": "https://loadtwin.adryanrizkyalviano.me/#try",
+      "image": "public/projects/loadtwin/screens/live.webp",
+      "result_loaded": true
+    },
+    {
+      "id": "evaluate",
+      "source_url": "https://loadtwin.adryanrizkyalviano.me/evaluate/",
+      "run_clicked": true,
+      "result_loaded": true,
+      "error": null,
+      "image": "public/projects/loadtwin/screens/evaluate.webp",
+      "elapsed_seconds": 10.7
+    },
+    {
+      "id": "autosize",
+      "source_url": "https://loadtwin.adryanrizkyalviano.me/autosize/",
+      "run_clicked": true,
+      "result_loaded": true,
+      "error": null,
+      "image": "public/projects/loadtwin/screens/autosize.webp",
+      "elapsed_seconds": 13.3
+    },
+    {
+      "id": "patterns",
+      "source_url": "https://loadtwin.adryanrizkyalviano.me/patterns/",
+      "run_clicked": true,
+      "result_loaded": true,
+      "error": null,
+      "image": "public/projects/loadtwin/screens/patterns.webp",
+      "elapsed_seconds": 4.6
+    },
+    {
+      "id": "failures",
+      "source_url": "https://loadtwin.adryanrizkyalviano.me/failures/",
+      "run_clicked": true,
+      "result_loaded": true,
+      "error": null,
+      "preset_clicked": true,
+      "image": "public/projects/loadtwin/screens/failures.webp",
+      "elapsed_seconds": 4.8
+    },
+    {
+      "id": "sensitivity",
+      "source_url": "https://loadtwin.adryanrizkyalviano.me/sensitivity/",
+      "run_clicked": true,
+      "result_loaded": true,
+      "error": null,
+      "image": "public/projects/loadtwin/screens/sensitivity.webp",
+      "elapsed_seconds": 9.2
+    },
+    {
+      "id": "validate",
+      "source_url": "https://loadtwin.adryanrizkyalviano.me/validate/",
+      "run_clicked": false,
+      "result_loaded": false,
+      "error": "The application's Run button is disabled or unavailable.",
+      "sample_clicked": true,
+      "image": "public/projects/loadtwin/screens/validate.webp",
+      "elapsed_seconds": 4.5
+    },
+    {
+      "id": "ask",
+      "source_url": "https://loadtwin.adryanrizkyalviano.me/ask/",
+      "run_clicked": true,
+      "result_loaded": true,
+      "error": null,
+      "question": "What if traffic doubles on payday?",
+      "image": "public/projects/loadtwin/screens/ask.webp",
+      "elapsed_seconds": 9.8
+    }
+  ]
+}
