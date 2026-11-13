@@ -153,3 +153,17 @@
   .ltmv-eval-options{gap:10px}
   .ltmv-eval-options button{font-size:11px}
 }
+
+
+/* Put the experience ahead of the long technical case-study narrative. */
+.ltmv-spotlight-section{background:var(--bg-alt);scroll-margin-top:120px}
+.ltmv-spotlight-intro h2{max-width:860px;line-height:1.14;letter-spacing:-.035em}
+.ltmv-spotlight-intro .body-text{max-width:780px}
+.cs-hero .ltmv-preview-hero.cs-cover{
+  box-shadow:0 32px 72px -30px #000b,0 0 0 1px #a6dcec29;
+}
+.sc-visual>.ltmv-preview-card{box-shadow:0 30px 70px -24px #0008}
+.pj-other>.ltmv-preview-mini{align-self:center}
+@media (max-width:560px){
+  .pj-other>.ltmv-preview-mini{max-width:100%}
+}
