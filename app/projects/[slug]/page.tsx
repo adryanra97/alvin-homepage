@@ -124,8 +124,8 @@ export default async function ProjectPage({ params }: { params: Promise<Params> 
           <div className="container">
             <div className="cs-block ltmv-spotlight-intro">
               <p className="eyebrow"><span>Feature spotlight</span></p>
-              <h2 id="loadtwin-spotlight-title">Watch requests move. <span className="accent">Then see what breaks.</span></h2>
-              <p className="body-text">Explore the moving system model, check the SLA under increasing load, or crash a node to see what fault testing looks like. Each feature links to the actual simulation tool.</p>
+              <h2 id="loadtwin-spotlight-title">Watch requests move. <span className="accent">Explore every way to test them.</span></h2>
+              <p className="body-text">The live request-flow preview follows the interface of LoadTwin itself: moving blue requests, load balancer, service nodes, database and external API. Change traffic, resize the illustrated cluster or crash a node, then explore all seven real simulation methods below.</p>
             </div>
             <div className="cs-block"><LoadTwinFeatureShowcase /></div>
           </div>
