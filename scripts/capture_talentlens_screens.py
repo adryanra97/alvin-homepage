@@ -29,6 +29,7 @@ PAGES = [
     ("summary", "/hasil/ringkasan", ".tl-summary-metrics"),
     ("breakdown", "/hasil/breakdown", "input[aria-label='Cari item']"),
     ("monthly", "/hasil/bulanan", ".recharts-wrapper"),
+    ("capability", "/hasil/capability", "h1"),
     ("ai-assist", "/hasil/peluang-ai", ".tl-ai-role-list"),
     ("findings", "/hasil/temuan", "h1"),
     ("message", "/hasil/pesan", "textarea[aria-label='Draf pesan']"),
