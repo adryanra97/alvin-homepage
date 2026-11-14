@@ -1,0 +1,134 @@
+{
+  "source": "https://talentlens.adryanrizkyalviano.me",
+  "captured_at": "2026-11-14T10:06:55.206225+00:00",
+  "images": [
+    {
+      "name": "home",
+      "path": "public/projects/talent-estimation-agent/redesign-2026/home.webp",
+      "size_bytes": 76944
+    },
+    {
+      "name": "journey",
+      "path": "public/projects/talent-estimation-agent/redesign-2026/journey.webp",
+      "size_bytes": 75506
+    },
+    {
+      "name": "process",
+      "path": "public/projects/talent-estimation-agent/redesign-2026/process.webp",
+      "size_bytes": 77060
+    },
+    {
+      "name": "summary",
+      "path": "public/projects/talent-estimation-agent/redesign-2026/summary.webp",
+      "size_bytes": 89258
+    },
+    {
+      "name": "breakdown",
+      "path": "public/projects/talent-estimation-agent/redesign-2026/breakdown.webp",
+      "size_bytes": 82894
+    },
+    {
+      "name": "monthly",
+      "path": "public/projects/talent-estimation-agent/redesign-2026/monthly.webp",
+      "size_bytes": 55822
+    },
+    {
+      "name": "capability",
+      "path": "public/projects/talent-estimation-agent/redesign-2026/capability.webp",
+      "size_bytes": 89872
+    },
+    {
+      "name": "ai-assist",
+      "path": "public/projects/talent-estimation-agent/redesign-2026/ai-assist.webp",
+      "size_bytes": 77874
+    },
+    {
+      "name": "findings",
+      "path": "public/projects/talent-estimation-agent/redesign-2026/findings.webp",
+      "size_bytes": 130574
+    },
+    {
+      "name": "message",
+      "path": "public/projects/talent-estimation-agent/redesign-2026/message.webp",
+      "size_bytes": 146154
+    },
+    {
+      "name": "catalog",
+      "path": "public/projects/talent-estimation-agent/redesign-2026/catalog.webp",
+      "size_bytes": 73408
+    },
+    {
+      "name": "method",
+      "path": "public/projects/talent-estimation-agent/redesign-2026/method.webp",
+      "size_bytes": 112206
+    },
+    {
+      "name": "settings",
+      "path": "public/projects/talent-estimation-agent/redesign-2026/settings.webp",
+      "size_bytes": 85086
+    },
+    {
+      "name": "about",
+      "path": "public/projects/talent-estimation-agent/redesign-2026/about.webp",
+      "size_bytes": 109878
+    }
+  ],
+  "demo_completed": true,
+  "pages": [
+    {
+      "name": "summary",
+      "url": "https://talentlens.adryanrizkyalviano.me/hasil/ringkasan",
+      "status": "client-side navigation"
+    },
+    {
+      "name": "breakdown",
+      "url": "https://talentlens.adryanrizkyalviano.me/hasil/breakdown",
+      "status": "client-side navigation"
+    },
+    {
+      "name": "monthly",
+      "url": "https://talentlens.adryanrizkyalviano.me/hasil/bulanan",
+      "status": "client-side navigation"
+    },
+    {
+      "name": "capability",
+      "url": "https://talentlens.adryanrizkyalviano.me/hasil/capability",
+      "status": "client-side navigation"
+    },
+    {
+      "name": "ai-assist",
+      "url": "https://talentlens.adryanrizkyalviano.me/hasil/peluang-ai",
+      "status": "client-side navigation"
+    },
+    {
+      "name": "findings",
+      "url": "https://talentlens.adryanrizkyalviano.me/hasil/temuan",
+      "status": "client-side navigation"
+    },
+    {
+      "name": "message",
+      "url": "https://talentlens.adryanrizkyalviano.me/hasil/pesan",
+      "status": "client-side navigation"
+    },
+    {
+      "name": "catalog",
+      "url": "https://talentlens.adryanrizkyalviano.me/katalog",
+      "status": "client-side navigation"
+    },
+    {
+      "name": "method",
+      "url": "https://talentlens.adryanrizkyalviano.me/metodologi",
+      "status": "client-side navigation"
+    },
+    {
+      "name": "settings",
+      "url": "https://talentlens.adryanrizkyalviano.me/pengaturan",
+      "status": "client-side navigation"
+    },
+    {
+      "name": "about",
+      "url": "https://talentlens.adryanrizkyalviano.me/tentang",
+      "status": "client-side navigation"
+    }
+  ]
+}
