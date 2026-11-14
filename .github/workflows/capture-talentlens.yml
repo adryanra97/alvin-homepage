@@ -41,9 +41,9 @@ jobs:
           python - <<'PY'
           import json
           from pathlib import Path
-          p = Path("public/projects/talent-estimation-agent/capture-manifest.json")
+          p = Path("public/projects/talent-estimation-agent/redesign-2026/capture-manifest.json")
           data = json.loads(p.read_text())
-          expected = {"home", "process", "summary", "breakdown", "monthly", "capability", "ai-assist", "findings", "message", "catalog", "settings", "method", "about"}
+          expected = {"home", "journey", "process", "summary", "breakdown", "monthly", "capability", "ai-assist", "findings", "message", "catalog", "settings", "method", "about"}
           captured = {x["name"] for x in data["images"]}
           missing = expected - captured
           if not data["demo_completed"] or missing:
