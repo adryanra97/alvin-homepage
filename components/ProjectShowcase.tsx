@@ -3,12 +3,13 @@ import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { projects } from "@/data/site";
 import BrowserFrame from "./BrowserFrame";
 import { LoadTwinMotionPreview } from "./LoadTwinFeatureShowcase";
+import TalentLensHomeSpotlight from "./TalentLensHomeSpotlight";
 
 /** Showcase proyek unggulan di Home: visual besar, angka kunci, temuan utama, dan proyek lain sebagai kartu kecil. */
 export default function ProjectShowcase() {
   const p = projects.find((x) => x.featured) ?? projects[0];
   if (!p) return null;
-  const others = projects.filter((x) => x.slug !== p.slug);
+  const others = projects.filter((x) => x.slug !== p.slug && x.slug !== "talent-estimation-agent");
   const teaser = p.findings?.slice(0, 3) ?? [];
   return (
     <>
@@ -82,6 +83,8 @@ export default function ProjectShowcase() {
           ))}
         </div>
       ) : null}
+
+      <TalentLensHomeSpotlight />
     </>
   );
 }
