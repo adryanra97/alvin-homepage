@@ -1197,3 +1197,18 @@ a.ph-fact:hover { background: rgba(255, 255, 255, .08); }
   .pj-other.is-talentlens .pj-other-img{height:65px}
   .pj-other.is-talentlens .pj-other-img img{height:50px}
 }
+
+/* Mobile QA: keep footer links inside the viewport instead of creating 5px page overflow. */
+@media(max-width:600px){
+  .footer-nav{
+    width:100%;
+    max-width:100%;
+    flex-wrap:wrap;
+    gap:8px 18px;
+  }
+  .footer-nav a{
+    display:inline-flex;
+    align-items:center;
+    min-height:32px;
+  }
+}
