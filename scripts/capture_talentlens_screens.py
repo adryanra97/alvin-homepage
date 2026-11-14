@@ -22,7 +22,7 @@ from playwright.sync_api import sync_playwright
 
 BASE = os.environ.get("TALENTLENS_CAPTURE_URL", "https://talentlens.adryanrizkyalviano.me").rstrip("/")
 SHARE = os.environ.get("TALENTLENS_SHARE_URL", "")
-OUT = Path("public/projects/talent-estimation-agent")
+OUT = Path("public/projects/talent-estimation-agent/redesign-2026")
 OUT.mkdir(parents=True, exist_ok=True)
 
 PAGES = [
@@ -41,10 +41,37 @@ PAGES = [
 
 manifest = {"source": BASE, "captured_at": datetime.now(timezone.utc).isoformat(), "images": [], "demo_completed": False}
 
+FOCUS = {
+    # Put the distinctive working UI into view, not just the identical report header.
+    "journey": ".tl-journey-stage-track",
+    "process": ".tl-proc-journey",
+    "summary": ".tl-summary-intro",
+    "breakdown": ".tl-results-scope",
+    "monthly": ".tl-results-scope",
+    "capability": ".tl-results-scope",
+    "ai-assist": ".tl-results-scope",
+    "findings": ".tl-results-scope",
+    "message": ".tl-report-writing-guide",
+    "catalog": ".tl-resource-kpi-strip",
+    "method": ".tl-method-grid",
+    "settings": ".tl-settings-status",
+    "about": ".tl-about-intro",
+}
+
 def capture(page, name: str):
-    """Save the actual browser viewport in two web-friendly WebP sizes."""
-    page.evaluate("window.scrollTo(0, 0)")
-    page.wait_for_timeout(650)
+    """Save genuine browser pixels, focused on the unique content of each screen."""
+    focus = FOCUS.get(name)
+    if focus and page.locator(focus).count():
+        page.evaluate("""(selector) => {
+            const element = document.querySelector(selector);
+            if (element) {
+                const top = window.scrollY + element.getBoundingClientRect().top;
+                window.scrollTo({ top: Math.max(0, top - 120), behavior: "instant" });
+            }
+        }""", focus)
+    else:
+        page.evaluate("window.scrollTo(0, 0)")
+    page.wait_for_timeout(750)
     png = page.screenshot(full_page=False, animations="disabled")
     from io import BytesIO
     with Image.open(BytesIO(png)) as image:
@@ -76,6 +103,7 @@ with sync_playwright() as play:
         raise RuntimeError("Expected TalentLens site not visible; check deployment access")
     page.wait_for_timeout(1300)
     capture(page, "home")
+    capture(page, "journey")
 
     demo = page.get_by_role("button", name="Coba data contoh")
     demo.wait_for(timeout=20000)
