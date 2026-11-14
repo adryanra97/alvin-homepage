@@ -6,6 +6,7 @@ import "@fontsource/caveat/500.css";
 import "./globals.css";
 import "@/components/loadtwin-showcase.css";
 import "@/components/loadtwin-real-gallery.css";
+import "@/components/talentlens-spotlight.css";
 import Header from "@/components/Header";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
