@@ -253,7 +253,7 @@ export type Project = {
   };
 };
 
-const TEA = "/projects/talent-estimation-agent";
+const TEA = "/projects/talent-estimation-agent/redesign-2026";
 const JK = "/projects/jakarta-730-hari";
 const LT = "/projects/loadtwin";
 
@@ -655,7 +655,7 @@ export const projects: Project[] = [
     tags: ["Agentic AI", "LangGraph", "Capability mapping", "Workforce planning", "Next.js", "Python", "UX/UI"],
     url: "https://talentlens.adryanrizkyalviano.me/",
     repo: "https://github.com/adryanra97/talent-estimation-agent",
-    cover: `${TEA}/home.webp`,
+    cover: `${TEA}/journey.webp`,
     cover2: `${TEA}/summary.webp`,
     stats: [
       { value: "6", label: "orchestrated workflow stages" },
@@ -692,67 +692,72 @@ export const projects: Project[] = [
     shots: [
       {
         src: `${TEA}/home.webp`,
-        title: "01 · A new first impression",
-        caption: "The redesigned TalentLens homepage uses a navy editorial design and a moving six-stage document-to-agent journey. The built-in fictional project can be explored without a model key.",
+        title: "01 · Editorial first impression",
+        caption: "The real TalentLens homepage introduces explainable staffing decisions with a clear hierarchy, model-free fictional demo, and direct access to its agent workflow.",
+      },
+      {
+        src: `${TEA}/journey.webp`,
+        title: "02 · Visual agent journey",
+        caption: "The redesigned interactive workflow visual: input document, six agent stages, progress markers and report output. This screenshot shows the actual interface, not a mockup.",
       },
       {
         src: `${TEA}/process.webp`,
-        title: "02 · Agents in motion",
+        title: "03 · Agents in motion",
         caption: "The real run view follows agent stage transitions with a progress track, completion states and timestamped events; it is not a decorative workflow illustration.",
       },
       {
         src: `${TEA}/summary.webp`,
-        title: "03 · Executive FTE report",
+        title: "04 · Executive FTE report",
         caption: "The new evidence-first report leads with an actionable takeaway, primary FTE metrics and side-by-side UCP versus bottom-up role comparisons. The full technical table opens only when needed.",
       },
       {
         src: `${TEA}/breakdown.webp`,
-        title: "04 · WBS review",
+        title: "05 · WBS review",
         caption: "Filter the underlying work items, check flagged rows and edit role involvement, complexity or FTE allocation. User changes trigger deterministic recalculation.",
       },
       {
         src: `${TEA}/monthly.webp`,
-        title: "05 · Monthly workload",
+        title: "06 · Monthly workload",
         caption: "A calmer stacked chart and detailed table reveal monthly capacity, the busiest period and differences between the two estimation methods.",
       },
       {
         src: `${TEA}/capability.webp`,
-        title: "06 · Capability coverage",
+        title: "07 · Capability coverage",
         caption: "Trace skills and role assignments back to WBS items. Search and progressively reveal the detailed capability mapping instead of browsing an endless list.",
       },
       {
         src: `${TEA}/ai-assist.webp`,
-        title: "07 · AI assistance scenario",
+        title: "08 · AI assistance scenario",
         caption: "Compare baseline and AI-assisted estimates per role, inspect task-level savings assumptions, and keep the original staffing baseline unchanged.",
       },
       {
         src: `${TEA}/findings.webp`,
-        title: "08 · Findings & audit trail",
+        title: "09 · Findings & audit trail",
         caption: "Review issues grouped by severity, calculation assumptions and an expandable trace of the agent's decisions.",
       },
       {
         src: `${TEA}/message.webp`,
-        title: "09 · Shareable response",
+        title: "10 · Shareable response",
         caption: "A guided, editable message helps communicate findings alongside a downloadable Excel workbook for traceability.",
       },
       {
         src: `${TEA}/catalog.webp`,
-        title: "10 · Searchable capability catalog",
+        title: "11 · Searchable capability catalog",
         caption: "Find roles by team, keyword or skill, open their responsibility boundaries and import an updated catalog when requirements change.",
       },
       {
         src: `${TEA}/settings.webp`,
-        title: "11 · Model configuration",
+        title: "12 · Model configuration",
         caption: "Provider selection, session-only API key handling, model connection testing and privacy controls live in a guided configuration page.",
       },
       {
         src: `${TEA}/method.webp`,
-        title: "12 · Explainable methodology",
+        title: "13 · Explainable methodology",
         caption: "Readable UCP and bottom-up walkthroughs show formulas, source assumptions, and how to interpret the numbers before making a decision.",
       },
       {
         src: `${TEA}/about.webp`,
-        title: "13 · The product story",
+        title: "14 · The product story",
         caption: "The redesigned About page explains why TalentLens exists, how its six workflow stages work, and which controls matter for a responsible pilot.",
       },
     ],
@@ -820,7 +825,7 @@ export const projects: Project[] = [
     docsNote: "Structured analysis and design documentation accompanies the source repository; the interactive app also explains its methodology and assumptions.",
     copy: {
       demoLabel: "Explore TalentLens",
-      coverAlt: "Redesigned TalentLens homepage: navy editorial layout with an animated six-stage agent workflow",
+      coverAlt: "TalentLens actual six-stage agent workflow, with document input, six agent stages and results",
       galleryIntro: "actual interface screens from the latest TalentLens redesign. Choose a chapter to explore.",
       galleryNote: "Captured from the real deployed TalentLens interface in a browser. Analysis screens use the fictional built-in demo; no project or client data is shown.",
       howTitle: "Four steps: from evidence to decisions",
