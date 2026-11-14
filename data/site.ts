@@ -645,8 +645,8 @@ export const projects: Project[] = [
     slug: "talent-estimation-agent",
     title: "TalentLens",
     featured: false,
-    category: "Agentic AI · Capability & workforce intelligence",
-    tagline: "From project documents to talent decisions you can explain.",
+    category: "Agentic AI · Workforce planning",
+    tagline: "From WBS to explainable talent decisions.",
     description:
       "TalentLens turns a work breakdown structure into a transparent workforce plan. A six-stage agent workflow reads project documents, maps the capability each role needs, independently estimates FTE through Use Case Points and bottom-up calculations, reviews discrepancies, and presents an editorial seven-section report. Users can audit and correct work items, explore an optional AI-assistance scenario, and export a formula-driven Excel workbook.",
     status: "Live · open source (MIT)",
