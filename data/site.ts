@@ -91,12 +91,12 @@ export const aboutPersonal = {
   cta: "Say hi on LinkedIn",
   /** `wide: true` = landscape photo spanning both columns. */
   photos: [
-    { name: "about/dressup", caption: "Dressed up", alt: "Adryan in a batik shirt" },
+    { name: "about/quiet", caption: "Quiet moments", alt: "Adryan in white ihram garments among date palms" },
     { name: "about/sport", caption: "Staying active", alt: "Adryan in sportswear outdoors" },
     { name: "about/friends", caption: "Good times with friends", alt: "Adryan and two friends joking around", wide: true },
     { name: "about/makkah", caption: "Makkah", alt: "Adryan in white with the Makkah clock tower behind him" },
     { name: "about/office2", caption: "Daily workspace", alt: "Adryan at the office" },
-    { name: "about/makkah-view", caption: "A view I won't forget", alt: "Adryan seated at a window overlooking the Grand Mosque in Makkah", wide: true },
+    { name: "about/swim", caption: "Weekend laps", alt: "Adryan and a friend smiling and waving at a swimming-pool stand", wide: true },
   ] as { name: string; caption: string; alt: string; wide?: boolean }[],
 };
 
