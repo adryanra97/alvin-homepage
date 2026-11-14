@@ -59,5 +59,9 @@ jobs:
             echo "Screenshots already up to date"
           else
             git commit -m "assets: capture actual redesigned TalentLens screens [skip ci]"
+            # The portfolio UI can continue changing while screenshots are captured.
+            # Replay only the new image commit on top of the current feature branch.
+            git fetch origin "${GITHUB_REF_NAME}"
+            git rebase "origin/${GITHUB_REF_NAME}"
             git push origin "HEAD:${GITHUB_REF_NAME}"
           fi
