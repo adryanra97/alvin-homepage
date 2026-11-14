@@ -86,18 +86,23 @@ with sync_playwright() as play:
     capture(page, "process")
 
     # The demo replays the actual agent event sequence before exposing the result.
-    page.get_by_role("button", name="Lihat hasil").wait_for(timeout=180000)
+    result_button = page.get_by_role("button", name="Lihat hasil")
+    result_button.wait_for(timeout=180000)
     manifest["demo_completed"] = True
-    print("DEMO COMPLETED, loading result pages", flush=True)
+    result_button.click()
+    page.wait_for_url("**/hasil/ringkasan", timeout=20000)
+    print("DEMO COMPLETED, navigated within the app so results remain in memory", flush=True)
 
     for name, route, selector in PAGES:
         url = urljoin(BASE + "/", route.lstrip("/"))
         row = {"name": name, "url": url}
         try:
-            resp = page.goto(url, wait_until="domcontentloaded", timeout=60000)
-            row["status"] = resp.status if resp else None
-            if not resp or resp.status >= 400:
-                raise RuntimeError(f"HTTP {row['status']}")
+            if page.url.rstrip("/").split("?")[0] != url.rstrip("/"):
+                # Next.js client navigation retains the in-memory run. A full reload would
+                # clear the result, so never use page.goto after launching the demo.
+                page.locator(f'a[href="{route}"]:visible').first.click(timeout=20000)
+                page.wait_for_url(f"**{route}", timeout=20000)
+            row["status"] = "client-side navigation"
             page.locator(selector).first.wait_for(timeout=22000)
             page.wait_for_timeout(950)
             capture(page, name)
