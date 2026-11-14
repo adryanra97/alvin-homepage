@@ -253,7 +253,7 @@ export type Project = {
   };
 };
 
-const TEA = "/projects/talent-estimation-agent";
+const TEA = "/projects/talent-estimation-agent/redesign-2026";
 const JK = "/projects/jakarta-730-hari";
 const LT = "/projects/loadtwin";
 
@@ -643,190 +643,202 @@ export const projects: Project[] = [
   },
   {
     slug: "talent-estimation-agent",
-    title: "Talent Estimation Agent",
+    title: "TalentLens",
+    featured: false,
     category: "Agentic AI · Workforce planning",
-    tagline: "Validate talent requests from a WBS, with numbers you can trace.",
+    tagline: "From WBS to explainable talent decisions.",
     description:
-      "A multi-agent system that reads a work breakdown structure, decides which roles each work package needs, and estimates FTE per role with two independent methods. It reviews its own output and exports an Excel workbook with live formulas.",
+      "TalentLens turns a work breakdown structure into a transparent workforce plan. A six-stage agent workflow reads project documents, maps the capability each role needs, independently estimates FTE through Use Case Points and bottom-up calculations, reviews discrepancies, and presents an editorial seven-section report. Users can audit and correct work items, explore an optional AI-assistance scenario, and export a formula-driven Excel workbook.",
     status: "Live · open source (MIT)",
     year: "2026",
-    role: "Author & developer",
-    tags: ["Agentic AI", "LangGraph", "Python", "FastAPI", "Next.js", "Vercel"],
+    role: "Creator · product, AI agents & full-stack engineering",
+    tags: ["Agentic AI", "LangGraph", "Capability mapping", "Workforce planning", "Next.js", "Python", "UX/UI"],
     url: "https://talentlens.adryanrizkyalviano.me/",
     repo: "https://github.com/adryanra97/talent-estimation-agent",
-    cover: `${TEA}/summary.webp`,
-    cover2: `${TEA}/monthly.webp`,
+    cover: `${TEA}/journey.webp`,
+    cover2: `${TEA}/summary.webp`,
     stats: [
-      { value: "6", label: "specialised agents" },
-      { value: "2", label: "independent estimation methods" },
-      { value: "94%", label: "test coverage" },
-      { value: "0", label: "files or keys stored on the server" },
+      { value: "6", label: "orchestrated workflow stages" },
+      { value: "2", label: "independent FTE methods" },
+      { value: "7", label: "connected report sections" },
+      { value: "0", label: "server-side document storage" },
     ],
     problem:
-      "Validating a talent request means reading a WBS, deciding which roles every work package needs, and estimating FTE per role. Done by hand it is slow, and the numbers are hard to trace back to a reason.",
+      "Project staffing decisions begin with scattered WBS files, request documents, roles, and assumptions. Without a structured process, it is difficult to explain why a particular capability is needed, whether the requested FTE is justified, or which tasks could realistically benefit from AI.",
     approach:
-      "An agentic system reads the WBS and the request document, decides the roles per work package with a written reason, estimates FTE with two independent methods, and reviews its own output before handing a workbook to a person.",
+      "I designed TalentLens as an evidence-first workflow rather than a black-box chatbot. Document intake leads into role and skill classification, deterministic UCP and bottom-up calculations, a reviewer loop, optional AI augmentation, and a readable executive report. The redesigned UI reveals the headline decision before the technical details, while maintaining a clear audit trail from each work item to its estimate.",
     principle: {
-      title: "Language models judge and explain. Deterministic code calculates.",
-      text: "Every number comes from a tested calculation engine, never from the model. That keeps the results repeatable and lets a reviewer trace each figure back to an input and a reason.",
+      title: "Agentic reasoning, deterministic numbers, human ownership.",
+      text: "Language models assess context and explain their choices. The Python engine performs the calculations. A human can inspect, correct and approve the result. The interface is designed around recognition, progressive disclosure and clear status feedback instead of overwhelming people with a wall of metrics.",
     },
     steps: [
-      { title: "Upload", text: "A WBS in Excel, plus optional request documents (PDF, Word, text) and meeting notes." },
       {
-        title: "Agents assess and calculate",
-        text: "Each item is judged per role, then calculated with Use Case Points and bottom-up estimation. Disagreements are re-checked.",
+        title: "Prepare the evidence",
+        text: "Add an Excel WBS and, if available, the project request or supporting documents. Choose the scope of roles and a capability catalog; the built-in fictional demo works without an API key.",
       },
       {
-        title: "Review and export",
-        text: "Check and correct any flagged rows, approve the result, then download the Excel workbook and a draft reply to the requester.",
+        title: "Watch the agent journey",
+        text: "Orchestrator, Intake, Estimator, Reviewer, optional AI Augmentation and Report move through a visible workflow. The live process page shows each stage and its activity log.",
+      },
+      {
+        title: "Review the evidence",
+        text: "Read the editorial executive summary, compare UCP with bottom-up FTE, check monthly peaks, inspect capability coverage and resolve flagged WBS rows. Detailed technical tables are available on demand.",
+      },
+      {
+        title: "Communicate a decision",
+        text: "Explore the separate AI-assistance scenario, review assumptions, approve the result and export a formula-based workbook alongside an editable response draft.",
       },
     ],
     shots: [
       {
         src: `${TEA}/home.webp`,
-        title: "Start here",
-        caption:
-          "A plain-language start page: a sample result card, the three steps, and a quick checklist for the model, the capability catalog and the WBS file. A demo with fictional data runs without any API key.",
+        title: "01 · Editorial first impression",
+        caption: "The real TalentLens homepage introduces explainable staffing decisions with a clear hierarchy, model-free fictional demo, and direct access to its agent workflow.",
+      },
+      {
+        src: `${TEA}/journey.webp`,
+        title: "02 · Visual agent journey",
+        caption: "The redesigned interactive workflow visual: input document, six agent stages, progress markers and report output. This screenshot shows the actual interface, not a mockup.",
       },
       {
         src: `${TEA}/process.webp`,
-        title: "Agents at work",
-        caption: "Six agents run in sequence next to a live activity log, so you can see what each step is doing and why.",
+        title: "03 · Agents in motion",
+        caption: "The real run view follows agent stage transitions with a progress track, completion states and timestamped events; it is not a decorative workflow illustration.",
       },
       {
         src: `${TEA}/summary.webp`,
-        title: "FTE summary",
-        caption:
-          "Required FTE per role from both methods, grouped by team and compared with the original request. Rows that need a human look are flagged, and one click opens them.",
+        title: "04 · Executive FTE report",
+        caption: "The new evidence-first report leads with an actionable takeaway, primary FTE metrics and side-by-side UCP versus bottom-up role comparisons. The full technical table opens only when needed.",
       },
       {
         src: `${TEA}/breakdown.webp`,
-        title: "WBS breakdown",
-        caption:
-          "One row per work item and role, with search and a filter for rows that need review. Change the role, class or allocation and every total recalculates without calling the model.",
+        title: "05 · WBS review",
+        caption: "Filter the underlying work items, check flagged rows and edit role involvement, complexity or FTE allocation. User changes trigger deterministic recalculation.",
       },
       {
         src: `${TEA}/monthly.webp`,
-        title: "Per month",
-        caption: "Effort spread across months by working days, as a stacked chart plus a table with peak FTE. Switch between methods and teams.",
+        title: "06 · Monthly workload",
+        caption: "A calmer stacked chart and detailed table reveal monthly capacity, the busiest period and differences between the two estimation methods.",
+      },
+      {
+        src: `${TEA}/capability.webp`,
+        title: "07 · Capability coverage",
+        caption: "Trace skills and role assignments back to WBS items. Search and progressively reveal the detailed capability mapping instead of browsing an endless list.",
       },
       {
         src: `${TEA}/ai-assist.webp`,
-        title: "AI assistance",
-        caption:
-          "A scenario showing how much effort AI could save per role and which capabilities help most. The baseline numbers never change.",
+        title: "08 · AI assistance scenario",
+        caption: "Compare baseline and AI-assisted estimates per role, inspect task-level savings assumptions, and keep the original staffing baseline unchanged.",
       },
       {
         src: `${TEA}/findings.webp`,
-        title: "Findings and assumptions",
-        caption:
-          "Gaps, overlaps and method disagreements found by the Reviewer Agent, the calculation assumptions, and a decision trace for every agent step.",
+        title: "09 · Findings & audit trail",
+        caption: "Review issues grouped by severity, calculation assumptions and an expandable trace of the agent's decisions.",
       },
       {
         src: `${TEA}/message.webp`,
-        title: "Draft message",
-        caption:
-          "A ready-to-edit reply to the requester, built from the calculated numbers. Previous and next links move through the result pages in reading order.",
+        title: "10 · Shareable response",
+        caption: "A guided, editable message helps communicate findings alongside a downloadable Excel workbook for traceability.",
       },
       {
         src: `${TEA}/catalog.webp`,
-        title: "Capability catalog",
-        caption:
-          "The capabilities each role can apply, in a compact list with a detail panel. Use the built-in catalog, or download it as Excel, edit it and upload your own.",
+        title: "11 · Searchable capability catalog",
+        caption: "Find roles by team, keyword or skill, open their responsibility boundaries and import an updated catalog when requirements change.",
+      },
+      {
+        src: `${TEA}/settings.webp`,
+        title: "12 · Model configuration",
+        caption: "Provider selection, session-only API key handling, model connection testing and privacy controls live in a guided configuration page.",
       },
       {
         src: `${TEA}/method.webp`,
-        title: "Methodology",
-        caption: "The calculation rules are written out in the app itself, so reviewers do not have to take the numbers on trust.",
+        title: "13 · Explainable methodology",
+        caption: "Readable UCP and bottom-up walkthroughs show formulas, source assumptions, and how to interpret the numbers before making a decision.",
+      },
+      {
+        src: `${TEA}/about.webp`,
+        title: "14 · The product story",
+        caption: "The redesigned About page explains why TalentLens exists, how its six workflow stages work, and which controls matter for a responsible pilot.",
       },
     ],
     methods: [
       {
         title: "Use Case Points (UCP)",
         points: [
-          "Each WBS item per role is classed Simple (5), Average (10) or Complex (15) from the number of steps involved.",
-          "Roles that only support an item count for part of it (default 25%).",
-          "Actor weights, then technical (TCF) and environmental (EF) factors. Ratings start at 3 and change only with evidence.",
-          "Points are multiplied by hours per point (15 by default), then converted with hours per day, days per month and project length into average FTE.",
+          "Classify each work item by role as Simple (5), Average (10) or Complex (15), including a configurable supporting-role factor.",
+          "Include actor weights and apply technical (TCF) and environmental (EF) factors.",
+          "Convert UCP using productive hours per point (PHM), working-day capacity and project duration into average FTE.",
         ],
-        note: "Based on Karner (1993), Resource estimation for objectory projects.",
+        note: "Inspired by Karner's UCP approach; role-level evidence and model judgments are reviewable.",
       },
       {
-        title: "Bottom-up",
+        title: "Bottom-up estimation",
         points: [
-          "Working days for each item come straight from the WBS schedule.",
-          "The agent proposes a fair FTE allocation for the workload, following allocation guidance rather than copying the requested headcount.",
-          "Person-days = working days × allocation × headcount, summed per role and converted into FTE.",
+          "Read item schedules and working days from the WBS.",
+          "Determine role involvement, FTE allocation and quantity from the work being done.",
+          "Calculate person-days = workdays × allocation × quantity, then convert into average FTE; compare against UCP and the original request.",
         ],
-        note: "Both methods run separately. When they agree within ±15% the figure is more reliable; when they differ, the Reviewer Agent re-checks the row.",
+        note: "Independent from the UCP estimate; mismatches can be sent back to the Reviewer loop or a human.",
       },
     ],
     flow: [
-      { label: "Intake" },
-      { label: "Estimator" },
-      { label: "Reviewer", note: "re-judges up to 2×", tone: "loop" },
+      { label: "Orchestrator", note: "coordination" },
+      { label: "Intake", note: "documents" },
+      { label: "Estimator", note: "UCP + bottom-up" },
+      { label: "Reviewer", note: "recheck loop", tone: "loop" },
       { label: "Augmentation", note: "optional", tone: "opt" },
-      { label: "Report" },
+      { label: "Report", note: "decision" },
     ],
     agents: [
-      { name: "Orchestrator", kind: "Code", text: "Controls scope, ordering, retries, review rounds and the run trace." },
-      {
-        name: "Intake Agent",
-        kind: "Code + LLM",
-        text: "Reads the WBS in any reasonable layout (leaf work packages only) and the requested FTE per role from the request document.",
-      },
-      {
-        name: "Estimator Agent",
-        kind: "LLM + code",
-        text: "Decides primary or supporting role, UCP class and FTE allocation per item with a written reason, then calculates both methods.",
-      },
-      {
-        name: "Reviewer Agent",
-        kind: "Code + LLM",
-        text: "Compares the two methods and sends rows that disagree back for another judgement, up to two rounds. Flags gaps, overlaps and work that appears only in meeting notes.",
-      },
-      {
-        name: "Augmentation Agent",
-        kind: "LLM + code",
-        text: "Optional. Maps tasks to capabilities and shows an AI-assistance scenario without touching the baseline numbers.",
-      },
-      {
-        name: "Report",
-        kind: "LLM + code",
-        text: "Drafts the reply message and fills the Excel workbook with live formulas.",
-      },
+      { name: "Orchestrator", kind: "Code", text: "Coordinates the agent graph, execution stages, retries, review rounds and shared event trace." },
+      { name: "Intake Agent", kind: "Code + LLM", text: "Reads the WBS and supporting request documents, establishing the project inputs and role demand." },
+      { name: "Estimator Agent", kind: "LLM + code", text: "Maps work items to roles and capabilities, records classification and allocation reasons, and calculates both FTE methods." },
+      { name: "Reviewer Agent", kind: "Code + LLM", text: "Checks divergences, overlaps and gaps. Can return questionable rows to Estimator for up to two re-evaluations." },
+      { name: "Augmentation Agent", kind: "Optional · LLM + code", text: "Maps activities to capability-level AI support and calculates a separate assistance scenario without changing the baseline." },
+      { name: "Report", kind: "Code + LLM", text: "Assembles the executive report, findings, Excel export and an editable message draft." },
     ],
     stack: [
-      { label: "Agents", value: "Python 3.12 · LangGraph · LangChain chat models" },
-      { label: "Contracts", value: "Pydantic v2, structured output with schema validation" },
-      { label: "API", value: "FastAPI on Vercel Python Functions (stateless)" },
-      { label: "Excel", value: "openpyxl, formulas recalculated by Excel on open" },
-      { label: "UI", value: "Next.js · React · Tailwind CSS · Recharts (Indonesian interface)" },
-      { label: "Evaluation", value: "Kedro pipeline (offline)" },
-      { label: "Tooling", value: "uv · Ruff · mypy · pytest · pre-commit · GitHub Actions" },
-      { label: "Models", value: "Gemini, Claude, OpenAI, Azure OpenAI or any OpenAI-compatible gateway, with custom headers and token limits" },
+      { label: "Agent orchestration", value: "Python 3.12 · LangGraph · LangChain chat models" },
+      { label: "Typed contracts", value: "Pydantic v2 with structured output and schema checks" },
+      { label: "Deterministic engine", value: "Python calculations for UCP, bottom-up, monthly and assisted scenarios" },
+      { label: "API", value: "FastAPI · streaming status updates · Vercel Python Functions" },
+      { label: "Spreadsheet", value: "openpyxl · formula-driven Excel workbook" },
+      { label: "Interface", value: "Next.js 15 · React 19 · Tailwind CSS · Recharts" },
+      { label: "Model providers", value: "Gemini, Claude, OpenAI, Azure OpenAI, OpenAI-compatible endpoints" },
+      { label: "Evaluation & delivery", value: "Kedro · Ruff · mypy · pytest · GitHub Actions · Vercel" },
     ],
     quality: [
-      "Ruff lint and format",
-      "mypy type checks",
-      "pytest with 94% coverage",
-      "Excel formulas recalculated in LibreOffice and compared with the engine",
-      "Tests for the model client: endpoints that refuse certain settings, and budget or quota errors that must not be retried",
-      "Kedro evaluation pipeline",
-      "Dependency lock check with uv",
-      "TypeScript checks on the UI",
-      "Next.js production build",
+      "Two independent estimation paths with a dedicated review and reconciliation stage",
+      "Human edits and approval; flagged work items remain traceable",
+      "Python tests and typed checks in the repository's CI configuration",
+      "Excel engine formulas and reconciliation checks",
+      "Next.js and TypeScript production build validated for the redesigned UI",
+      "Accessible navigation, progressive disclosure, scoped filters and keyboard-focus support",
     ],
     privacy: [
-      "No database, and the server writes no files. Every request stands alone.",
-      "Uploaded files are parsed in memory; the API key stays in browser memory.",
-      "E-mail addresses, phone numbers and 16-digit ID numbers are masked before text reaches a model.",
-      "Results live in the browser tab and disappear when it closes.",
-      "The repository holds no real project data. The demo project is fictional.",
+      "No persistent database or document storage on the application server.",
+      "Uploaded files are parsed in memory and an API key is held in the current browser tab.",
+      "Optional masking can replace e-mail addresses, phone numbers and 16-digit ID numbers before sending text to a model.",
+      "The external model provider receives only the text submitted for analysis; provider handling must be reviewed before sensitive use.",
+      "The public demo uses fictional project data, not internal customer information.",
     ],
-    docsNote:
-      "Documented along the phases of the Unified Process (planning, analysis, design, implementation), following Dennis, Wixom and Tegarden, Systems Analysis and Design.",
-  },
+    docsNote: "Structured analysis and design documentation accompanies the source repository; the interactive app also explains its methodology and assumptions.",
+    copy: {
+      demoLabel: "Explore TalentLens",
+      coverAlt: "TalentLens actual six-stage agent workflow, with document input, six agent stages and results",
+      galleryIntro: "actual interface screens from the latest TalentLens redesign. Choose a chapter to explore.",
+      galleryNote: "Captured from the real deployed TalentLens interface in a browser. Analysis screens use the fictional built-in demo; no project or client data is shown.",
+      howTitle: "Four steps: from evidence to decisions",
+      methodsTitle: "Two methods, one auditable result",
+      archTitle: "Six stages. One explainable decision.",
+      archIntro: "Agent activity is visible as it runs. Review and optional AI augmentation are separate from the deterministic calculation engine.",
+      qualityTitle: "Designed for transparent, reviewable decisions",
+      qualityCard: "Controls and checks",
+      privacyCard: "Data handling",
+      ctaTitle: "Explore the redesigned TalentLens.",
+      ctaText: "Try the fictional sample workflow without an API key, inspect the results, then review the source and methodology.",
+    },
+  }
 ];
 
 export type SkillItem = {
@@ -1001,7 +1013,7 @@ export const skillHighlights = [
       "Led rapid AI prototyping with LLMs and agents for CX and digital transformation.",
       "Cut issue identification time by over 80% by turning product feedback into structured insights.",
     ],
-    usedIn: { label: "Used in the Talent Estimation Agent", href: "/projects" },
+    usedIn: { label: "Used in TalentLens", href: "/projects/talent-estimation-agent" },
     items: ["Generative AI", "LLMs", "Agentic AI", "Prompt Engineering", "Context Engineering", "Tool Use & MCP", "RAG", "Multi-Agent Systems", "AI Workflow & Enterprise Automation", "Rapid AI Prototyping", "AI-Assisted Development"],
   },
   {

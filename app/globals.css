@@ -1158,3 +1158,57 @@ a.ph-fact:hover { background: rgba(255, 255, 255, .08); }
   .page-head-photo.ph-flip .page-head-grid:has(.hp3) { grid-template-columns: 390px 1fr; }
   .page-head-photo.ph-flip .page-head-grid:not(:has(.hp3)) { grid-template-columns: 390px 1fr; }
 }
+
+/* TalentLens and LoadTwin use the same small home-project row.
+   Crop only the mini screenshot; full image remains intact on Projects and case study. */
+.pj-other.is-talentlens .pj-other-img{
+  height:76px;
+  overflow:hidden;
+  border-radius:7px;
+  background:#f4f8fa;
+}
+.pj-other.is-talentlens .pj-other-img .bframe-bar{
+  height:15px;
+  padding:0 8px;
+}
+.pj-other.is-talentlens .pj-other-img .bframe-bar i{
+  width:5px;
+  height:5px;
+}
+.pj-other.is-talentlens .pj-other-img img{
+  display:block;
+  width:100%;
+  height:61px;
+  object-fit:cover;
+  object-position:center 45%;
+}
+.pj-other.is-talentlens .pj-other-text small{
+  font-size:.66rem;
+  letter-spacing:.06em;
+}
+.pj-other.is-talentlens .pj-other-text>span{
+  display:-webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:1;
+  line-clamp:1;
+  overflow:hidden;
+}
+@media(max-width:560px){
+  .pj-other.is-talentlens .pj-other-img{height:65px}
+  .pj-other.is-talentlens .pj-other-img img{height:50px}
+}
+
+/* Mobile QA: keep footer links inside the viewport instead of creating 5px page overflow. */
+@media(max-width:600px){
+  .footer-nav{
+    width:100%;
+    max-width:100%;
+    flex-wrap:wrap;
+    gap:8px 18px;
+  }
+  .footer-nav a{
+    display:inline-flex;
+    align-items:center;
+    min-height:32px;
+  }
+}

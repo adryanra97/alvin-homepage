@@ -70,7 +70,7 @@ export default function ProjectShowcase() {
         <div className="pj-others">
           <p className="pj-found-label">More projects</p>
           {others.map((o) => (
-            <Link key={o.slug} href={`/projects/${o.slug}`} className="pj-other" data-spot>
+            <Link key={o.slug} href={`/projects/${o.slug}`} className={`pj-other${o.slug === "talent-estimation-agent" ? " is-talentlens" : ""}`} data-spot>
               {o.slug === "loadtwin" ? <LoadTwinMotionPreview size="mini" className="pj-other-img" /> : <BrowserFrame src={o.cover} alt={`${o.title}: preview`} className="pj-other-img" sizes="150px" />}
               <span className="pj-other-text">
                 <small>{o.category}</small>
@@ -82,6 +82,7 @@ export default function ProjectShowcase() {
           ))}
         </div>
       ) : null}
+
     </>
   );
 }
