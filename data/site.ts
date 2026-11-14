@@ -649,7 +649,7 @@ export const projects: Project[] = [
     tagline: "From project documents to talent decisions you can explain.",
     description:
       "TalentLens turns a work breakdown structure into a transparent workforce plan. A six-stage agent workflow reads project documents, maps the capability each role needs, independently estimates FTE through Use Case Points and bottom-up calculations, reviews discrepancies, and presents an editorial seven-section report. Users can audit and correct work items, explore an optional AI-assistance scenario, and export a formula-driven Excel workbook.",
-    status: "Live · editorial redesign in preview",
+    status: "Live · open source (MIT)",
     year: "2026",
     role: "Creator · product, AI agents & full-stack engineering",
     tags: ["Agentic AI", "LangGraph", "Capability mapping", "Workforce planning", "Next.js", "Python", "UX/UI"],
@@ -822,7 +822,7 @@ export const projects: Project[] = [
       demoLabel: "Explore TalentLens",
       coverAlt: "Redesigned TalentLens homepage: navy editorial layout with an animated six-stage agent workflow",
       galleryIntro: "actual interface screens from the latest TalentLens redesign. Choose a chapter to explore.",
-      galleryNote: "Captured in a real browser from the redesigned preview. The analytical screens use the fictional built-in demo; some changes may be pending deployment to the production URL.",
+      galleryNote: "Captured from the real deployed TalentLens interface in a browser. Analysis screens use the fictional built-in demo; no project or client data is shown.",
       howTitle: "Four steps: from evidence to decisions",
       methodsTitle: "Two methods, one auditable result",
       archTitle: "Six stages. One explainable decision.",
