@@ -1,14 +1,25 @@
 import Link from "next/link";
 import { ArrowRight, Download } from "lucide-react";
 import AboutBlock from "@/components/AboutBlock";
-import ExperienceTimeline from "@/components/ExperienceTimeline";
 import ProjectShowcase from "@/components/ProjectShowcase";
 import SkillsBento from "@/components/SkillsBento";
 import { Skyline } from "@/components/Art";
 import { Icon, LinkedInIcon } from "@/components/icons";
-import { hero, profile, projects } from "@/data/site";
+import { about, hero, profile, projects } from "@/data/site";
 import { publicImage } from "@/lib/images";
 import HeroCollage from "@/components/HeroCollage";
+
+const NUMBER_WORDS = ["No", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten"];
+
+/** Career path for the home page: the few moves that explain the rest. */
+const CAREER_PATH = [
+  { year: "2015", role: "Mechanical Engineering", org: "Universitas Indonesia · Cum Laude" },
+  { year: "2018", role: "Engineering Intern", org: "Danone Early Life Nutrition" },
+  { year: "2020", role: "Great People Trainee", org: "Telkom Indonesia" },
+  { year: "2022", role: "Junior Data Scientist", org: "Telkom Indonesia" },
+  { year: "2025", role: "Data Scientist", org: "Telkom Indonesia", current: true },
+  { year: "Now", role: "Master of Information Technology", org: "Universitas Indonesia", current: true },
+];
 
 const highlights = (years: number) => [
   { value: `${years}+`, label: "years working with data and technology" },
@@ -22,7 +33,7 @@ export default function Home() {
   const years = new Date().getFullYear() - profile.careerStartYear;
 
   return (
-    <>
+    <div className="home-mk">
       {/* HERO */}
       <section className={`hero${heroImg ? " hero-photo" : ""}`}>
         {heroImg ? (
@@ -125,26 +136,42 @@ export default function Home() {
         <AboutBlock />
       </section>
 
+      {/* PRINCIPLE: one statement, full width */}
+      <section className="mk-quote" aria-label="How I work">
+        <div className="container">
+          <p className="mk-quote-label">How I work</p>
+          <blockquote>
+            <p>{about.quote}</p>
+          </blockquote>
+        </div>
+      </section>
+
       {/* EXPERIENCE (teaser) */}
       <section className="section section-alt">
-        <div className="container exp-grid">
-          <div>
-            <p className="eyebrow">
-              <span>Experience</span>
-            </p>
-            <h2>
-              Where I've worked
-              <br />
-              <span className="accent">&amp; studied.</span>
-            </h2>
-            <p className="body-text">
-              Telkom Indonesia and Danone, plus a Mechanical Engineering degree and an ongoing Master of IT, both at Universitas Indonesia.
-            </p>
+        <div className="container">
+          <div className="pj-head mk-head">
+            <div>
+              <p className="eyebrow">
+                <span>Experience</span>
+              </p>
+              <h2>From mechanical engineer to data scientist at Telkom.</h2>
+              <p className="body-text">
+                {years} years in data and technology, on an engineering degree and an ongoing Master of IT, both at Universitas Indonesia.
+              </p>
+            </div>
             <Link href="/experience" className="btn btn-primary">
               View Full Experience <ArrowRight size={16} />
             </Link>
           </div>
-          <ExperienceTimeline limit={2} />
+          <ol className="mk-path">
+            {CAREER_PATH.map((c) => (
+              <li key={c.year + c.role} className={c.current ? "is-current" : undefined}>
+                <span className="mk-path-year">{c.year}</span>
+                <strong>{c.role}</strong>
+                <span className="mk-path-org">{c.org}</span>
+              </li>
+            ))}
+          </ol>
         </div>
       </section>
 
@@ -156,9 +183,7 @@ export default function Home() {
               <p className="eyebrow eyebrow-light">
                 <span>Projects</span>
               </p>
-              <h2>
-                From ideas to <span className="accent-light">real solutions.</span>
-              </h2>
+              <h2>{NUMBER_WORDS[projects.length] ?? projects.length} projects, each built to answer one real question.</h2>
               <p className="body-text light">
                 What I build to learn, and to solve real problems with AI, grounded in data and told as stories.
               </p>
@@ -179,9 +204,7 @@ export default function Home() {
               <p className="eyebrow">
                 <span>Skills</span>
               </p>
-              <h2>
-                Tools &amp; <span className="accent">technologies.</span>
-              </h2>
+              <h2>Most of my time now goes into LLMs and agentic AI.</h2>
               <p className="body-text">
                 What I use to turn ideas into real solutions, and where it shows up.
               </p>
@@ -193,6 +216,6 @@ export default function Home() {
           <SkillsBento />
         </div>
       </section>
-    </>
+    </div>
   );
 }
